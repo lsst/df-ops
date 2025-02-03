@@ -1,0 +1,11 @@
+# For details see https://documenteer.lsst.io/guides/toml-reference.html
+
+[project]
+title = "Rubin Data Facilities"
+copyright = "2025"
+base_url = "https://df-ops.lsst.io"
+github_url = "https://github.com/lsst/df-ops"
+version = "Current"
+
+[sphinx]
+rst_epilog_file = "rst_epilog.rst"
