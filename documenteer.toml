@@ -9,3 +9,14 @@ version = "Current"
 
 [sphinx]
 rst_epilog_file = "rst_epilog.rst"
+
+[sphinx.linkcheck]
+ignore = [
+    "^http://localhost",
+    "^http(s)*://ls.st",
+    "https://slactraining.skillport.com/skillportfe/login.action",
+    "^https://www-internal.slac.stanford.edu",
+    "^https://k8s.slac.stanford.edu",
+    "^https://confluence.lsstcorp.org",
+    "^https://s3dfnx.slac.stanford.edu"
+]
