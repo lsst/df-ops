@@ -6,9 +6,7 @@ Rubin Data Facilities
 
     This documentation is under development.  It should not be consulted for information at this time.
 
-Documentation for the Rubin Data Facilities.
-
-This documentation is for Rubin team members that are managing and support applications at the USDF.
+Documentation is for Rubin team members that are managing and support applications at Data Facilities.  For information on S3DF outages click `here. <https://s3df.slac.stanford.edu/#/changelog?id=outages>`_
 
 .. toctree::
    :maxdepth: 1
