@@ -8,3 +8,5 @@ Resources for developers working at the USDF.
    :maxdepth: 1
 
    kubernetes
+   argocd-troubleshooting
+   argocd-procedures
