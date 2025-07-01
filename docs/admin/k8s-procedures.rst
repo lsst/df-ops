@@ -7,9 +7,6 @@ Intended audience: Anyone who is administering application infrastructure at the
 Increase Persistent Volume Storage
 ==================================
 
-Creating Secrets
-================
-
 Make Service Accessible Outside of Kubernetes to S3DF
 =====================================================
 
@@ -18,6 +15,9 @@ Make Service Accessible from Outside S3DF
 
 Set Application Traffic to use LHN
 ===================================
+
+Setting Proxy server
+====================
 
 Setting Kubernetes Resources and Requests
 =========================================

@@ -24,12 +24,3 @@ Cannot Connect to Service
 **Cause:**
 
 **Solution:**
-
-Vault Secret will not Sync
-==========================
-
-**Symptoms:**
-
-**Cause:**
-
-**Solution:**
