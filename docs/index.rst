@@ -17,6 +17,7 @@ Documentation is for Rubin team members that are managing and support applicatio
    campaign-management/index
    admin/index
    usdf-applications/index
+   about/index
 
 .. grid:: 3
 
@@ -49,4 +50,10 @@ Documentation is for Rubin team members that are managing and support applicatio
       :link-type: doc
 
       Learn about applications deployed at the USDF Data Facility.
+
+   .. grid-item-card:: About
+      :link: about/index
+      :link-type: doc
+
+      Information about the Application Support Model.
 
