@@ -8,8 +8,8 @@ Requesting new CNPG instance
 ============================
 The SLAC database team builds new CNPG instances.  To request an instance
 
-  #. Open a SNOW ticket to request the instance.  Provide the name of the instance, what vCluster it should be added to, and any database parameters that should be set.
-  #. Open another SNOW ticket to request a S3 bucket for backup.  Provide the name of the database instance so that the S3 bucket can be named and the location to put the S3 vault secret.
+#. Open a SNOW ticket to request the instance.  Provide the name of the instance, what vCluster it should be added to, and any database parameters that should be set.
+#. Open another SNOW ticket to request a S3 bucket for backup.  Provide the name of the database instance so that the S3 bucket can be named and the location to put the S3 vault secret.
 
 CNPG Kubernetes Plugin
 ======================
@@ -78,122 +78,183 @@ To setup backup request a new S3 bucket with a Service Now Ticket with the name 
 
 Update the makefile to create a s3 secret from vault.  Example below from Butler.  Note the addition of the S3_SECRET_PATH which is the path in Vault and second line with set that creates the S3 secret.
 
-  .. rst-class:: technote-wide-content
+.. rst-class:: technote-wide-content
 
-  .. code-block:: bash
+.. code-block:: bash
 
-    SECRET_PATH ?= secret/rubin/usdf-butler/postgres
-    S3_SECRET_PATH ?= secret/rubin/usdf-butler/s3
+   SECRET_PATH ?= secret/rubin/usdf-butler/postgres
+   S3_SECRET_PATH ?= secret/rubin/usdf-butler/s3
 
-    get-secrets-from-vault:
-        mkdir -p etc/.secrets/
-        set -e; for i in username password; do vault kv get --field=$$i $(SECRET_PATH) > etc/.secrets/$$i ; done
-        set -e; for i in client-id client-secret; do vault kv get --field=$$i $(S3_SECRET_PATH) > etc/.secrets/$$i ; done
+   get-secrets-from-vault:
+       mkdir -p etc/.secrets/
+       set -e; for i in username password; do vault kv get --field=$$i $(SECRET_PATH) > etc/.secrets/$$i ; done
+       set -e; for i in client-id client-secret; do vault kv get --field=$$i $(S3_SECRET_PATH) > etc/.secrets/$$i ; done
 
 In the Cluster manifest for the database setup backup.  Example below.  Update the S3 name.
 
-  .. rst-class:: technote-wide-content
+.. rst-class:: technote-wide-content
 
-  .. code-block:: yaml
+.. code-block:: yaml
 
-        backup:
-            retentionPolicy: "15d"
-            barmanObjectStore:
-            destinationPath: s3://<bucket name>
-            endpointURL: https://s3dfrgw.slac.stanford.edu
-            s3Credentials:
-                accessKeyId:
-                name: s3-creds
-                key: ACCESS_KEY_ID
-                secretAccessKey:
-                name: s3-creds
-                key: ACCESS_SECRET_KEY
+  backup:
+      retentionPolicy: "15d"
+      barmanObjectStore:
+      destinationPath: s3://<bucket name>
+      endpointURL: https://s3dfrgw.slac.stanford.edu
+      s3Credentials:
+          accessKeyId:
+          name: s3-creds
+          key: ACCESS_KEY_ID
+          secretAccessKey:
+          name: s3-creds
+          key: ACCESS_SECRET_KEY
 
 Review Backups
 ==============
 To review the status of backups run ``kubectl get backup -n <namespace>``.  Below is abbreviated output from usdf-butler.  Note that failed backups show an exist status. The most common reason has been S3 being down or slow.  Barman runs from the database pods so examine the logs to obtain more information.
 
-  .. rst-class:: technote-wide-content
+.. rst-class:: technote-wide-content
 
-  .. code-block:: text
+.. code-block:: text
 
-    NAME                                 AGE     CLUSTER        METHOD              PHASE       ERROR
-    usdf-butler3-backup-20240405000000   101d    usdf-butler3   barmanObjectStore   failed      exit status 4
-    usdf-butler3-backup-20240417000000   89d     usdf-butler3   barmanObjectStore   failed      exit status 1
-    usdf-butler3-backup-20240418000000   88d     usdf-butler3   barmanObjectStore   failed      exit status 1
-    usdf-butler3-backup-20240715000000   14h     usdf-butler3   barmanObjectStore   completed
+  NAME                                 AGE     CLUSTER        METHOD              PHASE       ERROR
+  usdf-butler3-backup-20240405000000   101d    usdf-butler3   barmanObjectStore   failed      exit status 4
+  usdf-butler3-backup-20240417000000   89d     usdf-butler3   barmanObjectStore   failed      exit status 1
+  usdf-butler3-backup-20240418000000   88d     usdf-butler3   barmanObjectStore   failed      exit status 1
+  usdf-butler3-backup-20240715000000   14h     usdf-butler3   barmanObjectStore   completed
 
 To view  how long a backup takes run ``kubectl get backup <backup-name> -n <namespace> -o yaml``.  An abbreviated example below shows the started and stopped times in the status field.
 
-  .. rst-class:: technote-wide-content
+.. rst-class:: technote-wide-content
 
-  .. code-block:: text
+.. code-block:: text
 
-    apiVersion: postgresql.cnpg.io/v1
-    kind: Backup
-    spec:
-      cluster:
-        name: usdf-butler3
-      method: barmanObjectStore
-    status:
-      backupId: 20240715T000000
-      beginLSN: 1616/33127750
-      beginWal: "000000440000161600000033"
-      destinationPath: s3://rubin-usdf-butler3
-      endLSN: 1616/511273D8
-      endWal: "000000440000161600000051"
-      endpointURL: https://s3dfrgw.slac.stanford.edu
-      instanceID:
-        ContainerID: containerd://454e7c0654449fc58182d8705cab4f0c9bec3d4481c381ec7d397a7155beb05c
-        podName: usdf-butler3-1
-      method: barmanObjectStore
-      phase: completed
-      s3Credentials:
-        accessKeyId:
-          key: ACCESS_KEY_ID
-          name: s3-creds
-        secretAccessKey:
-          key: ACCESS_SECRET_KEY
-          name: s3-creds
-      serverName: usdf-butler3
-      startedAt: "2024-07-15T00:00:00Z"
-      stoppedAt: "2024-07-15T04:21:38Z
+  apiVersion: postgresql.cnpg.io/v1
+  kind: Backup
+  spec:
+    cluster:
+      name: usdf-butler3
+    method: barmanObjectStore
+  status:
+    backupId: 20240715T000000
+    beginLSN: 1616/33127750
+    beginWal: "000000440000161600000033"
+    destinationPath: s3://rubin-usdf-butler3
+    endLSN: 1616/511273D8
+    endWal: "000000440000161600000051"
+    endpointURL: https://s3dfrgw.slac.stanford.edu
+    instanceID:
+      ContainerID: containerd://454e7c0654449fc58182d8705cab4f0c9bec3d4481c381ec7d397a7155beb05c
+      podName: usdf-butler3-1
+    method: barmanObjectStore
+    phase: completed
+    s3Credentials:
+      accessKeyId:
+        key: ACCESS_KEY_ID
+        name: s3-creds
+      secretAccessKey:
+        key: ACCESS_SECRET_KEY
+        name: s3-creds
+    serverName: usdf-butler3
+    startedAt: "2024-07-15T00:00:00Z"
+    stoppedAt: "2024-07-15T04:21:38Z
 
 Ad Hoc Backup
 =============
 Before major database maintenance or schema migrations an ad hoc backup should be performed to prevent data loss from when the last active backup is taken to when the maintenance is performed.  Below is an example manifest to configure the backup.  Replace the values below for the cluster to be backed up.
 
-  .. rst-class:: technote-wide-content
+.. rst-class:: technote-wide-content
 
-  .. code-block:: yaml
+.. code-block:: yaml
 
-     apiVersion: postgresql.cnpg.io/v1
-     kind: Backup
-     metadata:
-        name: <name of backup>
-        namespace: <namespace for cluster>
-      spec:
-        cluster:
-          name: <name of cluster>
+    apiVersion: postgresql.cnpg.io/v1
+    kind: Backup
+    metadata:
+      name: <name of backup>
+      namespace: <namespace for cluster>
+    spec:
+      cluster:
+        name: <name of cluster>
 
 
 Restore from Backup
 ===================
 Restores have to be performed on a separate cluster. and reference the backups in Ceph/S3.  Below is an example configuration to restore butler.  The ``serverName`` is optional, but should be specified if the new cluster name created differs from the original cluster name.  Restores can be performed in the same kubernetes namespace, different namespace, or different vCluster depending on the purpose of the restore.  Documentation on restore is on the CNPG website.  Adjust the WAL ``maxParallel`` setting is their are a lot of WALS to restore.  This can occur when the last successful backup was completed successfully in a while and a large amount of WALs need to be replayed as part of the restore.
 
-  .. rst-class:: technote-wide-content
+.. rst-class:: technote-wide-content
 
-  .. code-block:: yaml
+.. code-block:: yaml
 
-    bootstrap:
-    recovery:
-      source: usdf-butler3
+  bootstrap:
+  recovery:
+    source: usdf-butler3
+  externalClusters:
+  - name: usdf-butler3
+    barmanObjectStore:
+      destinationPath: s3://rubin-usdf-butler3
+      endpointURL: https://s3dfrgw.slac.stanford.edu
+      serverName: usdf-butler3
+      s3Credentials:
+        accessKeyId:
+          name: s3-creds
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: s3-creds
+          key: ACCESS_SECRET_KEY
+      wal:
+        maxParallel: 8
+
+To restore a specific backup browse S3 first review the available backups in S3.  Below is an example command to run from S3DF to browse the backups for butler dc2-16-prod database s3-dc2-16 S3 profile.
+Update your ``aws-credentials.ini`` under ``.lsst`` in your home directory ``/sdf/home/j/jdoe`` to have a profile for the S3 bucket. Backups are under the base directory as ``data.tar`` files.
+
+.. rst-class:: technote-wide-content
+
+.. code-block:: bash
+
+  singularity exec /sdf/sw/s3/aws-cli_latest.sif aws --endpoint-url https://s3dfrgw.slac.stanford.edu s3 --profile s3-dc2-16 ls s3://rubin-usdf-butler-dc2-16/usdf-butler-dc2-16/base/
+
+The above command will display an output similar to below.
+
+.. rst-class:: technote-wide-content
+
+.. code-block:: text
+
+  PRE 20241007T000902/
+  PRE 20241008T000902/
+  PRE 20241008T193421/
+  PRE 20241009T000902/
+  PRE 20241009T200458/
+  PRE 20241009T222802/
+  PRE 20241010T000902/
+  PRE 20241011T000902/
+  PRE 20241012T000903/
+  PRE 20241013T000903/
+  PRE 20241014T000903/
+  PRE 20241015T000903/
+  PRE 20241018T055313/
+  PRE 20241019T000002/
+  PRE 20241020T000002/
+  PRE 20241021T000003/
+  PRE 20241022T000003/
+  PRE 20241023T000002/
+
+Below is an example which restores the Panda IDDS database from a backup on September 1, 2024.  Note the ``backupID`` references the date.
+
+.. rst-class:: technote-wide-content
+
+.. code-block:: yaml
+
+  bootstrap:
+      recovery:
+        source: panda-idds
+        recoveryTarget:
+          backupID: 20240901T000003
     externalClusters:
-    - name: usdf-butler3
+    - name: panda-idds
       barmanObjectStore:
-        destinationPath: s3://rubin-usdf-butler3
+        destinationPath: s3://rubin-usdf-panda-idds
         endpointURL: https://s3dfrgw.slac.stanford.edu
-        serverName: usdf-butler3
+        serverName: usdf-panda-idds
         s3Credentials:
           accessKeyId:
             name: s3-creds
@@ -203,67 +264,6 @@ Restores have to be performed on a separate cluster. and reference the backups i
             key: ACCESS_SECRET_KEY
         wal:
           maxParallel: 8
-
-To restore a specific backup browse S3 first review the available backups in S3.  Below is an example command to run from S3DF to browse the backups for butler dc2-16-prod database s3-dc2-16 S3 profile.
-Update your ``aws-credentials.ini`` under ``.lsst`` in your home directory ``/sdf/home/j/jdoe`` to have a profile for the S3 bucket. Backups are under the base directory as ``data.tar`` files.
-
- .. rst-class:: technote-wide-content
-
- .. code-block:: bash
-
-    singularity exec /sdf/sw/s3/aws-cli_latest.sif aws --endpoint-url https://s3dfrgw.slac.stanford.edu s3 --profile s3-dc2-16 ls s3://rubin-usdf-butler-dc2-16/usdf-butler-dc2-16/base/
-
-The above command will display an output similar to below.
-
- .. rst-class:: technote-wide-content
-
- .. code-block:: text
-
-    PRE 20241007T000902/
-    PRE 20241008T000902/
-    PRE 20241008T193421/
-    PRE 20241009T000902/
-    PRE 20241009T200458/
-    PRE 20241009T222802/
-    PRE 20241010T000902/
-    PRE 20241011T000902/
-    PRE 20241012T000903/
-    PRE 20241013T000903/
-    PRE 20241014T000903/
-    PRE 20241015T000903/
-    PRE 20241018T055313/
-    PRE 20241019T000002/
-    PRE 20241020T000002/
-    PRE 20241021T000003/
-    PRE 20241022T000003/
-    PRE 20241023T000002/
-
-Below is an example which restores the Panda IDDS database from a backup on September 1, 2024.  Note the ``backupID`` references the date.
-
- .. rst-class:: technote-wide-content
-
- .. code-block:: yaml
-
-    bootstrap:
-        recovery:
-          source: panda-idds
-          recoveryTarget:
-            backupID: 20240901T000003
-      externalClusters:
-      - name: panda-idds
-        barmanObjectStore:
-          destinationPath: s3://rubin-usdf-panda-idds
-          endpointURL: https://s3dfrgw.slac.stanford.edu
-          serverName: usdf-panda-idds
-          s3Credentials:
-            accessKeyId:
-              name: s3-creds
-              key: ACCESS_KEY_ID
-            secretAccessKey:
-              name: s3-creds
-              key: ACCESS_SECRET_KEY
-          wal:
-            maxParallel: 8
 
 Building Containers
 ===================

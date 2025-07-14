@@ -1,6 +1,6 @@
-###################
-MPCorb Architecture
-###################
+##################
+MPCorb Information
+##################
 
 The database is installed in the ``usdf-minor-planet-survey`` Kubernetes vCluster in the ``mpcorb-replica`` namespace.
 

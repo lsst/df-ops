@@ -9,16 +9,15 @@ The Minor Planet Survey databases are replicated from the Minor Planet Center An
 
 .. list-table::
    :widths: 25 25
-   :header-rows: 1
 
-   * - Area
-     - Description
-   * - Grouping
+   * - Application Grouping
      - Alert Production
    * - Operating Hours
      -
    * - Criticality Level
      -
+   * - GitHub Repository
+     - https://github.com/slaclab/rubin-usdf-minor-planet-survey
    * - Slack Support channel
      - ops-df-databases
 
@@ -28,8 +27,8 @@ The Minor Planet Survey databases are replicated from the Minor Planet Center An
    :caption: Overview
 
    roles
-   mpc-replica/architecture
-   sandbox/architecture
+   mpc-replica/info
+   sandbox/info
    documentation-training
    security
 

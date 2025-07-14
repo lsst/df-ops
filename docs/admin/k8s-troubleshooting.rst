@@ -1,6 +1,6 @@
-###############################
+##########################
 Kubernetes Troubleshooting
-###############################
+##########################
 
 Intended audience: Anyone who is administering application infrastructure at the USDF.
 

@@ -1,6 +1,6 @@
-#######################################
-MPC Sandbox Architecture & Dependencies
-#######################################
+#######################
+MPC Sandbox Information
+#######################
 
 Configuration
 =============

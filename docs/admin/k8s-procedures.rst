@@ -6,7 +6,6 @@ Intended audience: Anyone who is administering application infrastructure at the
 
 Use Persistent Volume with Weka
 ===============================
-
 To use persistent volumes set the storage class to use Weka.  Below is what should be added to the kubernetes manifest.
 
 .. rst-class:: technote-wide-content
@@ -17,15 +16,13 @@ To use persistent volumes set the storage class to use Weka.  Below is what shou
 
 Increase Persistent Volume Storage
 ==================================
-
 There is a limitation with vClusters that persistent volumes cannot be increased.  To increase persistent volumes perform the following.
 
-  #. Request increase by opening Service Now Ticket.
-  #. Update application manifest for updated size.
+#. Request increase by opening Service Now Ticket.
+#. Update application manifest for updated size.
 
 Make Service Accessible Outside of Kubernetes to S3DF
 =====================================================
-
 Kubernetes IP addresses are not accessible from outside Kubernetes.  To make a service accessible from outside of Kubernetes configure the Kubernetes Service to use ``LoadBalancer`` and add an annotation for ``sdf-rubin-ingest``.  Below is an example of what to add to a service.
 
 .. rst-class:: technote-wide-content
@@ -59,7 +56,6 @@ Configuring Ingress
 
 Setting Proxy server
 ====================
-
 For outbound access a proxy server needs to be set.  Add the below environment values to configure a proxy server.  Note the no proxy values should also be set so that internal traffic is not proxied.
 
 .. rst-class:: technote-wide-content
@@ -76,3 +72,10 @@ For outbound access a proxy server needs to be set.  Add the below environment v
 
 Setting Kubernetes Resources and Requests
 =========================================
+
+Setup Gafealfawr
+================
+`Gafealfawr <https://gafaelfawr.lsst.io/>`__ is used for authentication and authorization with web applications.  S3DF sets up Gafaelfawr instances in each vCluster if needed.  Below are the steps to setup Gafaelfawr at the USDF.
+
+#. Review `Gafaelfawr scopes <https://gafaelfawr.lsst.io/user-guide/helm.html#scopes>`__.  Validate if existing scopes will work.  If not work with Square team to add scope to Gafaelfawr.
+#. Request a Gafaelfawr instance by opening a Service Now ticket.  Include the vCluster name.

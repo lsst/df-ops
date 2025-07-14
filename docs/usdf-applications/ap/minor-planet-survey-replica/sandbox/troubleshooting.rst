@@ -9,7 +9,16 @@ Monitoring
 
 Known Issues
 ============
-Replication commands do not work through PgBouncer.   Please note this in the future if new connections are made for replication.
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+
+   * - Issue
+     - Description
+     - Workaround
+   * - Logical Replication with Pooler
+     - Logical Replication do not work though the pooler.  The pooler cannot process the replication commands.
+     - Configure Kubernetes Service to connect directly to the database.  Poolers can still be configured for application and user connections to the database.  Replication commands do not work through PgBouncer.   Please note this in the future if new connections are made for replication.
 
 Replication is broken
 =====================
