@@ -14,7 +14,6 @@ Documentation is for Rubin team members that are managing and support applicatio
 
    users/index
    developers/index
-   campaign-management/index
    admin/index
    usdf-applications/index
    about/index
@@ -38,12 +37,6 @@ Documentation is for Rubin team members that are managing and support applicatio
       :link-type: doc
 
       Information for application administrators on Data Facilities support and how to engage.
-
-   .. grid-item-card:: Campaign Management
-      :link: campaign-management/index
-      :link-type: doc
-
-      Information on Campaign Management with Data Facilities.
 
    .. grid-item-card:: USDF Applications
       :link: usdf-applications/index
