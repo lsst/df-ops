@@ -4,12 +4,10 @@ Troubleshooting
 
 Intended audience: Anyone who is administering the application.
 
-Monitoring
-==========
-.. Describe how to monitor application and include relevant links.
-
 Known Issues
 ============
+.. Discuss known issues with the application.
+
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
@@ -21,6 +19,10 @@ Known Issues
      -
      -
 
+Monitoring
+==========
+.. Describe how to monitor application and include relevant links.
+
 .. Template to use for troubleshooting
 Sample Troubleshooting
 ======================
@@ -30,5 +32,3 @@ Sample Troubleshooting
 **Cause:**
 
 **Solution:**
-
-
