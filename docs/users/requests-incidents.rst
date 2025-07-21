@@ -4,6 +4,10 @@ Requests and Incidents
 
 Creating Requests with Service Now
 ==================================
+Requests should be submitted to the SLAC Service Now following the process below.
+
+#. Login to `Service Now <https://slacprod.servicenowservices.com/>`__ with your Windows credentials
+#. Complete the ticket.  An incident number is created.
 
 Report Incident in Slack
 ========================
