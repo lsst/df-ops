@@ -11,3 +11,8 @@ Resources for application infrastructure administrators working at the USDF.
    cnpg-troubleshooting
    k8s-procedures
    k8s-troubleshooting
+
+.. toctree::
+   :maxdepth: 1
+
+   usdf-sdf-dependencies
