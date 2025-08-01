@@ -18,5 +18,7 @@ ignore = [
     "^https://www-internal.slac.stanford.edu",
     "^https://k8s.slac.stanford.edu",
     "^https://confluence.lsstcorp.org",
-    "^https://s3dfnx.slac.stanford.edu"
+    "^https://s3dfnx.slac.stanford.edu",
+    "^https://s3df.slac.stanford.edu",
+    "^https://usdf-rsp.slac.stanford.edu",
 ]
