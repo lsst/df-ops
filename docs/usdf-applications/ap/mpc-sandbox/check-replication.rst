@@ -4,6 +4,7 @@
 Check Replication
 #################
 
+
 View Subscriptions
 ------------------
 
@@ -33,7 +34,7 @@ To view the status of replication slots.
 
 .. code-block:: sql
 
-  select slot_name, active  from pg_replication_slots WHERE slot_name LIKE '%rubin_usdf%';
+  select slot_name, active  from pg_replication_slots;
 
 To check the status of replication this query can be run from the publication instance at MPC.  Running the command multiple times with time in between will show how if the data behind is growing.
 
@@ -43,7 +44,7 @@ To check the status of replication this query can be run from the publication in
 
     SELECT redo_lsn, slot_name,restart_lsn,
     round((redo_lsn-restart_lsn) / 1024 / 1024 / 1024, 2) AS GB_behind
-    FROM pg_control_checkpoint(), pg_replication_slots WHERE slot_name LIKE '%rubin%';
+    FROM pg_control_checkpoint(), pg_replication_slots;
 
 To check for replication lag from the publication instance at MPC.
 
@@ -51,7 +52,7 @@ To check for replication lag from the publication instance at MPC.
 
 .. code-block:: sql
 
-    select application_name, client_addr, state, write_lag, flush_lag, replay_lag from pg_stat_replication WHERE application_name LIKE '%rubin%';
+    select application_name, client_addr, state, write_lag, flush_lag, replay_lag from pg_stat_replication WHERE application_name;
 
 The below query shows what the latest observation day that is replicated.
 
