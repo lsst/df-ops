@@ -8,8 +8,8 @@ Creating Requests with Service Now
 ==================================
 Requests in the SLAC Service Now are needed to create new users or infrastructure changes.  For example adding DNS entries or creating new Ceph S3 buckets.  To create a request follow the below process.
 
-#. Login to `Service Now <https://slacprod.servicenowservices.com/>`__ with your Windows credentials
-#. Complete the ticket.  An incident number is created.
+#. Open ticket in `Service Now <https://slacprod.servicenowservices.com/gethelp.do>`__
+#. If additional visibility is needed post the ticket number in Slack or add the person as a watcher to the ticket.
 
 Announcing Downtime or Maintenance
 ==================================
