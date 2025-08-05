@@ -2,12 +2,6 @@
 Application Information
 #######################
 
-Application Roles & Contacts
-============================
-.. Describe who is performing the application roles.  Detailed in about section.
-
-See :ref:`prompt_processing_application_roles`
-
 Architecture
 ============
 .. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
