@@ -1,5 +1,5 @@
 #############
-Data Transfer
+Data Curation
 #############
 
 .. toctree::
