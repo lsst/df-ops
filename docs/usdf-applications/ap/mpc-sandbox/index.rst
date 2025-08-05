@@ -1,14 +1,13 @@
-###########################
-Minor Planet Survey Replica
-###########################
+###########
+MPC Sandbox
+###########
+
 
 Overview
 ========
 .. Include short summary of application, service, or database
 
-The Minor Planet Survey databases are replicated from the Minor Planet Center Annex.  Logical Replication in Postgres is used to replicate the databases over the Internet.
-
-The USDF replica is also setup as a publication and EPO in Google Cloud subscribes to receive the same data.
+During commissioning, Rubin will send data to a private, Rubin-only, submission stream at the Minor Planet Center. They’ll process these data and store them into a private, rubin-only, instance of the *MPCORB* database. This will prevent the leakage of private Rubin data to the public before the First Look event. This parallel system called *the sandbox*.
 
 .. Include Application Grouping, Operating Hours (24x7, PST daytime, or observing), Criticality Level, a link to the GitHub repository, and Slack channel used for support of the application.
 

@@ -21,4 +21,5 @@ ignore = [
     "^https://s3dfnx.slac.stanford.edu",
     "^https://s3df.slac.stanford.edu",
     "^https://usdf-rsp.slac.stanford.edu",
+    "^https://github.com",
 ]

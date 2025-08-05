@@ -1,9 +1,8 @@
 :orphan:
 
-###############
-Fix Replication
-###############
-
+#################
+Check Replication
+#################
 
 View Subscriptions
 ------------------
