@@ -4,31 +4,6 @@ Application Information
 
 Prompt Processing application information.
 
-.. _prompt_processing_application_roles:
-
-Application Roles & Contacts
-============================
-.. Describe who is performing the application roles.  Detailed in about section.
-
-.. list-table::
-   :widths: 25 25
-   :header-rows: 1
-
-   * - Role
-     - Person
-   * - Application Sponsor
-     -
-   * - Application Owner
-     -
-   * - Database Administrator
-     -
-   * - Application Infrastructure
-     -
-   * - Operations Support
-     -
-   * - Documentation Lead
-     -
-
 .. _prompt_processing_architecture:
 
 Architecture

@@ -27,7 +27,6 @@ The code is on GitHub at .
 .. toctree::
    :maxdepth: 2
 
-   roles
    info
    documentation-training
    security

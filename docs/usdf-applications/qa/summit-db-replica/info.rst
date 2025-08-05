@@ -2,29 +2,6 @@
 Application Information
 #######################
 
-Application Roles & Contacts
-============================
-.. Describe who is performing the application roles.  Detailed in about section.
-
-.. list-table:: Application Roles
-   :widths: 25 25
-   :header-rows: 1
-
-   * - Role
-     - Person
-   * - Application Sponsor
-     -
-   * - Application Owner
-     -
-   * - Database Administrator
-     -
-   * - Application Infrastructure
-     -
-   * - Operations Support
-     -
-   * - Documentation Lead
-     -
-
 Architecture
 ============
 .. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
@@ -47,7 +24,7 @@ Associated Systems
 ==================
 .. Describe other applications are associated with this applications.
 
-Consolidated Database API, ExposureLog API, NarrativeLog API, and Nighreport API applications use the database as a data source for the APIs.
+Consolidated Database API, ExposureLog API, NarrativeLog API, and Nightreport API applications use the database as a data source for the APIs.
 
 Configuration Location
 ======================
