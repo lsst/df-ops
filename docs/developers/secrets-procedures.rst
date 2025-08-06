@@ -18,7 +18,7 @@ To use the Vault Command Line Interface on the USDF interactive nodes use the be
 
 .. code-block:: bash
 
-    export VAULT_ADDR=https://vault.slac.stanford.edu
+    export VAULT_ADDR=https://vault
     module load vault
     vault login -method=ldap username=replace
 

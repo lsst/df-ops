@@ -8,7 +8,7 @@ Architecture
 ============
 .. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
 
-The ``mpc-sandbox`` depends on Internet connectivity to receive updates from the MPC.  The SLAC IP ``134.79.23.9`` was shared with the MPC Annex as the NAT addresses used for outbound connectivity with SLAC.  If this address changes the MPC Annex will need to be notified.
+The ``mpc-sandbox`` depends on Internet connectivity to receive updates from the MPC.  The SLAC NAT IP was shared with the MPC Annex as the NAT addresses used for outbound connectivity with SLAC.  If this address changes the MPC Annex will need to be notified.
 
 Architecture Diagram
 ====================
@@ -54,7 +54,7 @@ Dependencies - S3DF
 
   * Kubernetes
   * SLAC LDAP to authenticate to the vCluster
-  * Internet connectivity to receive logical replication updates.  Access is tied to the SLAC NAT address of ``134.79.23.9``
+  * Internet connectivity to receive logical replication updates.  Access is tied to the SLAC NAT IP.
   * DNS resolution for the SBN address
   * Weka storage for Kubernetes.  The database uses a persistent volume claim.
 
