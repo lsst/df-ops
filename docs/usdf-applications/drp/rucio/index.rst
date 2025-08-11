@@ -12,9 +12,9 @@ Overview
    :widths: 25 50
 
    * - Application Grouping
-     -
+     - Data Release Production
    * - Operating Hours
-     -
+     - 24x7
    * - Criticality Level
      -
    * - GitHub Repository
@@ -22,9 +22,9 @@ Overview
    * - Slack Support channel
      -
    * - Prod vCluster
-     -
+     - usdf-rucio
    * - Dev vCluster
-     -
+     - usdf-rucio-dev
 
 .. toctree::
    :maxdepth: 2
