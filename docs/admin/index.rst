@@ -12,6 +12,7 @@ Resources for application infrastructure administrators working at the USDF.
    k8s-procedures
    k8s-troubleshooting
    usdf-procedures
+   fixing-headers
 
 .. toctree::
    :maxdepth: 1
