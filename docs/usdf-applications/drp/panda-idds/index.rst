@@ -1,6 +1,6 @@
-#####################
-PanDA Server Database
-#####################
+##########
+PanDA iDDS
+##########
 .. Replace heading with application name
 
 Overview
@@ -21,7 +21,7 @@ Overview
    * - GitHub Repository
      - https://github.com/slaclab/rubin-usdf-panda-deploy
    * - Slack Support channel
-     - ops-df-databases
+     -
    * - Prod vCluster
      - usdf-panda
    * - Dev vCluster

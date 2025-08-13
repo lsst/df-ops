@@ -2,7 +2,7 @@
 Procedures
 ##########
 
-Intended audience: Anyone who is administering the PanDA iDDS database.
+Intended audience: Anyone who is administering PanDA iDDS.
 
 Deployment
 ==========

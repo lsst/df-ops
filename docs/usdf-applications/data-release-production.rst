@@ -6,6 +6,6 @@ Data Release Production
    :maxdepth: 1
 
    drp/fits/index
-   drp/panda-idds-database/index
-   drp/panda-server-database/index
+   drp/panda-idds/index
+   drp/panda-server/index
    drp/rucio/index
