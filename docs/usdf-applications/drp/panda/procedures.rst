@@ -2,7 +2,7 @@
 Procedures
 ##########
 
-Intended audience: Anyone who is administering PanDA Server.
+Intended audience: Anyone who is administering PanDA.
 
 Deployment
 ==========
