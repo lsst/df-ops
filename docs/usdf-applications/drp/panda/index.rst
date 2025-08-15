@@ -1,6 +1,6 @@
-##########
-PanDA iDDS
-##########
+#####
+PanDA
+#####
 .. Replace heading with application name
 
 Overview
@@ -15,13 +15,13 @@ Overview
    * - Application Grouping
      - Data Release Production
    * - Operating Hours
-     -
+     - 24x7
    * - Criticality Level
-     -
+     - Critical
    * - GitHub Repository
      - https://github.com/slaclab/rubin-usdf-panda-deploy
    * - Slack Support channel
-     -
+     - ops-df-databases
    * - Prod vCluster
      - usdf-panda
    * - Dev vCluster

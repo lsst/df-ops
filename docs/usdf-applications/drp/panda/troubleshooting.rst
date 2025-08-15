@@ -2,7 +2,7 @@
 Troubleshooting
 ###############
 
-Intended audience: Anyone who is administering PanDA Server.
+Intended audience: Anyone who is administering PanDA.
 
 Known Issues
 ============
