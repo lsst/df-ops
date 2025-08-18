@@ -1,14 +1,13 @@
-######################
-Sattle Troubleshooting
-######################
+###############
+Troubleshooting
+###############
 
-Intended audience: Anyone who is administering the application.
-
-Monitoring
-==========
+Intended audience: Anyone who is administering satellite.
 
 Known Issues
 ============
+.. Discuss known issues with the application.
+
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
@@ -20,6 +19,14 @@ Known Issues
      -
      -
 
+Monitoring
+==========
+.. Describe how to monitor application and include relevant links.
+
+The service will emit request logs to local disk.  These could be collected and pushed to a central service.
+
+.. Template to use for troubleshooting
+
 Sample Troubleshooting
 ======================
 
@@ -27,6 +34,4 @@ Sample Troubleshooting
 
 **Cause:**
 
-**Solution:** :doc:`sample-troubleshooting`
-
-
+**Solution:**
