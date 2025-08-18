@@ -85,10 +85,10 @@ Dependencies - S3DF
 ===================
 .. Dependencies at USDF include Ceph, Weka Storage, Butler Database, LDAP, other Rubin applications, etc..  This can be none.
 
-  * Embargo Rack for power and network
-  * S3DF networking for inbound connections
-  * SLAC networking for outbound connections to space-track.org and GitHub for retrieving the service container
-  * S3DF administrators for machine and OS maintenance as well as HTTPS certificate maintenance
+* Embargo Rack for power and network
+* S3DF networking for inbound connections
+* SLAC networking for outbound connections to space-track.org and GitHub for retrieving the service container
+* S3DF administrators for machine and OS maintenance as well as HTTPS certificate maintenance
 
 Dependencies - External
 =======================
