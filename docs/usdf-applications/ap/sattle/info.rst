@@ -65,7 +65,7 @@ Parameters:
   * boresight_dec
 
 Response:
-* HTTP status 200 or 500
+  * HTTP status 200 or 500
 
 DIASource request
 -----------------
