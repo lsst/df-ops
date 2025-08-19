@@ -48,12 +48,12 @@ SLAC Virtual Clusters, aka "Projects"
 Requesting a new Project
 ========================
 
-Please send a request to the LSSTC's #ops-usdf slack channel. Alternatively email usdf-help@slac.stanford.edu.
+:ref:`create_snow_request` including the requested name of the vCluster, who is the project owner, and who should have access.
 
 Requesting access to an existing Project
 ========================================
 
-Ideally, have the project owner send a request to usdf-help@slac.stanford.edu.  Or you can send a request, and the project owner will be contacted.
+Ideally, have the project owner :ref:`open a Service Now Ticket <create_snow_request>`.  Or you can send a request, and the project owner will be contacted.
 
 Connecting and Authenticating
 =============================
