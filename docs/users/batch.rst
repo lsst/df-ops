@@ -29,7 +29,7 @@ Four "repos" have been created to apportion the batch allocation. We have yet to
 - developers
 - commissioning
 
-All Rubin account holders can submit to any but the production repo (at some point we will divide up membership between commissioning and developers; when initially set up the repos, we added all users to both). If you are new to the USDF and you find you cannot submit to the developers or commissioning repos, check `coact <https://coact.slac.stanford.edu/repos/info>`__ to see which repos you belong to. If none, request addition to the appropriate repo in the ops-usdf slack channel.
+All Rubin account holders can submit to any but the production repo (at some point we will divide up membership between commissioning and developers; when initially set up the repos, we added all users to both). If you are new to the USDF and you find you cannot submit to the developers or commissioning repos, check `coact <https://coact.slac.stanford.edu/repos/info>`__ to see which repos you belong to. If none, request addition to the appropriate repo in the ``#usdf-support`` Slack channel.
 
 In general, using BPS is preferred to running ``pipetask`` directly since many concurrent ``pipetask`` jobs that are run like this can cause registry database contention.
 
@@ -48,7 +48,7 @@ Guidance for developers running pipelines
 
   The shared stack distributions in ``/sdf/group/rubin/sw`` can also be used, but we've seen general slowness for people using those distributions when a lot of jobs are running the software in that area.
 - Use BPS clustering to avoid many, e.g., >10k, of short <1 min jobs.  A common use case would be running ``isr`` on a night's worth of LSSTCam exposures.  Clustering will combine pipeline jobs into single pipetask calls resulting in fewer overall jobs and thus fewer jobs trying to import all of the python modules at the same time.  In addition to mitigating disk contention issues, clustering makes it easier for the workflow systems to manage the execution of the overall pipeline.  Instructions for using bps clustering are available in the `BPS documentation <https://pipelines.lsst.io/modules/lsst.ctrl.bps/quickstart.html#clustering>`__, and examples of clustering for DRP processing of LSSTCam data are available in the `drp_pipe package <https://github.com/lsst/drp_pipe/blob/main/bps/clustering/LSSTCam/DRP-clustering.yaml>`__.
-- For running at USDF, we recommend using ctrl_bps_htcondor, the HTCondor-based plugin.  For questions regarding its use, please post in `#usdf-support <https://app.slack.com/client/T02SVMGU4/C082C6R9JQ1>`__ for USDF-specific issues or in `#dm-middleware-support <https://app.slack.com/client/T02SVMGU4/C08CANY4B6H>`__ for more general BPS-related questions.  Both of those channels are in the `rubin-obs <https://rubin-obs.slack.com>`__ Slack space.
+- For running at USDF, we recommend using ctrl_bps_htcondor, the HTCondor-based plugin.  For questions regarding its use, please post in `#usdf-support <https://rubin-obs.slack.com/archives/C082C6R9JQ1>`__ for USDF-specific issues or in `#dm-middleware-support <https://rubin-obs.slack.com/archives/C08CANY4B6H>`__ for more general BPS-related questions.  Both of those channels are in the `rubin-obs <https://rubin-obs.slack.com>`__ Slack space.
 
 
 BPS Plugins

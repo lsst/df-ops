@@ -51,7 +51,7 @@ The RSP and the default scripts executed by .bashrc upon ssh login will set the 
 To use additional non-default profiles, you should copy the ``aws-credentials.ini`` file elsewhere (to avoid overwriting by the USDF RSP) and add the profiles to it.
 You will then need to manually set the ``AWS_SHARED_CREDENTIALS_FILE`` environment variable to point to the new location, in addition to the ``AWS_PROFILE`` variable to select a profile.
 
-Read/write credentials for other buckets are stored in ``vault.slac.stanford.edu``; requests for access should go to Slack channel ``#ops-usdf``.
+Read/write credentials for other buckets are stored in ``vault.slac.stanford.edu``; requests for access should go to Slack channel ``#usdf-support``.
 
 
 Access Methods

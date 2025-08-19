@@ -2,12 +2,15 @@
 Requests and Incidents
 ######################
 
-Creating Requests with Service Now
-==================================
+.. _create_snow_request:
+
+Open a Service Now Ticket
+=========================
 Requests should be submitted to the SLAC Service Now following the process below.
 
-#. Open ticket in `Service Now <https://slacprod.servicenowservices.com/gethelp.do>`__
-#. If additional visibility is needed post the ticket number in Slack or add the person as a watcher to the ticket.
+#. Open ticket in `Service Now <https://slacprod.servicenowservices.com/gethelp.do>`__ using the form.  Alternatively an email can be sent to usdf-help@slac.stanford.edu to open a ticket.
+#. Note in ticket that the request is for S3DF will provide quicker routing to S3DF to review.
+#. If additional visibility is needed post the ticket number in Slack in #usdf-support or add the person as a watcher to the ticket.
 
 Report Incident in Slack
 ========================

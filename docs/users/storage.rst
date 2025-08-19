@@ -9,7 +9,7 @@ Storage Locations
 
 Personal space:
  - Home directory space is available at ``/sdf/home/<first_letter_of_account>/<account>`` - standard S3DF personal allocation (25 GB)
- - Rubin-allocated space: ``/sdf/data/rubin/user/<account_name>`` with a 1 TB quota (a symlink to this directory, called ``rubin-user``, is auto-created in your home directory). If you need more space, request it in ``#ops-usdf``, and a ticket will get opened to request the quota increase.
+ - Rubin-allocated space: ``/sdf/data/rubin/user/<account_name>`` with a 1 TB quota (a symlink to this directory, called ``rubin-user``, is auto-created in your home directory). If you need more space, request it in ``#usdf-support``, and a ticket will get opened to request the quota increase.
 
 Web space:
  - "public_html" web access is available upon request: it will be visible at ``https://s3df.slac.stanford.edu/people/<user>``
@@ -25,7 +25,7 @@ Science data under ``/sdf/group/rubin/``:
    - ``shared/data/test_data`` contains daily-updated test datasets.
    - ``shared/data/validation_data`` contains daily-updated validation datasets.
    - Other requested storage for particular groups or external datasets is also located under ``/sdf/group/rubin/shared/``.
-   - Request new shared storage via ``#ops-usdf``, providing the name, purpose, storage quota needed, and owner.  Storage will generally be given group ``rubin_users``, giving all staff access; this can be read-only or read-write as desired.
+   - Request new shared storage via ``#usdf-support``, providing the name, purpose, storage quota needed, and owner.  Storage will generally be given group ``rubin_users``, giving all staff access; this can be read-only or read-write as desired.
  - ``repo/`` contains Butler repo configurations.  See the next section.
  - ``sw/`` contains the "shared stack" of LSST Science Pipelines software.
 
