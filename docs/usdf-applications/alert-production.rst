@@ -5,6 +5,7 @@ Alert Production
 .. toctree::
    :maxdepth: 1
 
+   ap/alert-archive/index
    ap/minor-planet-survey-replica/index
    ap/mpc-sandbox/index
    ap/next-visit-fan-out/index
