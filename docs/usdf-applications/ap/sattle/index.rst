@@ -17,17 +17,17 @@ This application manages the catalog of satellite orbits that is used to filter 
    * - Application Grouping
      - Alert Production
    * - Operating Hours
-     -
+     - Observing
    * - Criticality Level
      - Real Time
    * - GitHub Repository
-     -
+     - https://github.com/lsst-dm/sattle
    * - Slack Support channel
      -
    * - Prod vCluster
-     -
+     - Not applicable.  Installed on S3DF servers.
    * - Dev vCluster
-     -
+     - Installed on S3DF servers.
 
 .. toctree::
    :maxdepth: 2
