@@ -8,5 +8,6 @@ Resources about the Application Support Model at the USDF.
    :maxdepth: 2
 
    roles
+   app-grouping
    tiering
    impact
