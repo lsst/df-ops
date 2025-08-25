@@ -9,7 +9,6 @@ Below are the application groupings for Rubin applications deployed at the USDF.
 
    alert-production
    build-engineering
-   data-abstraction
    data-curation
    data-release-production
    rubin-science-platform
