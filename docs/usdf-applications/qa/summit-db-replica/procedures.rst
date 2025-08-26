@@ -2,7 +2,7 @@
 Procedures
 ##########
 
-Intended audience: Anyone who is administering the application.
+Intended audience: Anyone who is administering the Summit Database Replica.
 
 Deployment
 ==========

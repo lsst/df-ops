@@ -1,6 +1,6 @@
-#######################
-Application Information
-#######################
+####################
+Database Information
+####################
 
 Architecture
 ============
