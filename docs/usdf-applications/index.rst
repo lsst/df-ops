@@ -1,8 +1,8 @@
-#################
-USDF Applications
-#################
+###############################
+USDF Applications and Databases
+###############################
 
-Below are the application groupings for Rubin applications deployed at the USDF.
+Below are the application groupings for Rubin applications and databases deployed at the USDF.
 
 .. toctree::
    :maxdepth: 2
