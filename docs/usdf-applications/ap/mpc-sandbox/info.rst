@@ -1,6 +1,6 @@
-#######################
-Application Information
-#######################
+####################
+Database Information
+####################
 
 The following sections provide detail on the MPC Sandbox.
 
