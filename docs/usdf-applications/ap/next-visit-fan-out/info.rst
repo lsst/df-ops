@@ -43,7 +43,10 @@ Data Flow
 =========
 .. Describe how data flows through the system including upstream and downstream services
 
-See :ref:`prompt_processing_data_flow`
+A ``prompt-processing`` Kafka user is setup and enabled at Summit Sasquatch.
+Next Visit Fan Out connects directly from USDF to Summit.
+
+Also see :ref:`prompt_processing_data_flow`
 
 Dependencies - S3DF
 ===================

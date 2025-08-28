@@ -16,7 +16,8 @@ Known Issues
      - Description
      - Workaround
    * - Sasquatch Schema Registry IP changes
-     - During maintenance and upgrades the Sasquatch Schema Registry IP changes
+     - During maintenance and upgrades the Sasquatch Schema Registry IP changes.
+       It only causes problems when it restarts since the schema is cached.
      - :ref:`schema_registry_connectivity_issue`
 
 Monitoring
