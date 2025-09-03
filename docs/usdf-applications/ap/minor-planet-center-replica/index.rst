@@ -6,7 +6,7 @@ Overview
 ========
 .. Include short summary of application, service, or database
 
-The Minor Planet Survey databases are replicated from the Minor Planet Center Annex.  Logical Replication in Postgres is used to replicate the databases over the Internet.
+The Minor Planet Center databases are replicated from the Minor Planet Center Annex.  Logical Replication in Postgres is used to replicate the databases over the Internet.  The database includes all known asteroids, observations, and included metadata.
 
 The USDF replica is also setup as a publication and EPO in Google Cloud subscribes to receive the same data.
 
@@ -18,9 +18,9 @@ The USDF replica is also setup as a publication and EPO in Google Cloud subscrib
    * - Application Grouping
      - Alert Production
    * - Operating Hours
-     -
+     - 24x7
    * - Criticality Level
-     -
+     - Real-time
    * - GitHub Repository
      - https://github.com/slaclab/rubin-usdf-minor-planet-survey
    * - Slack Support channel

@@ -2,7 +2,7 @@
 Troubleshooting
 ###############
 
-Intended audience: Anyone who is administering the Minor Planet Survey Replica.
+Intended audience: Anyone who is administering the Minor Planet Center database replica.
 
 Known Issues
 ============
