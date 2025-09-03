@@ -24,6 +24,7 @@ Monitoring
 .. Describe how to monitor application and include relevant links.
 
 .. Template to use for troubleshooting
+
 Sample Troubleshooting
 ======================
 
