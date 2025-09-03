@@ -6,7 +6,7 @@ Alert Production
    :maxdepth: 1
 
    ap/alert-archive/index
-   ap/minor-planet-survey-replica/index
+   ap/minor-planet-center-replica/index
    ap/mpc-sandbox/index
    ap/next-visit-fan-out/index
    ap/prompt-kafka/index
