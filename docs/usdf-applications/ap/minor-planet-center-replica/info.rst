@@ -2,7 +2,7 @@
 Database Information
 ####################
 
-The following sections provide detail on the Minor Planet Survey Replica.
+The following sections provide detail on the Minor Planet Center Replica.
 
 Architecture
 ============
@@ -14,7 +14,7 @@ Postgres Logical Replication is used to replicate data from the MPC annex to the
 
 ``mpcorb`` is also setup as a Postgres publication to replicate data to the EPO.  Further details are in the Architecture Diagram and Data Flow sections of this page.
 
-The largest table is ``obs_sbn``.
+``mpc_orbits`` table is largest table with 1 million rows.  It will grow to 5 million rows over the course of the survey.
 
 Architecture Diagram
 ====================
@@ -27,6 +27,11 @@ Architecture Diagram
 Associated Systems
 ==================
 .. Describe other applications are associated with this applications.
+
+A cronjob is run to each night before observing with moving objects objects in the Solar System.  This is used by Prompt Processing.
+
+Pipelines code interacts with this database to review for potential new objects to submit to the the Minor Planet Center.
+
 
 Configuration Location
 ======================
@@ -56,6 +61,8 @@ Data Flow
 The Minor Planet Center Annex is the Postgres Logical Replica publication.  The USDF Minor Planet Center replica is configured with subscription to the Obs table and to the other tables at the Annex.
 
 Rubin EPO also needs a copy of this data.  It was not an option to connect directly from EPO to the Minor Planet Center Annex so a double hop Postgres Replication is setup.  The USDF Minor Planet Center replica is also setup as a Postgres publication to replicate the same tables that it subscribes to.  EPO has a development, integration, and production environments setup as subscriptions in the Google Cloud with the Cloud Native Postgres (CNPG) Operator.  Currently only dev is connected.
+
+A separate pipeline is run to identify new objects and their orbits.  These are sent to an HTTP endpoint at the Minor Planet Center which is the clearinghouse for new discoveries.  Once the data is accepted it sent back to the USDF through logical replication.
 
 Dependencies - S3DF
 ===================
