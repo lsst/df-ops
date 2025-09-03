@@ -8,8 +8,8 @@ Below are the application groupings for Rubin applications and databases deploye
    :maxdepth: 2
 
    alert-production
-   build-engineering
    data-curation
    data-release-production
    rubin-science-platform
+   shared-stack
    quality-assurance
