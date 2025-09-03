@@ -12,13 +12,13 @@ There are over fifty Rubin applications installed at the USDF and the number is 
      - Description
    * - Alert Production
      - Creating and distribution of alerts
-   * - Build Engineering
-     - Building of the shared stack
    * - Data Curation
      - Dataset management and transfers
    * - Data Release Production
      - Processing and creation of data releases
    * - Rubin Science Platform
      - Science Platform applications deployed at the USDF
+   * - Shared Stack
+     - Management of the shared stack
    * - QA
      - Validation and verification of Camera operations
