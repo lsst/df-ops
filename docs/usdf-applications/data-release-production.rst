@@ -8,5 +8,6 @@ Data Release Production
    drp/cm-service/index
    drp/fits/index
    drp/htcondor/index
+   drp/opensearch/index
    drp/panda/index
    drp/rucio/index
