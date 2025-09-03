@@ -2,7 +2,7 @@
 Troubleshooting
 ###############
 
-Intended audience: Anyone who is administering the application.
+Intended audience: Anyone who is administering OpenSearch.
 
 Known Issues
 ============

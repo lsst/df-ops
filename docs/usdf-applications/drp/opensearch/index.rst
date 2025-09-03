@@ -1,6 +1,6 @@
-##################
-REPLACE - APP NAME
-##################
+##########
+OpenSearch
+##########
 .. Replace heading with application name
 
 Overview
