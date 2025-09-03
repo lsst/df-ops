@@ -16,9 +16,9 @@ The roles are documented in Confluence `here <https://rubinobs.atlassian.net/wik
    * - Role
      - Responsibilities
    * - Application Sponsor
-     - Responsible for assigning resources
+     - Responsible for assigning resources.  This person is an Ops Team Leader or designate.
    * - Application Owner
-     - Responsible for the overall application functionality, data, and user experience
+     - Responsible for the overall application functionality, data, and user experience.  Similar to a product owner.
    * - Database Administrator
      - Responsible the database’s design, performance, security, and maintenance.  Absent if no database.
    * - Application Infrastructure
