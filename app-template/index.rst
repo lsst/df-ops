@@ -22,6 +22,8 @@ Overview
      -
    * - Slack Support channel
      -
+   * - Slack Alerts channel
+     -
    * - Prod vCluster
      -
    * - Dev vCluster
