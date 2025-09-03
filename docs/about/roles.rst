@@ -5,7 +5,9 @@ Roles
 Application Team Roles
 ======================
 
-Each Rubin application will have the following roles defined to manage and operate the application.  A person can hold more than one role.
+Each Rubin application will have the following roles defined in the table below to manage and operate the application.  A person can hold more than one role.
+
+The roles are documented in Confluence `here <https://rubinobs.atlassian.net/wiki/spaces/LSSTOps/database/869499108?atl_f=PAGETREE>`__.  Views are available on the tabs to filter by the Application Grouping.
 
 .. list-table:: Application Roles
    :widths: 25 25
