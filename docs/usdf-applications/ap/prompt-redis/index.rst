@@ -18,11 +18,15 @@ Redis Cluster that receives Fanned Out events from :doc:`../next-visit-fan-out/i
    * - Operating Hours
      - Observing
    * - Criticality Level
-     -
-   * - GitHub Repository
+     - Real Time
+   * - GitHub Application Code Repository
+     - N/A
+   * - GitHub Deployment Repository
      - https://github.com/lsst-sqre/phalanx/tree/main/applications/prompt-redis
-   * - Slack Support channel
+   * - Slack Support Channel
      - lsstcam-prompt-processing
+   * - Slack Alerts Channel
+     -
    * - Prod vCluster
      - usdf-prompt-processing
    * - Dev vCluster

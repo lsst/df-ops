@@ -16,10 +16,14 @@ Overview
    * - Operating Hours
      - 24x7
    * - Criticality Level
+     - Critical
+   * - GitHub Application Code Repository
      -
-   * - GitHub Repository
+   * - GitHub Deployment Repository
      -
-   * - Slack Support channel
+   * - Slack Support Channel
+     - df-data-movement
+   * - Slack Alerts Channel
      -
    * - Prod vCluster
      - usdf-rucio

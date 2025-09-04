@@ -6,7 +6,7 @@ Overview
 ========
 .. Include short summary of application, service, or database
 
-Autoscaler for Prompt Processing that creates jobs as Next Visit Fanned Out Events arrive.  KEDA stands for Kubernetes Event-driven Autoscaling
+Autoscaler for Prompt Processing that creates jobs as Next Visit Fanned Out Events arrive.  KEDA stands for Kubernetes Event-driven Autoscaling.
 
 .. Include Application Grouping, Operating Hours (24x7, PST daytime, or observing), Criticality Level, a link to the GitHub repository, and Slack channel used for support of the application.
 
@@ -18,11 +18,15 @@ Autoscaler for Prompt Processing that creates jobs as Next Visit Fanned Out Even
    * - Operating Hours
      - Observing
    * - Criticality Level
-     -
-   * - GitHub Repository
+     - Real Time
+   * - GitHub Application Code Repository
+     - N/A
+   * - GitHub Deployment Repository
      - https://github.com/lsst-sqre/phalanx/tree/main/applications/keda
-   * - Slack Support channel
+   * - Slack Support Channel
      - lsstcam-prompt-processing
+   * - Slack Alerts Channel
+     -
    * - Prod vCluster
      - usdf-prompt-processing
    * - Dev vCluster
