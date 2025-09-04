@@ -20,14 +20,18 @@ Real-time display of images from the summit.
      - 24x7
    * - Criticality Level
      - Operational
-   * - GitHub Repository
+   * - GitHub Application Code Repository
      - https://github.com/lsst-ts/rubintv
-   * - Slack Support channel
+   * - GitHub Deployment Repository
+     - https://github.com/lsst-sqre/phalanx/tree/main/applications/rubintv
+   * - Slack Support Channel
      - sitcom-rubintv-backend in Discovery Alliance Slack
+   * - Slack Alerts Channel
+     -
    * - Prod vCluster
-     - usdf-rapid-analysis
+     - usdf-rsp
    * - Dev vCluster
-     - usdf-rapid-analysis-dev
+     - usdf-rsp-dev
 
 .. toctree::
    :maxdepth: 2

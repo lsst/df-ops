@@ -20,10 +20,14 @@ The consolidated database, exposurelog, narrativelog, and nightreport Postgres d
      - 24x7
    * - Criticality Level
      -
-   * - GitHub Repository
+   * - GitHub Application Code Repository
+     - Refer to the ConsDB and ExposureLog/NarrativeLog applications
+   * - GitHub Deployment Repository
      - https://github.com/slaclab/rubin-usdf-summit-db-replica-deploy
-   * - Slack Support channel
+   * - Slack Support Channel
      - ops-df-databases
+   * - Slack Alerts Channel
+     - ops-usdf-alerts
    * - Prod vCluster
      - usdf-summitb
    * - Dev vCluster
