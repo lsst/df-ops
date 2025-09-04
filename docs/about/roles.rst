@@ -5,7 +5,9 @@ Roles
 Application Team Roles
 ======================
 
-Each Rubin application will have the following roles defined to manage and operate the application.  A person can hold more than one role.
+Each Rubin application will have the following roles defined in the table below to manage and operate the application.  A person can hold more than one role.
+
+The roles are documented in Confluence `here <https://rubinobs.atlassian.net/wiki/spaces/LSSTOps/database/869499108?atl_f=PAGETREE>`__.  Views are available on the tabs to filter by the Application Grouping.
 
 .. list-table:: Application Roles
    :widths: 25 25
@@ -14,9 +16,9 @@ Each Rubin application will have the following roles defined to manage and opera
    * - Role
      - Responsibilities
    * - Application Sponsor
-     - Responsible for assigning resources
+     - Responsible for assigning resources.  This person is an Ops Team Leader or designate.
    * - Application Owner
-     - Responsible for the overall application functionality, data, and user experience
+     - Responsible for the overall application functionality, data, and user experience.  Similar to a product owner.
    * - Database Administrator
      - Responsible the database’s design, performance, security, and maintenance.  Absent if no database.
    * - Application Infrastructure

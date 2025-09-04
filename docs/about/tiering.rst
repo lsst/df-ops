@@ -7,7 +7,9 @@ Application tiering is defined to align the operations model to supporting key R
   * When there are hardware issues and there are limited resources to run everything
   * During disaster recovery to prioritize which applications to restore
 
-Below are the application criticality levels.  The application tiering can change over time and will change for some applications after commissioning.
+THe below table details the application criticality levels.  The application tiering can change over time and will change for some applications after commissioning.
+
+The application pages on this site document the criticality level for each application or database.  A combined list of the applications by tier is documented in Confluence `here <https://rubinobs.atlassian.net/wiki/spaces/LSSTOps/database/869499108?atl_f=PAGETREE>`__.  Views are available on the tabs to filter by the tier.
 
 .. list-table:: Application Tiering
    :widths: 10 50 20 20
@@ -24,8 +26,8 @@ Below are the application criticality levels.  The application tiering can chang
    * - Critical
      - Essential application for operations that are not real time.  An interruption is recoverable.
      - Can cause significant delays, disruptions, or reduced productivity
-     - ConsDB, Panda
+     - Panda, HTCondor, Alert Archive
    * - Operational
      - Applications that support science functions, but are not considered essential for the immediate functioning of work.
      - May cause disruptions, but not major ones
-     - Exposurelog
+     - RubinTV, Campaign Management Service
