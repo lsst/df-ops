@@ -19,14 +19,14 @@ Qserv is an open source, massively parallel, distributed SQL database designed t
    * - Operating Hours
      - 24x7
    * - Criticality Level
-     - Real-time
+     - Real Time
    * - GitHub Application Code Repository
      - https://github.com/lsst/qserv
    * - GitHub Deployment Repository
      - https://github.com/lsst-dm/qserv-slac
-   * - Slack Support channel
+   * - Slack Support Channel
      - usdf-rsp-support
-   * - Slack Alerts channel
+   * - Slack Alerts Channel
      -
    * - Prod vCluster
      -
