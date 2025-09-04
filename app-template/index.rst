@@ -18,7 +18,9 @@ Overview
      -
    * - Criticality Level
      -
-   * - GitHub Repository
+   * - GitHub Application Code Repository
+     -
+   * - GitHub Deployment Repository
      -
    * - Slack Support channel
      -
