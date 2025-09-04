@@ -37,8 +37,6 @@ Configuration Location
 ======================
 .. Detail where the configuration is stored.  This is typically in GitHub, Kubernetes Configuration Maps, and/or Vault Secrets.
 
-`here <https://github.com/slaclab/rubin-usdf-minor-planet-survey/tree/main/kubernetes/overlays/prod/sql>`__
-
 .. list-table::
    :widths: 25 25
    :header-rows: 1
