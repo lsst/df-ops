@@ -17,11 +17,15 @@ Overview
    * - Operating Hours
      - Observing
    * - Criticality Level
-     -
-   * - GitHub Repository
+     - Real Time
+   * - GitHub Application Code Repository
      - https://github.com/lsst-dm/prompt_processing
-   * - Slack Support channel
+   * - GitHub Deployment Code Repository
+     - https://github.com/lsst-sqre/phalanx/tree/main/applications/prompt-keda-lsstcam
+   * - Slack Support Channel
      - lsstcam-prompt-processing
+   * - Slack Alerts Channel
+     -
    * - Prod vCluster
      - usdf-prompt-processing
    * - Dev vCluster

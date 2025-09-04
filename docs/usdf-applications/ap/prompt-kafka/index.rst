@@ -18,11 +18,15 @@ Kafka Cluster that receives file arrival notifications from the rubin summit S3 
    * - Operating Hours
      - Observing
    * - Criticality Level
-     -
-   * - GitHub Repository
+     - Real Time
+   * - GitHub Application Code Repository
+     - N/A
+   * - GitHub Deployment Repository
      - https://github.com/lsst-sqre/phalanx/tree/main/applications/prompt-kafka
-   * - Slack Support channel
+   * - Slack Support Channel
      - lsstcam-prompt-processing
+   * - Slack Alerts Channel
+     -
    * - Prod vCluster
      - usdf-prompt-processing
    * - Dev vCluster

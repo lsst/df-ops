@@ -17,13 +17,17 @@ During commissioning, Rubin will send data to a private, Rubin-only, submission 
    * - Application Grouping
      - Alert Production
    * - Operating Hours
-     -
+     - PDT Daytime
    * - Criticality Level
-     -
-   * - GitHub Repository
+     - Operational
+   * - GitHub Database Code Repository
      - https://github.com/slaclab/rubin-usdf-minor-planet-survey
-   * - Slack Support channel
+   * - GitHub Deployment Repository
+     - https://github.com/slaclab/rubin-usdf-minor-planet-survey
+   * - Slack Support Channel
      - ops-df-databases
+   * - Slack Alerts Channel
+     - ops-usdf-alerts
    * - Prod vCluster
      - usdf-minor-planet-survey
    * - Dev vCluster

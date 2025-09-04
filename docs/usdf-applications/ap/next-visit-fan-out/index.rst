@@ -18,11 +18,15 @@ Poll next visit events from Summit, duplicate them, and sends them to :doc:`../p
    * - Operating Hours
      - Observing
    * - Criticality Level
-     -
-   * - GitHub Repository
+     - Real Time
+   * - GitHub Application Code Repository
      - https://github.com/lsst-dm/next_visit_fan_out
-   * - Slack Support channel
+   * - GitHub Deployment Repository
+     - https://github.com/lsst-sqre/phalanx/tree/main/applications/next-visit-fan-out
+   * - Slack Support Channel
      - lsstcam-prompt-processing
+   * - Slack Alerts Channel
+     -
    * - Prod vCluster
      - usdf-prompt-processing
    * - Dev vCluster

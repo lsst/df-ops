@@ -20,9 +20,13 @@ API that provides an archive to Alert Stream schemas and alerts.
      - Daytime
    * - Criticality Level
      - Critical
-   * - GitHub Repository
+   * - GitHub Application Code Repository
      - https://github.com/lsst-dm/alert_database_server
-   * - Slack Support channel
+   * - GitHub Deployment Repository
+     - https://github.com/lsst-sqre/phalanx/tree/main/applications/alert-stream-broker
+   * - Slack Support Channel
+     -
+   * - Slack Alerts Channel
      -
    * - Prod vCluster
      -

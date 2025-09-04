@@ -20,11 +20,15 @@ The USDF replica is also setup as a publication and EPO in Google Cloud subscrib
    * - Operating Hours
      - 24x7
    * - Criticality Level
-     - Real-time
-   * - GitHub Repository
+     - Real Time
+   * - GitHub Database Code Repository
      - https://github.com/slaclab/rubin-usdf-minor-planet-survey
-   * - Slack Support channel
+   * - GitHub Deployment Repository
+     - https://github.com/slaclab/rubin-usdf-minor-planet-survey
+   * - Slack Support Channel
      - ops-df-databases
+   * - Slack Alerts Channel
+     - ops-usdf-alerts
    * - Prod vCluster
      - usdf-minor-planet-survey
    * - Dev vCluster
