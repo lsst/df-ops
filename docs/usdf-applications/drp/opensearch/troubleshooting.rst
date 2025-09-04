@@ -15,9 +15,9 @@ Known Issues
    * - Issue
      - Description
      - Workaround
-   * -
-     -
-     -
+   * - Upgrades blocked and version locked at OpenSearch 2.16.
+     - Upgrades were tried, but failed because OpenSearch checks all the certificates running on the system for any that are expired.  There were some expired host certificates so running OpenSearch failed and the upgrade had to be reverted.
+     - The only known workaround is to ensure all host certificates are not expired (including the certificates not used by OpenSearch), but is a risky to maintain.  There is an open issue and discussion with OpenSearch to hopefully resolve the requirement.
 
 Monitoring
 ==========
