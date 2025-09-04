@@ -13,14 +13,18 @@ Overview
    :widths: 25 50
 
    * - Application Grouping
-     - Data Release
+     - Data Release Production
    * - Operating Hours
      - 24x7
    * - Criticality Level
+     - Critical
+   * - GitHub Application Repository
      -
-   * - GitHub Repository
+   * - GitHub Deployment Repository
      -
-   * - Slack Support channel
+   * - Slack Support Channel
+     -
+   * - Slack Alerts Channel
      -
    * - Prod vCluster
      -

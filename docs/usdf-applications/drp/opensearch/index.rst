@@ -18,11 +18,13 @@ Overview
      -
    * - Criticality Level
      -
-   * - GitHub Repository
+   * - GitHub Application Code Repository
      -
-   * - Slack Support channel
+   * - GitHub Deployment Repository
      -
-   * - Slack Alerts channel
+   * - Slack Support Channel
+     -
+   * - Slack Alerts Channel
      -
    * - Prod vCluster
      -

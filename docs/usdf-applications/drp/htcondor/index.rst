@@ -18,9 +18,13 @@ Overview
      - 24x7
    * - Criticality Level
      - Critical
-   * - GitHub Repository
+   * - GitHub Application Repository
      -
-   * - Slack Support channel
+   * - GitHub Deployment Repository
+     -
+   * - Slack Support Channel
+     -
+   * - Slack Alerts Channel
      -
    * - Prod vCluster
      - Not applicable.  Installed on IANA nodes.
