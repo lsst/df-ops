@@ -22,9 +22,9 @@ Overview
      -
    * - GitHub Deployment Repository
      -
-   * - Slack Support channel
+   * - Slack Support Channel
      -
-   * - Slack Alerts channel
+   * - Slack Alerts Channel
      -
    * - Prod vCluster
      -
