@@ -1,5 +1,5 @@
 #############
-fox-quicklook
+fov-quicklook
 #############
 .. Replace heading with application name
 
