@@ -16,3 +16,4 @@ Alert Production
    ap/prompt-processing/index
    ap/prompt-redis/index
    ap/sattle/index
+   ap/tasso/index
