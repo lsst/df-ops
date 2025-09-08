@@ -1,6 +1,6 @@
-##################
-REPLACE - APP NAME
-##################
+################
+Butler Databases
+################
 .. Replace heading with application name
 
 Overview
@@ -22,10 +22,10 @@ Overview
      -
    * - GitHub Deployment Repository
      -
-   * - Slack Support Channel
-     -
-   * - Slack Alerts Channel
-     -
+   * - Slack Support channel
+     - ops-df-databases
+   * - Slack Alerts channel
+     - ops-usdf-alerts
    * - Prod vCluster
      -
    * - Dev vCluster

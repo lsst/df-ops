@@ -1,6 +1,6 @@
-##################
-REPLACE - APP NAME
-##################
+################
+Embargo Transfer
+################
 .. Replace heading with application name
 
 Overview
@@ -13,7 +13,7 @@ Overview
    :widths: 25 50
 
    * - Application Grouping
-     -
+     - Data Curation
    * - Operating Hours
      -
    * - Criticality Level
