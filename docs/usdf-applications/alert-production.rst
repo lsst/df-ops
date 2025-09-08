@@ -6,6 +6,7 @@ Alert Production
    :maxdepth: 1
 
    ap/alert-archive/index
+   ap/alert-distribution/index
    ap/minor-planet-center-replica/index
    ap/mpc-sandbox/index
    ap/mpsky/index
