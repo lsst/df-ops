@@ -8,6 +8,7 @@ Alert Production
    ap/alert-archive/index
    ap/alert-distribution/index
    ap/apdb/index
+   ap/butler-writer/index
    ap/minor-planet-center-replica/index
    ap/mpc-sandbox/index
    ap/mpsky/index
