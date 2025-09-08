@@ -12,3 +12,4 @@ Data Release Production
    drp/opensearch/index
    drp/panda/index
    drp/rucio/index
+   drp/rucio-butler-integration/index
