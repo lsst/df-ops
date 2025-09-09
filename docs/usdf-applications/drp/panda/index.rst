@@ -19,7 +19,7 @@ Overview
    * - Criticality Level
      - Critical
    * - GitHub Application Code Repository
-     -
+     - https://github.com/PanDAWMS
    * - GitHub Deployment Repository
      - https://github.com/slaclab/rubin-usdf-panda-deploy
    * - Slack Support Channel
