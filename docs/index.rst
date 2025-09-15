@@ -38,11 +38,11 @@ Documentation is for Rubin team members that are managing and support applicatio
 
       Information for application administrators on Data Facilities support and how to engage.
 
-   .. grid-item-card:: USDF Applications and Databases
+   .. grid-item-card:: USDF Services
       :link: usdf-applications/index
       :link-type: doc
 
-      Learn about applications and databases deployed at the USDF Data Facility.
+      Learn about services deployed at the USDF Data Facility.
 
    .. grid-item-card:: About
       :link: about/index
