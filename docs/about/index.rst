@@ -2,7 +2,7 @@
 About
 #####
 
-Resources about the Application Support Model at the USDF.
+Resources about the Service Support Model at the USDF.
 
 .. toctree::
    :maxdepth: 2

@@ -36,7 +36,7 @@ Documentation is for Rubin team members that are managing and support applicatio
       :link: admin/index
       :link-type: doc
 
-      Information for application administrators on Data Facilities support and how to engage.
+      Information for service administrators on Data Facilities support and how to engage.
 
    .. grid-item-card:: USDF Services
       :link: usdf-applications/index
@@ -48,5 +48,5 @@ Documentation is for Rubin team members that are managing and support applicatio
       :link: about/index
       :link-type: doc
 
-      Information about the Application Support Model.
+      Information about the Service Support Model.
 

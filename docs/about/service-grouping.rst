@@ -17,7 +17,7 @@ There are over fifty Rubin services comprised of applications and databases inst
    * - Data Release Production
      - Processing and creation of data releases
    * - Rubin Science Platform
-     - Science Platform applications deployed at the USDF
+     - Science Platform services deployed at the USDF
    * - Shared Stack
      - Management of the shared stack
    * - QA
