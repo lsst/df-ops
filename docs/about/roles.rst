@@ -2,12 +2,12 @@
 Roles
 #####
 
-Application Team Roles
+Service Team Roles
 ======================
 
-Each Rubin application will have the following roles defined in the table below to manage and operate the application.  A person can hold more than one role.
+Each Rubin service will have the following roles defined in the table below to manage and operate the service.  A person can hold more than one role.
 
-The roles are documented in Confluence `here <https://rubinobs.atlassian.net/wiki/spaces/LSSTOps/database/869499108?atl_f=PAGETREE>`__.  Views are available on the tabs to filter by the Application Grouping.
+The roles are documented in Confluence `here <https://rubinobs.atlassian.net/wiki/spaces/LSSTOps/database/869499108?atl_f=PAGETREE>`__.  Views are available on the tabs to filter by the Service Grouping.
 
 .. list-table:: Application Roles
    :widths: 25 25
@@ -15,16 +15,16 @@ The roles are documented in Confluence `here <https://rubinobs.atlassian.net/wik
 
    * - Role
      - Responsibilities
-   * - Application Sponsor
-     - Responsible for assigning resources.  This person is an Ops Team Leader or designate.
-   * - Application Owner
-     - Responsible for the overall application functionality, data, and user experience.  Similar to a product owner.
+   * - Service Sponsor
+     - Responsible for allocating staff to work on the service.  This person is an Ops Team Leader or designate.
+   * - Service Owner
+     - Responsible for the overall service functionality, data, and user experience.  Similar to a product owner.
    * - Database Administrator
      - Responsible the database’s design, performance, security, and maintenance.  Absent if no database.
-   * - Application Infrastructure
+   * - Service Infrastructure
      - Responsible for the infrastructure configuration, deployment, and routine maintenance
    * - Operations Support
-     - Responsible for the support of the application.  Handles alerts, application monitoring, application incident response
+     - Responsible for the support of the service.  Handles alerts, monitoring, incident response
    * - Documentation Lead
      - Ensures all documentation is created and up to date.
 
@@ -44,4 +44,4 @@ Below are the roles and responsibilities for the SLAC and Rubin Infrastructure t
    * - Applications and Users (Virtual)
      - Responsible for the virtual infrastructure, Kubernetes cluster, vClusters and Kubernetes Weka Storage.  The DBA is on this team and is responsible for Butler and providing subject matter expertise to help the App DBAs.
    * - Astro Domain / Rubin Specific
-     - Understanding Science Operations, Teams, and Roles.  They may also be application owners.
+     - Understanding Science Operations, Teams, and Roles.  They may also be service owners.

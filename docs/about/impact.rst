@@ -13,7 +13,7 @@ Below are the impact levels that will be used to prioritize incident response.  
      - Response Time
      - Resolution Targets
    * - High
-     - Blocks production for Real Time or Critical application
+     - Blocks production for Real Time or Critical Service
      - ASAP during working hours
      - ASAP, requires working (within working hours) until fixed
    * - Medium
