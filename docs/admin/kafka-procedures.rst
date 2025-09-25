@@ -29,8 +29,9 @@ The Kafka upgrade process in Phalanx is detailed below.
 
     .. code-block:: yaml
 
-        kafka:
-            version: "3.9.0"
+       kafka:
+           version: "3.9.0"
+
 #. Deploy the change as a pull request to Phalanx.  When changes are committed run *Refresh* the ArgoCD app for your Kafka instance in Phalanx and *Sync*.
 
 .. _Restart Kafka:
@@ -76,41 +77,40 @@ Add or Remove Kafka Cluster to Strimzi Operator
 
 Each time a new Kafka instance is added or removed the ``watchNamespaces`` configuration in Strimzi should be updated.  Below shows an example from the S3-File-Notifications Phalanx Strimzi app.  Follow the normal Phalanx and ArgoCD process to perform a pull request, *Refresh*, and *Sync* changes to apply.
 
-    .. rst-class:: technote-wide-content
+.. rst-class:: technote-wide-content
 
-    .. code-block:: yaml
+.. code-block:: yaml
 
-       watchNamespaces:
-         - "prompt-kafka"
-         - "s3-file-notifications"
+    watchNamespaces:
+        - "prompt-kafka"
+        - "s3-file-notifications"
 
 Reserving Static IP Addresses
 =============================
 
 Once a Kafka cluster is provisioned service IP Addresses are assigned. Obtain these IPs with ``kubectl get services -n <replace with namespace of cluster>``.  Add the ``loadBalancerIP`` fields to the values file in the Phalanx for the bootstrap and the brokers.  An example is below.
 
+.. rst-class:: technote-wide-content
 
-    .. rst-class:: technote-wide-content
+.. code-block:: yaml
 
-    .. code-block:: yaml
-
-        externalListener:
-        bootstrap:
-            loadBalancerIP: 172.24.10.50
-            annotations:
+    externalListener:
+    bootstrap:
+        loadBalancerIP: 172.24.10.50
+        annotations:
+        metallb.io/address-pool: sdf-rubin-ingest
+    brokers:
+        - broker: 3
+        loadBalancerIP: 172.24.10.51
+        annotations:
             metallb.io/address-pool: sdf-rubin-ingest
-        brokers:
-            - broker: 3
-            loadBalancerIP: 172.24.10.51
-            annotations:
-                metallb.io/address-pool: sdf-rubin-ingest
-            - broker: 4
-            loadBalancerIP: 172.24.10.52
-            annotations:
-                metallb.io/address-pool: sdf-rubin-ingest
-            - broker: 5
-            loadBalancerIP: 172.24.10.53
-            annotations:
-                metallb.io/address-pool: sdf-rubin-ingest
+        - broker: 4
+        loadBalancerIP: 172.24.10.52
+        annotations:
+            metallb.io/address-pool: sdf-rubin-ingest
+        - broker: 5
+        loadBalancerIP: 172.24.10.53
+        annotations:
+            metallb.io/address-pool: sdf-rubin-ingest
 
 .. _latest version of the operator: https://strimzi.io/downloads/

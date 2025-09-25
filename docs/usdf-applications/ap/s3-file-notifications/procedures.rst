@@ -67,3 +67,13 @@ Creating File Notifications
 ===========================
 
 The ``rubin-pp-dev`` bucket is used in Prompt Processing Dev.  The ``rubin-summit`` bucket is used for Prompt Processing Prod.  To create run the commands in the shell scripts at https://github.com/slaclab/usdf-embargo-deploy/blob/main/bucket-notifications/
+
+Upgrading Kafka
+===============
+
+See :ref:`Upgrading Kafka`
+
+Upgrading Strimzi Operator
+==========================
+
+See :ref:`Upgrading Strimzi Operator`
