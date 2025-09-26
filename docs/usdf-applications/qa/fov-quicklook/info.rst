@@ -6,6 +6,8 @@ Architecture
 ============
 .. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
 
+Users login into the front end to access images.  Gafaelfawr Ingress is used for authentication.  Images are accessed from the ``rubin-summit`` bucket.  An image metadata cache is stored in a Postgres database in the fov-quicklook namespace.  No pixel data is stored in the database.
+
 Architecture Diagram
 ====================
 .. Include architecture diagram of the application either as a mermaid chart or a picture of the diagram.
@@ -13,6 +15,8 @@ Architecture Diagram
 Associated Systems
 ==================
 .. Describe other applications are associated with this applications.
+
+Butler Embargo and Main.
 
 Configuration Location
 ======================
@@ -25,11 +29,11 @@ Configuration Location
    * - Config Area
      - Location
    * - Configuration
-     -
+     - https://github.com/lsst-sqre/phalanx/tree/main/applications/fov-quicklook
    * - Vault Secrets Dev
-     -
+     - secret/rubin/usdf-rsp-dev/fov-quicklook
    * - Vault Secrets Prod
-     -
+     - secret/rubin/usdf-rsp/fov-quicklook
 
 Data Flow
 =========
@@ -38,6 +42,9 @@ Data Flow
 Dependencies - S3DF
 ===================
 .. Dependencies at USDF include Ceph, Weka Storage, Butler Database, LDAP, other Rubin applications, etc..  This can be none.
+
+* Embargo S3.   Images in the ``rubin-summit`` bucket.
+* Butler Embargo and Main
 
 Dependencies - External
 =======================
