@@ -9,6 +9,8 @@ Resources for application infrastructure administrators working at the USDF.
 
    cnpg-procedures
    cnpg-troubleshooting
+   kafka-procedures
+   kafka-troubleshooting
    k8s-procedures
    k8s-troubleshooting
    usdf-procedures
