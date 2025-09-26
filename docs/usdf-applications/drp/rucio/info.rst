@@ -6,6 +6,11 @@ Architecture
 ============
 .. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
 
+A Postgres database is deployed in the rucio-db-16b namespace.
+
+The ``rucio-kafka`` Kafka Cluster is deployed in the Rucio vClusters.  The Rucio-Butler integration uses this to ingest files into Butler.  Kafka MirrorMaker is deployed at the UK and France Data Facilities to synchronize Kafka messages and ingest files locally in each Data Facility into Butler.  To allow this connectivity ``rucio-kafka`` is configured with external IP Addresses on the external bootstrap and brokers.
+
+
 Architecture Diagram
 ====================
 .. Include architecture diagram of the application either as a mermaid chart or a picture of the diagram.
@@ -25,11 +30,11 @@ Configuration Location
    * - Config Area
      - Location
    * - Configuration
-     -
+     - https://github.com/slaclab/rubin-rucio-deploy/tree/main/overlays
    * - Vault Secrets Dev
-     -
+     - secret/rubin/usdf-rucio-dev
    * - Vault Secrets Prod
-     -
+     - secret/rubin/usdf-rucio
 
 Data Flow
 =========

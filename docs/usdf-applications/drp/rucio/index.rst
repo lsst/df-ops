@@ -6,21 +6,23 @@ Overview
 ========
 .. Include short summary of application, service, or database
 
+Rucio moves files for multi-site processing with the UK and France Data Facilities.
+
 .. Include Application Grouping, Operating Hours (24x7, PST daytime, or observing), Criticality Level, a link to the GitHub repository, and Slack channel used for support of the application.
 
 .. list-table::
    :widths: 25 50
 
-   * - Application Grouping
+   * - Service Grouping
      - Data Release Production
    * - Operating Hours
      - 24x7
-   * - Criticality Level
+   * - Service Tier
      - Critical
    * - GitHub Application Code Repository
      -
    * - GitHub Deployment Repository
-     -
+     - https://github.com/slaclab/rubin-rucio-deploy
    * - Slack Support Channel
      - df-data-movement
    * - Slack Alerts Channel
