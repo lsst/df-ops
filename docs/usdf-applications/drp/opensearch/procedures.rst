@@ -9,10 +9,13 @@ Deployment
 .. Deployment process for the application.  Included upgrades and rollback procedures
 
 Deployment is with a Makefile at https://github.com/slaclab/rubin-opensearch-deploy
+Changes made to the configuration or resource requests are made on the GitHub repository and deployed with the Makefile. This should only be done during a maintenance window.
 
 Maintenance
 ===========
 .. Maintenance tasks. How maintenance is communicated and carried out.
+
+Maintenance is infrequent and typically only for upgrades.  Maintenance is communicated through the rubinobs-opensearch Slack channel.
 
 Backup
 ======
