@@ -18,6 +18,16 @@ Known Issues
      - Logical Replication do not work though the pooler.  The pooler cannot process the replication commands.
      - Configure Kubernetes Service to connect directly to the database.  Poolers can still be configured for application and user connections to the database.
 
+How to access Postgresql pg_stat_activity and pg_stat_statements
+================================
+Postgres has many internval views that show how Postgres is running at the moment. Among them, pg_stat_activity and pg_stat_statements are 
+two of the most important. 
+However Postgresql doesn't automatically save the history of these views, so 2 deployments(${DB}-snap-activity and ${DB}-snap-statement) were running to
+populate them into snapshot tables pg_stat_activity_snap, pg_stat_statements_snap and loki(`here<https://grafana.slac.stanford.edu/explore?schemaVersion=1&panes=%7B%22liv%22:%7B%22datasource%22:%223NYPBf44k%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22expr%22:%22%7Bnamespace%3D%5C%22vcluster--usdf-butler-main%5C%22,%20pod%3D%5C%22main-db-snap-activity-57655ffbf9-5kw4d-x-main-prod-x-c54ee72dc0%5C%22%7D%22,%22queryType%22:%22range%22,%22datasource%22:%7B%22type%22:%22loki%22,%22uid%22:%223NYPBf44k%22%7D,%22editorMode%22:%22builder%22%7D%5D,%22range%22:%7B%22from%22:%22now-1h%22,%22to%22:%22now%22%7D%7D%7D&orgId=1>` and `here<https://grafana.slac.stanford.edu/explore?schemaVersion=1&panes=%7B%22liv%22:%7B%22datasource%22:%223NYPBf44k%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22expr%22:%22%7Bnamespace%3D%5C%22vcluster--usdf-butler-main%5C%22,%20pod%3D%5C%22main-db-snap-statement-696579b645-vg6wf-x-main-prod--1c3e277031%5C%22%7D%22,%22queryType%22:%22range%22,%22datasource%22:%7B%22type%22:%22loki%22,%22uid%22:%223NYPBf44k%22%7D,%22editorMode%22:%22builder%22%7D%5D,%22range%22:%7B%22from%22:%22now-1h%22,%22to%22:%22now%22%7D%7D%7D&orgId=1>`).
+
+pg_stat_activity shows what query and lock is experiencing at the moment. 
+pg_stat_statements shows what kind of queries have run and their stats since last reset.
+
 Identifying Blocked Transactions
 ================================
 
