@@ -7,4 +7,5 @@ Data Curation
 
    curation/butler-databases/index
    curation/embargo-transfer/index
+   curation/lfa-replication/index
    curation/manual-unembargo.rst
