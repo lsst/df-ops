@@ -7,3 +7,4 @@ Rubin Science Platform
 
    rsp/qserv/index
    rsp/rsp/index
+   rsp/s3proxy/index
