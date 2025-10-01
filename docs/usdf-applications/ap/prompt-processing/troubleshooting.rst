@@ -54,6 +54,15 @@ Monitoring
 ==========
 .. Describe how to monitor application and include relevant links.
 
+`Prompt Processing Production Overview <https://grafana.slac.stanford.edu/d/feifuf82d6tj4f/prompt-processing-production-overview?orgId=1&from=now-6h&to=now&timezone=browser&var-instrument=lsstcam&var-alertstream=lsst-alerts-.%2B>`__
+
+`Prompt Processing Production output <https://grafana.slac.stanford.edu/d/nk1zxv84z/prompt-processing-production-output?orgId=1&from=now-6h&to=now&timezone=browser&var-instrument=lsstcam&var-pod=$__all&var-level=$__all>`__
+
+`Prompt Processing Production I/O timing <https://grafana.slac.stanford.edu/d/eeimq740rdgjkf/prompt-processing-production-i-o-timing?orgId=1&from=now-6h&to=now&timezone=browser&var-instrument=lsstcam>`__
+
+`Prompt Processing Production statistics <https://grafana.slac.stanford.edu/d/c0a9c6d3-4ea8-452d-bb91-962304c1b0d2/prompt-processing-production-statistics?orgId=1&from=now-7d&to=now&timezone=browser&var-instrument=lsstcam&var-interval=1h>`__
+
+
 Sample Troubleshooting
 ======================
 .. Template to use for troubleshooting
