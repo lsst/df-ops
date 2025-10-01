@@ -101,6 +101,18 @@ To delete all the events in a Redis stream the ``DEL`` command can be used. Belo
 
    OK
 
+Viewing Number of Messages in a Stream
+======================================
+
+To view the number of messages in a Redis Stream use the ``XLEN`` command followed by the key.  Below is an example.
+
+.. rst-class:: technote-wide-content
+
+.. code-block:: text
+
+   127.0.0.1:6379> XLEN instrument:lsstcam
+   (integer) 23961
+
 Viewing Message Statistics
 ==========================
 Prompt Processing is configured to ignore messages that have already been read by another consumer. To view messages statistics for a consumer group enter ``XINFO GROUPS <consumer_group_name>`` with the :ref:`Redis Command Line`. An example below with the LSSTCam consumer group. The lag is 9 so 9 messages have not been acknowledged. To manually clear these messages see the Clear Redis Stream section.
@@ -138,4 +150,4 @@ To upgrade the Redis perform the following.
 
 Restarting Redis
 ========================
-To restart the keda operator run ``kubectl rollout restart statefulset prompt-redis -n prompt-redis``
+To restart redis run ``kubectl rollout restart statefulset prompt-redis -n prompt-redis``
