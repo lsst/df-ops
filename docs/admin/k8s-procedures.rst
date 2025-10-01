@@ -88,12 +88,12 @@ For outbound access a proxy server needs to be set.  Add the below environment v
 
 .. code-block:: yaml
 
-    - name: "HTTP_PROXY"
-    value: "http://squid.slac.stanford.edu:3128"
-    - name: "HTTPS_PROXY"
-    value: "http://squid.slac.stanford.edu:3128"
-    - name: "NO_PROXY"
-    value: "127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.cluster.local,argocd-repo-server,.stanford.edu,.slac.stanford.edu,.sdf.slac.stanford.edu"
+    - name: HTTP_PROXY
+        value: http://sdfproxy.sdf.slac.stanford.edu:3128
+    - name: HTTPS_PROXY
+        value: http://sdfproxy.sdf.slac.stanford.edu:3128
+    - name: NO_PROXY
+        value: localhost,127.0.0.1,::1,10.0.0.0/8,192.168.0.0/16,134.79.0.0/16,172.16.0.0/12,.slac.stanford.edu,.sdf.slac.stanford.edu
 
 
 Setting Kubernetes Resources and Requests
