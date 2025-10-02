@@ -6,6 +6,7 @@ Data Curation
    :maxdepth: 1
 
    curation/butler-databases/index
+   curation/dp03-postgres/index
    curation/embargo-transfer/index
    curation/lfa-replication/index
    curation/manual-unembargo.rst
