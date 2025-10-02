@@ -18,11 +18,13 @@ Backup
 ======
 .. Procedures for backup including how to verify backups.
 
+No backup needed.
+
 Cold Startup
 ============
 .. Steps if needed to recover application after downtime or disaster.
 
-Validate that prompt-kafka is running for receiving file notifications.
+Validate that s3-file-notifications Kafka cluster is running for receiving file notifications.
 
 Cold Shutdown
 =============
