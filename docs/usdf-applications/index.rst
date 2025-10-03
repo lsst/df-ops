@@ -10,6 +10,7 @@ Below are the groupings for Rubin services deployed at the USDF.
    alert-production
    data-curation
    data-release-production
+   monitoring
+   quality-assurance
    rubin-science-platform
    shared-stack
-   quality-assurance
