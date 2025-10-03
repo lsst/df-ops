@@ -16,9 +16,11 @@ There are over fifty Rubin services comprised of applications and databases inst
      - Dataset management and transfers
    * - Data Release Production
      - Processing and creation of data releases
+   * - Monitoring and Telemetry
+     - Rubin monitoring and telemetry application and data services
+   * - QA
+     - Validation and verification of Observatory operations
    * - Rubin Science Platform
      - Science Platform services deployed at the USDF
    * - Shared Stack
      - Management of the shared stack
-   * - QA
-     - Validation and verification of Camera operations
