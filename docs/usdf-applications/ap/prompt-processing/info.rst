@@ -28,6 +28,10 @@ Architecture Diagram
 ====================
 .. Include architecture diagram of the application either as a mermaid chart or a picture of the diagram.
 
+.. image:: Prompt-Processing-Framework.png
+   :width: 2000
+   :alt: Prompt Processing Framework
+
 .. _prompt_processing_associated_systems:
 
 Associated Systems
