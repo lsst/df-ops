@@ -1,13 +1,13 @@
-#########################
-Metric Analysis Framework
-#########################
+###################
+Schedview Snapshots
+###################
 .. Replace heading with application name
 
 Overview
 ========
 .. Include short summary of application, service, or database
 
-Helping simulate and evaluate the performance of Rubin C. Observatory’s Legacy Survey of Space and Time (the LSST), through evaluating prototypes of various analysis, simulating photometry and providing a framework for analyzing survey strategy progress and outcomes.
+Web interface for the the state of the scheduler.  Data is from the Large Fine Annex and EFD.  Used by scheduling team.
 
 .. Include Application Grouping, Operating Hours (24x7, PST daytime, or observing), Criticality Level, a link to the GitHub repository, and Slack channel used for support of the application.
 
@@ -19,19 +19,21 @@ Helping simulate and evaluate the performance of Rubin C. Observatory’s Legacy
    * - Operating Hours
      - 24x7
    * - Service Tier
-     - Operational
+     -
    * - GitHub Application Code Repository
-     - https://github.com/lsst/rubin_sim
+     - https://github.com/lsst/schedview
    * - GitHub Deployment Repository
-     - https://github.com/slaclab/usdf-maf-deploy
+     - https://github.com/lsst-sqre/phalanx/tree/main/applications/schedview-snapshot
    * - Slack Support Channel
      -
    * - Slack Alerts Channel
      -
    * - Prod vCluster
-     - usdf-maf
+     -
+   * - Int vCluster
+     - usdf-rsp-int
    * - Dev vCluster
-     - N/A
+     - usdf-rsp-dev
 
 .. toctree::
    :maxdepth: 2

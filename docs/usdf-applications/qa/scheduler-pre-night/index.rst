@@ -1,13 +1,13 @@
-#########################
-Metric Analysis Framework
-#########################
+###################
+Scheduler Pre-Night
+###################
 .. Replace heading with application name
 
 Overview
 ========
 .. Include short summary of application, service, or database
 
-Helping simulate and evaluate the performance of Rubin C. Observatory’s Legacy Survey of Space and Time (the LSST), through evaluating prototypes of various analysis, simulating photometry and providing a framework for analyzing survey strategy progress and outcomes.
+A cronjob that runs submits SLURM batch jobs to generate static HTML pages, a S3 bucket which contains the results of simulations, a nginx server that serves HTML pages, and a Postgres database called obs_log.
 
 .. Include Application Grouping, Operating Hours (24x7, PST daytime, or observing), Criticality Level, a link to the GitHub repository, and Slack channel used for support of the application.
 
@@ -19,19 +19,19 @@ Helping simulate and evaluate the performance of Rubin C. Observatory’s Legacy
    * - Operating Hours
      - 24x7
    * - Service Tier
-     - Operational
+     -
    * - GitHub Application Code Repository
-     - https://github.com/lsst/rubin_sim
+     -
    * - GitHub Deployment Repository
-     - https://github.com/slaclab/usdf-maf-deploy
+     -
    * - Slack Support Channel
      -
    * - Slack Alerts Channel
      -
    * - Prod vCluster
-     - usdf-maf
+     -
    * - Dev vCluster
-     - N/A
+     -
 
 .. toctree::
    :maxdepth: 2

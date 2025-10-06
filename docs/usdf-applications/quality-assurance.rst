@@ -11,4 +11,7 @@ Quality Assurance
    qa/maf/index
    qa/plot-navigator/index
    qa/rubintv/index
+   qa/scheduler-pre-night/index
+   qa/schedview-snapshots/index
+   qa/schedview-static-pages/index
    qa/summit-db-replica/index
