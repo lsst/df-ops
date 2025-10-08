@@ -9,6 +9,7 @@ Quality Assurance
    qa/exposure-checker/index
    qa/fov-quicklook/index
    qa/maf/index
+   qa/obsloctap/index
    qa/plot-navigator/index
    qa/rapid-analysis/index
    qa/rubintv/index
