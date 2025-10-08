@@ -14,11 +14,11 @@ Web interface for browsing plots from analysis_tools.
 .. list-table::
    :widths: 25 50
 
-   * - Application Grouping
+   * - Service Grouping
      - QA
    * - Operating Hours
-     -
-   * - Criticality Level
+     - 24x7
+   * - Service Tier
      -
    * - GitHub Application Code Repository
      - https://github.com/lsst-dm/plot-navigator
@@ -30,6 +30,8 @@ Web interface for browsing plots from analysis_tools.
      -
    * - Prod vCluster
      - usdf-rsp
+   * - Int vCluster
+     - usdf-int
    * - Dev vCluster
      - usdf-rsp-dev
 
