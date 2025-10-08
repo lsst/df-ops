@@ -10,7 +10,6 @@ Service accounts
 ================
 .. Describe Kubernetes, Database, or Application Service accounts used by the application.
 
-No Kubernetes service accounts.
 
 Security Incident Response
 ==========================

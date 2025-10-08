@@ -10,6 +10,7 @@ Quality Assurance
    qa/fov-quicklook/index
    qa/maf/index
    qa/plot-navigator/index
+   qa/rapid-analysis/index
    qa/rubintv/index
    qa/scheduler-pre-night/index
    qa/schedview-snapshots/index

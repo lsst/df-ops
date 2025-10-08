@@ -25,9 +25,9 @@ Configuration Location
    * - Config Area
      - Location
    * - Configuration
-     - https://github.com/lsst-sqre/phalanx/tree/main/applications/exposure-checker
+     -
    * - Vault Secrets Dev
-     - secret/rubin/usdf-rsp-dev/exposure-checker
+     -
    * - Vault Secrets Prod
      -
 
