@@ -12,6 +12,6 @@ If you are a service documentation lead, please feel free to update your service
 
 If you are service operational support, please feel free to update the service documentation without requesting review from USDF personnel. Consider checking in with the relevant documentation lead for best practices or review.
 
-If you are a service user, please request review from the relevant service documentation prior to any merge.
+If you are a service user, please request review from the relevant service documentation lead prior to any merge.
 
 If you are editing a non-service specific page and the change is significant, please request review either directly from any appropriate parties or through the #usdf-support Slack channel prior to any merge.
