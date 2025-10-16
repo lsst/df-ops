@@ -6,3 +6,4 @@ Monitoring and Telemetry
    :maxdepth: 1
 
    monitoring/obsloctap/index
+   monitoring/sasquatch/index
