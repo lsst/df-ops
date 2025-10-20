@@ -60,6 +60,7 @@ Dependencies - External
 .. Dependencies on systems external to S3DF including in US DAC, France or UK DF, or other external systems.  This can be none.
 
 * LHN Connection to the Summit
+* Pipeline metrics from France and UK DFs
 
 Disaster Recovery
 =================
