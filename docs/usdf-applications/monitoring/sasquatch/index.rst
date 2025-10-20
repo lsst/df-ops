@@ -27,7 +27,7 @@ Sasquatch is the Rubin Observatory’s service for metrics and telemetry data.  
    * - Slack Support Channel
      - sasquatch-support
    * - Slack Alerts Channel
-     -
+     - status-efd
    * - Prod vCluster
      - usdf-rsp
    * - Int vCluster
