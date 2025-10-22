@@ -11,9 +11,9 @@ Deployment
 ==========
 .. Deployment process for the application.  Included upgrades and rollback procedures
 
-Deployment of a new Cassandra cluster consiste of defining a set of parameters for the new instance.
+Deployment of a new Cassandra cluster consists of defining a set of parameters for the new instance.
 This is done by adding a new group to ``group_vars`` folder and a new inventory YAML file.
-Additionnaly new secrets need to be setup in the Vault for both a standard user account and superuser account.
+Additionally new secrets need to be setup in the Vault for both a standard user account and superuser account.
 Once the group and inventory are defined one needs to run a series of ansible roleplays to configure remote systems and brign up all services.
 
 Maintenance
