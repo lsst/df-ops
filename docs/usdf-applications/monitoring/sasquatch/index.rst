@@ -7,7 +7,7 @@ Overview
 ========
 .. Include short summary of application, service, or database
 
-Sasquatch is the Rubin Observatory’s service for metrics and telemetry data.  Sasquatch is built on Kafka and InfluxDB and provides collecting, storing, and querying of time-series data.  This instance has EFD data replicated in real-time from the Summit.
+Sasquatch is the Rubin Observatory’s service for metrics and telemetry data.  Sasquatch is built on Kafka and InfluxDB Enterprise and provides collecting, storing, and querying of time-series data.  This instance has EFD data replicated in real-time from the Summit.
 
 .. Include Application Grouping, Operating Hours (24x7, PST daytime, or observing), Criticality Level, a link to the GitHub repository, and Slack channel used for support of the application.
 

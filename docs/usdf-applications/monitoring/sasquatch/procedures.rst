@@ -33,3 +33,8 @@ Cold Shutdown
 Reproduce Service
 =================
 .. How to reproduce service for testing purposes.
+
+Open Support Ticket with InfluxData
+===================================
+
+InfluxDB Enterprise from InfluxData is installed at the USDF.  Support is provided with InfluxData.  A support account is needed with InfluxData.  Here is the link to open a `support ticket <https://support.influxdata.com/s/>`__.
