@@ -22,5 +22,8 @@ ignore = [
     "^https://s3df.slac.stanford.edu",
     "^https://usdf-rsp.slac.stanford.edu",
     "^https://github.com",
-    "^https://wiki.postgresql.org/wiki/Lock_Monitoring"
+    "^https://wiki.postgresql.org/wiki/Lock_Monitoring",
+    "^https://kubernetes.io",
+    "^https://support.influxdata.com",
+    "^https://strimzi.io"
 ]
