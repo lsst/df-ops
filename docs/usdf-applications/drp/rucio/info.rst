@@ -5,6 +5,8 @@ Application Information
 Architecture
 ============
 .. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
+* Postgres via CloudNativePG
+* Kafka via Strimzi
 
 A Postgres database is deployed in the rucio-db-16b namespace.
 
@@ -18,6 +20,9 @@ Architecture Diagram
 Associated Systems
 ==================
 .. Describe other applications are associated with this applications.
+* FTS3
+* Cloud Native PG: Postgres Operator
+* Strmzi: Kafka Operator
 
 Configuration Location
 ======================
@@ -30,11 +35,11 @@ Configuration Location
    * - Config Area
      - Location
    * - Configuration
-     - https://github.com/slaclab/rubin-rucio-deploy/tree/main/overlays
+     - https://github.com/slaclab/rubin-rucio-deploy
    * - Vault Secrets Dev
-     - secret/rubin/usdf-rucio-dev
+     - `secret/rubin/usdf-rucio-dev`
    * - Vault Secrets Prod
-     - secret/rubin/usdf-rucio
+     - `secret/rubin/usdf-rucio`
 
 Data Flow
 =========
@@ -43,6 +48,7 @@ Data Flow
 Dependencies - S3DF
 ===================
 .. Dependencies at USDF include Ceph, Weka Storage, Butler Database, LDAP, other Rubin applications, etc..  This can be none.
+* Weka Storage
 
 Dependencies - External
 =======================
