@@ -12,8 +12,7 @@ Credentials files
 
 - ``$HOME/.lsst/postgres-credentials.txt`` contains the credentials to access viarious Butler Postgres DBs. This file should contain credential to read the ``embargo`` bulter DB and read/write to the ``prompt_prep`` butler DB.
 - If you have a ``$HOME/.lsst/db-auth.yaml`` file. rename it to something else.
-- ``$HOME/.mc/config.json`` contains the credentials to access viarious Ceph Object Storage, e.g Rubin embargo s3
-  (in many case, ca
+- ``$HOME/.mc/config.json`` contains the credentials to access viarious Ceph Object Storage, e.g Rubin embargo s3.
 - You should also have the filesystem write permission to ``/sdf/group/rubin/repo/prompt_prep``.
 
 Setup environment
@@ -32,10 +31,10 @@ Login to rubin-devl and run
    source /sdf/group/rubin/sw/w_latest/loadLSST.sh
    setup obs_lsst
 
-(The first five ``source`` commands are probably already in your ``$HOME/.profile.d``)
+The first five ``source`` commands are probably already in your ``$HOME/.profile.d``.
 Afte this setup, you should have to following envionment variables defined:
 
-- ``PGUSER=rubin```
+- ``PGUSER=rubin``
 - ``PGPASSFILE=$HOME/.lsst/postgres-credentials.txt``
 - ``DAF_BUTLER_REPOSITORY_INDEX=/sdf/group/rubin/shared/data-repos.yaml``. This file list all the aliases of
   Rubin Butlers.
@@ -64,7 +63,7 @@ The output should look like:
     LSSTCam/prompt/output-2025-11-01/Isr-cal/pipelines-682fa38-config-8f017ea                RUN
     LSSTCam/prompt/output-2025-11-01/Isr/pipelines-682fa38-config-8f017ea                    RUN
 
-``LSSTCam/prompt/output-2025-11-01`` is a CHAIN collection. It contains six RUN collections.These RUN
+``LSSTCam/prompt/output-2025-11-01`` is a CHAIN collection. It contains six RUN collections. These RUN
 collections contain the actual prompt products that we will need to unembargo
 
 Each of the RUN collection contains a number of datasets, ranging from a few to many. To see how many
