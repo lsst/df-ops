@@ -79,7 +79,7 @@ Unembargo prompt products
 =========================
 
 LSST-DM's transfer_embargo repo contains tools that we can use to unembargo these prompt products. The source
-butler is ``embargo`` and the destinatino butler is ``prompt_prep``. Follow
+butler is ``embargo`` and the destination butler is ``prompt_prep``. Follow
 the following steps to checkout the tool and prepare to run it.
 
 - ``git clone https://github.com/sst-dm/transfer_embargo``
@@ -120,6 +120,30 @@ Use the following command to remove the RUN collections
 
 .. code-block:: bash
 
-  butler prune-datasets --where "instrument='LSSTCam' AND day_obs=20251101" --purge --dry-run <a-RUN-collection> embargo
-  or should we use
   butler remove-runs embargo <a-RUN-collection> ???
+
+<do we need to delete the empty CHAIN collections in ``embargo``?>
+
+Recreate the CHAIN collection
+=============================
+
+<is this step needed, who should do it?>
+
+Recreate the CHAIN collection in ``prompt_prep`` using the following commando
+
+.. code-block:: bash
+
+  butler collection-chain prompt_prep LSSTCam/prompt/output-2025-11-01 \
+  LSSTCam/prompt/output-2025-11-01/NoPipeline/pipelines-682fa38-config-8f017ea,\
+  LSSTCam/prompt/output-2025-11-01/Preprocessing-noForced/pipelines-682fa38-config-8f017ea,\
+  LSSTCam/prompt/output-2025-11-01/SingleFrame/pipelines-682fa38-config-8f017ea,\
+  LSSTCam/prompt/output-2025-11-01/ApPipe-noForced/pipelines-682fa38-config-8f017ea,\
+  LSSTCam/prompt/output-2025-11-01/Isr-cal/pipelines-682fa38-config-8f017ea,\
+  LSSTCam/prompt/output-2025-11-01/Isr/pipelines-682fa38-config-8f017ea
+
+Note:
+
+- The last parameter is a comma-separated list of all the RUN collections in the CHAIN collection. It is a
+  single parameter, so there should be no space after the commas.
+- In a CHAIN collection, the order of the RUN collections matters. The order should be the same
+  as the one shown by the ``butler query-collections embargo LSSTCam/prompt/output-2025-11-01`` command above. 
