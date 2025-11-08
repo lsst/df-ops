@@ -13,7 +13,7 @@ Credentials files
 - ``$HOME/.lsst/postgres-credentials.txt`` contains the credentials to access viarious Butler Postgres DBs. This file should contain credential to read the ``embargo`` bulter DB and read/write to the ``prompt_prep`` butler DB.
 - If you have a ``$HOME/.lsst/db-auth.yaml`` file. rename it to something else.
 - ``$HOME/.mc/config.json`` contains the credentials to access viarious Ceph Object Storage, e.g Rubin embargo s3
-  (in many case, ca 
+  (in many case, ca
 - You should also have the filesystem write permission to ``/sdf/group/rubin/repo/prompt_prep``.
 
 Setup environment
@@ -37,7 +37,7 @@ Afte this setup, you should have to following envionment variables defined:
 
 - ``PGUSER=rubin```
 - ``PGPASSFILE=$HOME/.lsst/postgres-credentials.txt``
-- ``DAF_BUTLER_REPOSITORY_INDEX=/sdf/group/rubin/shared/data-repos.yaml``. This file list all the aliases of 
+- ``DAF_BUTLER_REPOSITORY_INDEX=/sdf/group/rubin/shared/data-repos.yaml``. This file list all the aliases of
   Rubin Butlers.
 
 Check the prompt products to unembargo
@@ -52,22 +52,22 @@ command to see prompt products collection in the ``embargo`` Butler for that day
 
 The output should look like:
 
-.. code-block:: 
+.. code-block::
 
-                                           Name                                              Type 
+                                           Name                                              Type
   ------------------------------------------------------------------------------------------ -------
   LSSTCam/prompt/output-2025-11-01                                                           CHAINED
-    LSSTCam/prompt/output-2025-11-01/NoPipeline/pipelines-682fa38-config-8f017ea             RUN    
-    LSSTCam/prompt/output-2025-11-01/Preprocessing-noForced/pipelines-682fa38-config-8f017ea RUN    
-    LSSTCam/prompt/output-2025-11-01/SingleFrame/pipelines-682fa38-config-8f017ea            RUN    
-    LSSTCam/prompt/output-2025-11-01/ApPipe-noForced/pipelines-682fa38-config-8f017ea        RUN    
-    LSSTCam/prompt/output-2025-11-01/Isr-cal/pipelines-682fa38-config-8f017ea                RUN    
-    LSSTCam/prompt/output-2025-11-01/Isr/pipelines-682fa38-config-8f017ea                    RUN  
+    LSSTCam/prompt/output-2025-11-01/NoPipeline/pipelines-682fa38-config-8f017ea             RUN
+    LSSTCam/prompt/output-2025-11-01/Preprocessing-noForced/pipelines-682fa38-config-8f017ea RUN
+    LSSTCam/prompt/output-2025-11-01/SingleFrame/pipelines-682fa38-config-8f017ea            RUN
+    LSSTCam/prompt/output-2025-11-01/ApPipe-noForced/pipelines-682fa38-config-8f017ea        RUN
+    LSSTCam/prompt/output-2025-11-01/Isr-cal/pipelines-682fa38-config-8f017ea                RUN
+    LSSTCam/prompt/output-2025-11-01/Isr/pipelines-682fa38-config-8f017ea                    RUN
 
-``LSSTCam/prompt/output-2025-11-01`` is a CHAIN collection. It contains six RUN collections.These RUN 
+``LSSTCam/prompt/output-2025-11-01`` is a CHAIN collection. It contains six RUN collections.These RUN
 collections contain the actual prompt products that we will need to unembargo
 
-Each of the RUN collection contains a number of datasets, ranging from a few to many. To see how many 
+Each of the RUN collection contains a number of datasets, ranging from a few to many. To see how many
 datasets in a RUN collection, run
 
 .. code-block:: bash
