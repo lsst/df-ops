@@ -79,7 +79,7 @@ Unembargo prompt products
 =========================
 
 LSST-DM's transfer_embargo repo contains tools that we can use to unembargo these prompt products. The source
-butler is ``embargo`` and the destinatino butler is ``prompt_prep```. Follow
+butler is ``embargo`` and the destinatino butler is ``prompt_prep``. Follow
 the following steps to checkout the tool and prepare to run it.
 
 - ``git clone https://github.com/sst-dm/transfer_embargo``
