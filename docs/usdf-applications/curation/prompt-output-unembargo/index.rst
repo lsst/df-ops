@@ -1,0 +1,125 @@
+##########################
+Unembargo Propmpt Products
+##########################
+
+This document describes how to unembargo prompt products from Rubin embargo storage.
+
+Setup Environment
+=================
+
+Credentials files
+-----------------
+
+- ``$HOME/.lsst/postgres-credentials.txt`` contains the credentials to access viarious Butler Postgres DBs. This file should contain credential to read the ``embargo`` bulter DB and read/write to the ``prompt_prep`` butler DB.
+- If you have a ``$HOME/.lsst/db-auth.yaml`` file. rename it to something else.
+- ``$HOME/.mc/config.json`` contains the credentials to access viarious Ceph Object Storage, e.g Rubin embargo s3
+  (in many case, ca 
+- You should also have the filesystem write permission to ``/sdf/group/rubin/repo/prompt_prep``.
+
+Setup environment
+-----------------
+
+Login to rubin-devl and run
+
+.. code-block:: bash
+
+   source /sdf/group/rubin/sw/profile.d/05-permissions.conf
+   source /sdf/group/rubin/sw/profile.d/10-rubin.conf
+   source /sdf/group/rubin/sw/profile.d/20-ceph.conf
+   source /sdf/group/rubin/sw/profile.d/30-tmpdir.conf
+   source /sdf/group/rubin/sw/profile.d/40-postgres.conf
+
+   source /sdf/group/rubin/sw/w_latest/loadLSST.sh
+   setup obs_lsst
+
+(The first five ``source`` commands are probably already in your ``$HOME/.profile.d``)
+Afte this setup, you should have to following envionment variables defined:
+
+- ``PGUSER=rubin```
+- ``PGPASSFILE=$HOME/.lsst/postgres-credentials.txt``
+- ``DAF_BUTLER_REPOSITORY_INDEX=/sdf/group/rubin/shared/data-repos.yaml``. This file list all the aliases of 
+  Rubin Butlers.
+
+Check the prompt products to unembargo
+======================================
+
+Choose a day that you want to unembargo all the prompt products for. For example, 2025-11-01. Run the following
+command to see prompt products collection in the ``embargo`` Butler for that day:
+
+.. code-block:: bash
+
+   butler query-collections embargo LSSTCam/prompt/output-2025-11-01
+
+The output should look like:
+
+.. code-block:: 
+
+                                           Name                                              Type 
+  ------------------------------------------------------------------------------------------ -------
+  LSSTCam/prompt/output-2025-11-01                                                           CHAINED
+    LSSTCam/prompt/output-2025-11-01/NoPipeline/pipelines-682fa38-config-8f017ea             RUN    
+    LSSTCam/prompt/output-2025-11-01/Preprocessing-noForced/pipelines-682fa38-config-8f017ea RUN    
+    LSSTCam/prompt/output-2025-11-01/SingleFrame/pipelines-682fa38-config-8f017ea            RUN    
+    LSSTCam/prompt/output-2025-11-01/ApPipe-noForced/pipelines-682fa38-config-8f017ea        RUN    
+    LSSTCam/prompt/output-2025-11-01/Isr-cal/pipelines-682fa38-config-8f017ea                RUN    
+    LSSTCam/prompt/output-2025-11-01/Isr/pipelines-682fa38-config-8f017ea                    RUN  
+
+``LSSTCam/prompt/output-2025-11-01`` is a CHAIN collection. It contains six RUN collections.These RUN 
+collections contain the actual prompt products that we will need to unembargo
+
+Each of the RUN collection contains a number of datasets, ranging from a few to many. To see how many 
+datasets in a RUN collection, run
+
+.. code-block:: bash
+
+  butler query-datasets --collections <a-RUN-collection> --limit 1000000 embargo '*' | wc -l
+
+This limits the output to up to 1 million datasets, which hopefully will be enough for any RUN collection.
+
+Unembargo prompt products
+=========================
+
+LSST-DM's transfer_embargo repo contains tools that we can use to unembargo these prompt products. Follow
+the following steps to checkout the tool and prepare to run it.
+
+- ``git clone https://github.com/sst-dm/transfer_embargo``
+- ``cd transfer_embargo``
+- ``git checkout -b tickets/DM-51619``
+- ``cd src``
+
+Edit the ``collections`` line in ``config_non_raw.yaml``:
+
+.. code-block::
+
+  - dataset_types: "*"
+    collections: "<one-of-the-run-collections-from-the-above>"
+    embargo_hours: 80
+    instrument: "LSSTCam"
+    where: ""
+    avoid_dstypes_from_collections:
+    - "refcats/*"
+    - "skymaps"
+    - "pretrained_models/*"
+    - "LSSTCam/raw/all"
+    - "LSSTCam/calib"
+
+Then run the following command
+
+.. code-block:: bash
+
+  python ./transfer_non_raw.py --config_file ./config_non_raw.yaml embargo prompt_prep
+
+The RUN collections above can be unembarged in parallel.
+
+Remove prompt products after unembargo
+======================================
+
+<doc under development>
+
+Use the following command to remove the RUN collections
+
+.. code-block:: bash
+
+  butler prune-datasets --where "instrument='LSSTCam' AND day_obs=20251101" --purge --dry-run <a-RUN-collection> embargo
+  or should we use
+  butler remove-runs embargo <a-RUN-collection> ???

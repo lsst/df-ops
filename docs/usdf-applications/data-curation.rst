@@ -10,3 +10,4 @@ Data Curation
    curation/embargo-transfer/index
    curation/lfa-replication/index
    curation/manual-unembargo.rst
+   curation/prompt-output-unembargo/index
