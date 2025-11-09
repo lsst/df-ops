@@ -146,4 +146,4 @@ Note:
 - The last parameter is a comma-separated list of all the RUN collections in the CHAIN collection. It is a
   single parameter, so there should be no space after the commas.
 - In a CHAIN collection, the order of the RUN collections matters. The order should be the same
-  as the one shown by the ``butler query-collections embargo LSSTCam/prompt/output-2025-11-01`` command above. 
+  as the one shown by the ``butler query-collections embargo LSSTCam/prompt/output-2025-11-01`` command above.
