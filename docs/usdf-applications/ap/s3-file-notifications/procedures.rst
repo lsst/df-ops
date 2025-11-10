@@ -63,10 +63,35 @@ To manually download messages for examination run the below command.  Update the
 
 .. _Creating_File_Notifications:
 
-Creating File Notifications
-===========================
+Creating Ceph Bucket Notifications
+==================================
 
-The ``rubin-pp-dev`` bucket is used in Prompt Processing Dev.  The ``rubin-summit`` bucket is used for Prompt Processing Prod.  To create run the commands in the shell scripts at https://github.com/slaclab/usdf-embargo-deploy/blob/main/bucket-notifications/
+The ``rubin-pp-dev`` bucket is used in Prompt Processing Dev.  The ``rubin-summit`` bucket is used for Prompt Processing Prod.  Bucket notifications are used by Prompt Processing and Embargo ingest to identify when new files are created in S3 buckets.
+
+To create notifications perform the following:
+
+#. Run the commands in the shell scripts at https://github.com/slaclab/usdf-embargo-deploy/blob/main/bucket-notifications/ for either dev or prod.  Note that Ceph requires that the Kafka topic not exist.
+#. Increase the number of Kafka partitions with the below command.  This is to needed to increase performance with multiple consumers connecting at the same time.  A topic expiration is set to expire old messages.  Since Ceph creates the topic this cannot be configured through Strimzi.
+
+With the Dev instance of S3-File-Notifcations run below.
+
+.. rst-class:: technote-wide-content
+
+.. code-block:: bash
+
+    apptainer exec kafka_0.34.0-kafka-3.4.0.sif /opt/kafka/bin/kafka-topics.sh --bootstrap-server 172.24.10.50:9094 --alter --topic prompt-processing-dev--partitions 200
+    apptainer exec kafka_0.34.0-kafka-3.4.0.sif  /opt/kafka/bin/kafka-configs.sh --bootstrap-server 172.24.10.50:9094 --alter --entity-type topics --entity-name prompt-processing-dev --add-config retention.ms=86400000
+
+
+With the Prod instance of S3-File-Notifcations run below.
+
+.. rst-class:: technote-wide-content
+
+.. code-block:: bash
+
+    apptainer exec kafka_0.34.0-kafka-3.4.0.sif /opt/kafka/bin/kafka-topics.sh --bootstrap-server 172.24.10.54:9094 --alter --topic rubin-summit-notification-6 --partitions 200
+    apptainer exec kafka_0.34.0-kafka-3.4.0.sif  /opt/kafka/bin/kafka-configs.sh --bootstrap-server 172.24.10.54:9094 --alter --entity-type topics --entity-name rubin-summit-notification-6 --add-config retention.ms=86400000
+
 
 Upgrading Kafka
 ===============
