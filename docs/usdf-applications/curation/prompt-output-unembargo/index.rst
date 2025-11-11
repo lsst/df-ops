@@ -3,7 +3,7 @@ Unembargo Propmpt Products
 ##########################
 
 This document describes how to unembargo prompt products from Rubin embargo storage. It is intended for the
-member of the data curation team. While the read access of the Rubin embargo storage and embargo Butler can
+members of the data curation team. While the read access of the Rubin embargo storage and embargo Butler can
 be done by each member, the actual unembargo operation should be coordinated by the data curation team and
 run via a single service account (TBD) that has privileges to write data to the USDF main storage and modify
 several Butler DBs in the document.
@@ -20,7 +20,8 @@ Setup Environment
 Credentials files
 -----------------
 
-- ``$HOME/.lsst/postgres-credentials.txt`` contains the credentials to access viarious Butler Postgres DBs. This file should contain credential to read the ``embargo`` bulter DB and read/write to the ``prompt_prep`` butler DB.
+- ``$HOME`` refers the the home directory of the service account that will run the unembargo operation.
+- ``$HOME/.lsst/postgres-credentials.txt`` contains the credentials to access viarious Butler Postgres DBs. This file should contain credential to read the ``embargo`` bulter DB and read/write to the ``main`` butler DB.
 - If you have a ``$HOME/.lsst/db-auth.yaml`` file. rename it to something else.
 - ``$HOME/.lsst/aws-credentials.ini`` contains the credentials to access viarious Ceph Object Storage, e.g Rubin embargo s3.
 - You should also have the filesystem write permission to ``/sdf/group/rubin/repo/main``.
@@ -144,7 +145,7 @@ Recreate the CHAIN collection in ``main`` using the following commando
 
 .. code-block:: bash
 
-  butler collection-chain prompt_prep LSSTCam/prompt/output-2025-11-01 \
+  butler collection-chain main LSSTCam/prompt/output-2025-11-01 \
   LSSTCam/prompt/output-2025-11-01/NoPipeline/pipelines-682fa38-config-8f017ea,\
   LSSTCam/prompt/output-2025-11-01/Preprocessing-noForced/pipelines-682fa38-config-8f017ea,\
   LSSTCam/prompt/output-2025-11-01/SingleFrame/pipelines-682fa38-config-8f017ea,\
