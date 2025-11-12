@@ -9,7 +9,7 @@ Architecture
 * Postgres via CloudNativePG
 * Kafka via Strimzi
 
-A Postgres database is deployed in the rucio-db-16b namespace.
+A Postgres database is deployed in the ``rucio-db-prod`` and ``rucio-db-dev`` namespaces.
 
 The ``rucio-kafka`` Kafka Cluster is deployed in the Rucio vClusters.  The Rucio-Butler integration uses this to ingest files into Butler.  Kafka MirrorMaker is deployed at the UK and France Data Facilities to synchronize Kafka messages and ingest files locally in each Data Facility into Butler.  To allow this connectivity ``rucio-kafka`` is configured with external IP Addresses on the external bootstrap and brokers.
 
@@ -24,7 +24,7 @@ Associated Systems
 
 * FTS3
 * Cloud Native PG: Postgres Operator
-* Strmzi: Kafka Operator
+* Strimzi: Kafka Operator
 
 Configuration Location
 ======================
@@ -52,10 +52,13 @@ Dependencies - S3DF
 .. Dependencies at USDF include Ceph, Weka Storage, Butler Database, LDAP, other Rubin applications, etc..  This can be none.
 
 * Weka Storage
+* USDF FTS3
 
 Dependencies - External
 =======================
 .. Dependencies on systems external to S3DF including in US DAC, France or UK DF, or other external systems.  This can be none.
+
+* RAL FTS3
 
 Disaster Recovery
 =================
