@@ -20,7 +20,7 @@ Rucio moves files for multi-site processing with the UK and France Data Faciliti
    * - Service Tier
      - Critical
    * - GitHub Application Code Repository
-     -
+     - https://github.com/rucio/rucio
    * - GitHub Deployment Repository
      - https://github.com/slaclab/rubin-rucio-deploy
    * - Slack Support Channel
