@@ -57,6 +57,10 @@ Redis has a CLI to view and manage Redis Streams. From the appropriate dev or pr
    127.0.0.1:6379> ping
    PONG
 
+List Streams
+============
+From the :ref:`Redis Command Line` ``SCAN 0 TYPE stream`` to identify the Redis Streams configured.
+
 .. _Bootstrap Prompt Redis:
 
 Bootstrapping Prompt Redis
@@ -149,5 +153,14 @@ To upgrade the Redis perform the following.
  #. Refresh and Sync in ArgoCD
 
 Restarting Redis
-========================
+================
 To restart redis run ``kubectl rollout restart statefulset prompt-redis -n prompt-redis``
+
+Trim Messages in a Stream
+=========================
+Redis Stream messages cannot automatically be expired or deleted within Redis.
+
+To trim messages perform the following.
+ #. Access the :ref:`Redis Command Line`
+ #. Determine the stream and the number of the messages to keep.
+ #. Run ``XTRIM <stream> MAXLEN <number of messages to keep>``.  For example to trim the LSSTCam stream to the 1,000 newest messages run ``XTRIM instrument:lsstcam 1000``
