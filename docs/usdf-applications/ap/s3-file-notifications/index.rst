@@ -18,7 +18,7 @@ The S3 File Notifications Kafka service receives S3 Notifications for new files 
      - Alert Production
    * - Operating Hours
      - 24x7
-   * - Criticality Level
+   * - Service Tier
      - Real Time
    * - GitHub Application Code Repository
      - N/A
