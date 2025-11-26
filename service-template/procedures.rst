@@ -2,11 +2,11 @@
 Procedures
 ##########
 
-Intended audience: Anyone who is administering the application.
+Intended audience: Anyone who is administering the service.
 
 Deployment
 ==========
-.. Deployment process for the application.  Included upgrades and rollback procedures
+.. Deployment process for the service.  Included upgrades and rollback procedures
 
 Maintenance
 ===========
@@ -18,11 +18,11 @@ Backup
 
 Cold Startup
 ============
-.. Steps if needed to recover application after downtime or disaster.
+.. Steps if needed to recover service after downtime or disaster.
 
 Cold Shutdown
 =============
-.. Any procedures needed to cleanly shutdown application before USDF downtime.
+.. Any procedures needed to cleanly shutdown service before USDF downtime.
 
 Reproduce Service
 =================

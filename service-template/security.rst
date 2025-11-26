@@ -4,11 +4,11 @@ Security
 
 Requesting Access
 =================
-.. How to request access to the application.
+.. How to request access to the service.
 
 Service accounts
 ================
-.. Describe Kubernetes, Database, or Application Service accounts used by the application.
+.. Describe Kubernetes, Database, or Application Service accounts used by the service.
 
 
 Security Incident Response
@@ -17,4 +17,4 @@ Security Incident Response
 
 Security Policies
 =================
-.. Describe relevant policies related to the application or the data it processes.
+.. Describe relevant policies related to the service or the data it processes.

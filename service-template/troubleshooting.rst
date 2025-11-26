@@ -2,11 +2,11 @@
 Troubleshooting
 ###############
 
-Intended audience: Anyone who is administering the application.
+Intended audience: Anyone who is administering the service.
 
 Known Issues
 ============
-.. Discuss known issues with the application.
+.. Discuss known issues with the service.
 
 .. list-table::
    :widths: 33 33 33
@@ -21,7 +21,7 @@ Known Issues
 
 Monitoring
 ==========
-.. Describe how to monitor application and include relevant links.
+.. Describe how to monitor service and include relevant links.
 
 .. Template to use for troubleshooting
 

@@ -1,22 +1,22 @@
-##################
-REPLACE - APP NAME
-##################
-.. Replace heading with application name
+######################
+REPLACE - SERVICE NAME
+######################
+.. Replace heading with service name
 
 Overview
 ========
-.. Include short summary of application, service, or database
+.. Include short summary of service
 
-.. Include Application Grouping, Operating Hours (24x7, PST daytime, or observing), Criticality Level, a link to the GitHub repository, and Slack channel used for support of the application.
+.. Include Service Grouping, Operating Hours (24x7, PST daytime, or observing), Service Tier, a link to the GitHub repository, and Slack channel used for support of the application.
 
 .. list-table::
    :widths: 25 50
 
-   * - Application Grouping
+   * - Service Grouping
      -
    * - Operating Hours
      -
-   * - Criticality Level
+   * - Service Tier
      -
    * - GitHub Application Code Repository
      -

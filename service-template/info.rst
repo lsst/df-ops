@@ -1,18 +1,18 @@
-#######################
-Application Information
-#######################
+###################
+Service Information
+###################
 
 Architecture
 ============
-.. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
+.. Describe the architecture of the service including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
 
 Architecture Diagram
 ====================
-.. Include architecture diagram of the application either as a mermaid chart or a picture of the diagram.
+.. Include architecture diagram of the service either as a mermaid chart or a picture of the diagram.
 
 Associated Systems
 ==================
-.. Describe other applications are associated with this applications.
+.. Describe other applications and databases are associated with this service.
 
 Configuration Location
 ======================
