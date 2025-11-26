@@ -11,3 +11,4 @@ Data Curation
    curation/lfa-replication/index
    curation/manual-unembargo.rst
    curation/prompt-output-unembargo/index
+   curation/s3-file-notifications/index
