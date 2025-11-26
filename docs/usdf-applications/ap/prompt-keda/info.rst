@@ -1,8 +1,8 @@
-#######################
-Application Information
-#######################
+###################
+Service Information
+###################
 
-Prompt Keda application information.
+Prompt Keda service information.
 
 Architecture
 ============
@@ -10,7 +10,9 @@ Architecture
 
 KEDA is deployed with the KEDA operator in the Prompt Processing vClusters in the ``keda`` Kubernetes namespace.
 
-KEDA controls autoscaling for Prompt Processing.  KEDA uses scalars to determine how aggressively to scale up and down.  Prompt KEDA is configured to autoscale based on the number of Fanned Out events in Prompt Redis.
+KEDA controls autoscaling for Prompt Processing by replacing the Kubernetes Auto Scaler.  KEDA uses scalars to determine how aggressively to scale up and down.  Prompt KEDA is configured to autoscale based on the number of Fanned Out events in Prompt Redis.  This is called lag.
+
+KEDA is not configured to scale down Scaled Jobs while they are running.   There is a max run time setting that can be configured in KEDA, but it is not configured because Prompt Processing is configured to consume multiple rounds of Fanned Out messages before finishing.  This is to reduce churn from new Pods being created.
 
 Architecture Diagram
 ====================
