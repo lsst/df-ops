@@ -15,7 +15,7 @@ The S3 File Notifications Kafka service receives S3 Notifications for new files 
    :widths: 25 50
 
    * - Service Grouping
-     - Alert Production
+     - Data Curation
    * - Operating Hours
      - 24x7
    * - Criticality Level
