@@ -41,7 +41,7 @@ Configuration Location
    * - Config Area
      - Location
    * - Configuration
-     -
+     - https://github.com/lsst-dm/data_transfer_monitoring
    * - Vault Secrets Dev
      - N/A
    * - Vault Secrets Prod
