@@ -11,9 +11,9 @@ The SLAC onboarding procedure involves the following steps:
 #. Fill out the SLAC Site Access Portal form
 #. Request a username and access to S3DF batch repos
 #. Do the SLAC cyber training
+#. Complete VCR100 Access Control Training
 #. Register your SLAC UNIX account in S3DF
 #. Fill out the `Rubin Observatory Staff Access Form <https://ls.st/staff-access-form>`__ (if you have not already done so as part of Rubin onboarding)
-#. Complete Access Control Training.
 
 SLAC IT will create Active Directory (AD) and unix accounts (for the same username).  The AD account is only used for annual cyber training and web access to Service Now, the SLAC IT ticketing system. The AD account needs to be accessed every 60 days; notifications are sent out.  Once IT creates the accounts, a link will be emailed to reset the passwords.
 
@@ -84,12 +84,17 @@ If you still have problems, ask your SLAC POC for help.
 
 **SLAC cyber training must be done within 2 weeks to keep the account enabled.**
 
-5. Register your SLAC UNIX account in S3DF
+5. Access Control Training
+""""""""""""""""""""""""""
+
+Access Control Training needs to be completed prior to be granted access to Rubin USDF resources. You will need to use your Active Directory (aka Windows) account to log into the training website. The training is listed as VCR100. Please inform Sierra Villarreal (sierrav@slac.stanford.edu) upon completion of this training, or if you find that the training has not been assigned to you.
+
+6. Register your SLAC UNIX account in S3DF
 """"""""""""""""""""""""""""""""""""""""""
 
 This is the same as step 2 of the `S3DF Accounts and Access page <https://s3df.slac.stanford.edu/#/accounts-and-access>`__.   This step should be performed *before* accessing any resources, including S3DF accounts and the USDF Rubin Science Platform.
 
-6. Fill out the Rubin Observatory Staff Access Form
+7. Fill out the Rubin Observatory Staff Access Form
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 Some of the resources and data accessible from the USDF are meant to be only available to Rubin staff.  Please fill out the `Rubin Observatory Staff Access Form <https://ls.st/staff-access-form>`__ to help us determine whether you can be regarded as a Rubin team-member for the purposes of accessing these staff-only resources.
@@ -102,12 +107,6 @@ If the user is a US citizen, the completed onboarding form is
 routed to the SLAC POC, then to the SLAC HR team for a
 duplicate SID check.
 If the user is a non-US citizen, the completed onboarding form is routed to the SLAC POC, then to the VUE Center Coordinator, and then to the SLAC HR team for a duplicate SID check.
-
-7. Complete Access Control Training
-"""""""""""""""""""""""""""""""""""
-
-All users will need to complete Access Control Training previous to being granted access to the USDF resources. This training is currently run every Wednesday at 8am PDT and located on Zoom (`Zoom meeting link <https://stanford.zoom.us/j/93763004905?pwd=GxkphvOcZ64ebx41C04bLDMOVqISdo.1>`__). If that time is not feasible, please reach out to Sierra Villarreal on Rubin, Discovery Alliance, or SLAC Slack workspaces.
-
 
 Troubleshooting Accounts
 ========================
