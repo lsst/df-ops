@@ -7,7 +7,7 @@ Architecture
 .. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
 
 Rubin alerts are distributed by the Alert Stream service. The service is composed of an Schema Registry, Kafka messaging stream,
-and a producer located in `ap_association <https://github.com/lsst/ap_association/blob/main/python/lsst/ap/association/packageAlerts.py>`
+and a producer located in `ap_association <https://github.com/lsst/ap_association/blob/main/python/lsst/ap/association/packageAlerts.py>`_
 where alerts are packaged and sent to the Kafka stream.
 
 Architecture Diagram
@@ -32,7 +32,6 @@ Configuration Location
      - Location
    * - GitHub Application Code Repository
      - https://github.com/lsst-sqre/phalanx/tree/main/applications/alert-stream-broker
-     - https://github.com/lsst-sqre/phalanx/tree/main/applications/alert-stream-broker/charts/alert-stream-schema-registry
    * - Vault Secrets Dev
      - secret/rubin/usdf-alert-stream-broker-dev/alert-stream-broker/
    * - Vault Secrets Prod
@@ -42,7 +41,8 @@ Data Flow
 =========
 .. Describe how data flows through the system including upstream and downstream services
 
-Alerts are created and processed by the Prompt Processing pipeline. Once alerts have been generated within `packageAlerts`,
+Alerts are created and processed by the Prompt Processing pipeline. Once alerts have been generated within
+`packageAlerts <https://github.com/lsst/ap_association/blob/main/python/lsst/ap/association/packageAlerts.py>`_,
 they are serialized, compressed, and sent to the Kafka Alert Stream by a producer. The alerts are read into a Kafka Topic
 based on the current schema used by the pipelines. These topics are made available to our downstream Community Alert Brokers. Alerts
 are then held for a period of time defined in the Alert Stream Broker's
