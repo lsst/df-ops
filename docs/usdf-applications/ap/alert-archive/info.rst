@@ -40,8 +40,6 @@ via Phalanx helm charts.
      - Location
    * - GitHub Application Code Repository
      - https://github.com/lsst-sqre/phalanx/tree/main/applications/alert-stream-broker/charts/alert-database
-     - https://github.com/lsst-dm/alert_database_ingester
-     - https://github.com/lsst-dm/alert_database_server
    * - Vault Secrets Dev
      - secret/rubin/usdf-alert-stream-broker-dev/alert-stream-broker/
    * - Vault Secrets Prod
