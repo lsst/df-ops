@@ -6,7 +6,9 @@ Architecture
 ============
 .. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
 
-Rubin alerts are distributed by the Alert Stream service. The service is composed of an Schema Registry, Kafka messaging stream,
+Rubin alerts are distributed by the Alert Stream service. An overview of the implementation can be found in
+` DMTN-210 <https://dmtn-210.lsst.io/>`_ and the Alert Distribution System's Operator's Manual can be
+found in `DMTN-214 <https://dmtn-214.lsst.io/>`_. The service is composed of an Schema Registry, Kafka messaging stream,
 and a producer located in `ap_association <https://github.com/lsst/ap_association/blob/main/python/lsst/ap/association/packageAlerts.py>`_
 where alerts are packaged and sent to the Kafka stream.
 
@@ -30,7 +32,7 @@ Configuration Location
 
    * - Config Area
      - Location
-   * - GitHub Application Code Repository
+   * - Configuration
      - https://github.com/lsst-sqre/phalanx/tree/main/applications/alert-stream-broker
    * - Vault Secrets Dev
      - secret/rubin/usdf-alert-stream-broker-dev/alert-stream-broker/

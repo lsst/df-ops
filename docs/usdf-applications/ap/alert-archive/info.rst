@@ -21,8 +21,8 @@ Associated Systems
 ==================
 .. Describe other applications are associated with this applications.
 
-The alert archive is dependant on the Alert Stream Broker <https://github.com/lsst-sqre/phalanx/tree/main/applications/alert-stream-broker> __.,
-which recieves its alert packets from the Prompt Processing pipelines <>
+The alert archive is dependant on the `Alert Stream Broker <https://github.com/lsst-sqre/phalanx/tree/main/applications/alert-stream-broker>`_.,
+which receives alert packets from the Prompt Processing pipelines <>.
 
 Configuration Location
 ======================
@@ -38,8 +38,12 @@ via Phalanx helm charts.
 
    * - Config Area
      - Location
-   * - GitHub Application Code Repository
+   * - Configuration
      - https://github.com/lsst-sqre/phalanx/tree/main/applications/alert-stream-broker/charts/alert-database
+   * - Server Application Code Repository
+     - https://github.com/lsst-dm/alert_database_server
+   * - Ingester Application Code Repository
+     - https://github.com/lsst-dm/alert_database_ingester
    * - Vault Secrets Dev
      - secret/rubin/usdf-alert-stream-broker-dev/alert-stream-broker/
    * - Vault Secrets Prod
