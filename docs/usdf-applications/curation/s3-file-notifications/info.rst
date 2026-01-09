@@ -6,7 +6,7 @@ Architecture
 ============
 .. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
 
-The `Ceph S3 bucket notification feature <https://docs.ceph.com/en/latest/radosgw/notifications/#create-a-topic>`__ is used to send notifications as Kafka events when Objects are created in the ``rubin-summit`` bucket in production and the ``rubind-pp-dev`` bucket in development.  The bucket notification is configured to send to the S3 File Notifications Kafka cluster.  An instance of S3 File Notifications is deployed in both Prompt Processing prod and dev.
+The `Ceph S3 bucket notification feature <https://docs.ceph.com/en/latest/radosgw/notifications/#create-a-topic>`__ is used to send notifications as Kafka events when Objects are created in the ``rubin-summit`` bucket in production and the ``rubin-pp-dev`` bucket in development.  The bucket notification is configured to send to the S3 File Notifications Kafka cluster.  An instance of S3 File Notifications is deployed in both Prompt Processing prod and dev.
 
 S3 File Notifications Kafka is installed with Phalanx and ArgoCD.  Three brokers are configured for redundancy.  Authentication, Authorization, and SSL are not enabled as these did not work when setting up Ceph notifications.  Load Balancer IPs are provisioned from the ``sdf-rubin-ingest`` network for the Brokers and External Bootstrap to provide connectivity outside of the cluster in S3DF.
 
