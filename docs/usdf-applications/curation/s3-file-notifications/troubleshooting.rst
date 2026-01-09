@@ -19,8 +19,8 @@ Known Issues
      - When changing file notifications in Ceph a blank configuration needs to be applied to overwrite what is there.
      - See :ref:`Creating_File_Notifications` procedure to apply a blank configuration
    * - File Notifications configured but not sending notifications
-     - There was corruption with Kafka notifications in the production Embargo Ceph Cluster.  Unclear why this happens.
-     - Do not use ``persistent:true``.  Naming the topic a new name that has not been used before.
+     - There have been issues with notifications in the production Embargo Ceph Cluster.  It is currently unclear why this happens.
+     - There have been past issues with ``persistent:true``.  The setting does work as of January 2026.  Naming the topic a new name that has not been used before.
 
 Monitoring
 ==========
@@ -31,7 +31,7 @@ Monitoring
 Identify if Kafka events are being created
 ==========================================
 
-**Symptoms:** New file notification events are not being created.  Prompt Processing may time out because the file notification did not arrive.
+**Symptoms:** New file notification events are not being created.  Prompt Processing may time out because the file notification did not arrive. ``503`` is returned on attempted file writes to the ``rubin-summit`` bucket.
 
 **Cause:** The file notifications in Ceph are not working.
 

@@ -18,16 +18,16 @@ The S3 File Notifications Kafka service receives S3 Notifications for new files 
      - Data Curation
    * - Operating Hours
      - 24x7
-   * - Criticality Level
+   * - Service Tier
      - Real Time
    * - GitHub Application Code Repository
      - N/A
    * - GitHub Deployment Repository
      - https://github.com/lsst-sqre/phalanx/tree/main/applications/s3-file-notifications
    * - Slack Support Channel
-     - lsstcam-prompt-processing
+     - usdf-infra-support
    * - Slack Alerts Channel
-     - lsstcam-prompt-processing
+     -
    * - Prod vCluster
      - usdf-prompt-processing
    * - Dev vCluster
