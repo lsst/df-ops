@@ -23,7 +23,7 @@ There is a limitation with vClusters that persistent volumes cannot be increased
 
 Make Service Accessible Outside of Kubernetes to S3DF
 =====================================================
-Kubernetes IP addresses are not accessible from outside Kubernetes.  To make a service accessible from outside of Kubernetes configure the Kubernetes Service to use ``LoadBalancer`` and add an annotation for ``sdf-rubin-ingest``.  Below is how to configure the service.
+Kubernetes IP addresses are not accessible from outside Kubernetes.  To make a service accessible from outside of Kubernetes configure the Kubernetes Service to use ``LoadBalancer`` and add an annotation for ``sdf-rubin-ingest``.  Below is how to configure the service.  Note that ``allocateLoadBalancerNodePorts: false`` has to be set since the default is ``true``.
 
 .. rst-class:: technote-wide-content
 
@@ -31,19 +31,20 @@ Kubernetes IP addresses are not accessible from outside Kubernetes.  To make a s
 
     metadata:
         annotations:
-        metallb.io/address-pool: sdf-rubin-ingest
+          metallb.io/address-pool: sdf-rubin-ingest
     spec:
         allocateLoadBalancerNodePorts: false
         type: LoadBalancer
 
-To reserve a specific IP address after provisioned add the below with the appropriate IP address.
+Once the IP address is provisioned update the Kubernetes manifest include the IP address allocated with the configuration below.  Replace the ``xxx.xxx.xxx.xxx`` with the IP address.  Setting this is required to request the same IP address.  Note this setting does not reserve an IP address when a service is deleted and another service could use the IP Address.
 
 .. rst-class:: technote-wide-content
 
 .. code-block:: yaml
 
-    spec:
-      loadBalancerIP: <IP address>
+    metadata:
+        annotations:
+          metallb.io/loadBalancerIPs: xxx.xxx.xxx.xxx
 
 Make Service Accessible from Outside S3DF
 =========================================
@@ -56,19 +57,20 @@ Services need approval before being configured as accessible from the USDF.  :re
 
     metadata:
         annotations:
-        metallb.io/address-pool: sdf-dmz
+          metallb.io/address-pool: sdf-dmz
     spec:
         allocateLoadBalancerNodePorts: false
         type: LoadBalancer
 
-Once the IP address is provisioned update the Kubernetes manifest to include the IP address allocated with the configuration below.
+Once the IP address is provisioned update the Kubernetes manifest include the IP address allocated with the configuration below.  Replace the ``xxx.xxx.xxx.xxx`` with the IP address.  Note this setting does not reserve an IP address when a service is deleted and another service could use the IP Address.
 
 .. rst-class:: technote-wide-content
 
 .. code-block:: yaml
 
-    spec:
-      loadBalancerIP: <IP address>
+    metadata:
+        annotations:
+          metallb.io/loadBalancerIPs: xxx.xxx.xxx.xxx
 
 Route Application Traffic to the Summit
 =======================================
