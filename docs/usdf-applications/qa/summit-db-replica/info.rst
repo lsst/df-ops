@@ -24,7 +24,7 @@ Associated Systems
 ==================
 .. Describe other applications are associated with this applications.
 
-Consolidated Database API, ExposureLog API, NarrativeLog API, and Nightreport API applications use the database as a data source for the APIs.
+The Consolidated Database API, ConsDB Tap, ExposureLog API, NarrativeLog API, and Nightreport API applications use the database as a data source for the APIs.
 
 Configuration Location
 ======================
