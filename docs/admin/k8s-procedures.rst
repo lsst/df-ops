@@ -49,7 +49,7 @@ Once the IP address is provisioned update the Kubernetes manifest include the IP
 Make Service Accessible from Outside S3DF
 =========================================
 
-Services need approval before being configured as accessible from the USDF.  :ref:`Open a Service Now Ticket <create_snow_request>` to request a DMZ Services Cyber Exemption Request.  Once approved below is the configuration to add.
+This details how to configure a Kubernetes service to be accessible outside of USDF.  Services need approval before using the ``sdf-dmz`` address pool.  :ref:`Open a Service Now Ticket <create_snow_request>` to request a DMZ Services Cyber Exemption Request.  Once approved below is the configuration to add.
 
 .. rst-class:: technote-wide-content
 
