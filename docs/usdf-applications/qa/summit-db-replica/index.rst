@@ -14,12 +14,12 @@ The consolidated database, exposurelog, narrativelog, and nightreport Postgres d
 .. list-table::
    :widths: 25 50
 
-   * - Application Grouping
+   * - Service Grouping
      - QA
    * - Operating Hours
      - 24x7
-   * - Criticality Level
-     -
+   * - Service Tier
+     - Critical
    * - GitHub Application Code Repository
      - Refer to the ConsDB and ExposureLog/NarrativeLog applications
    * - GitHub Deployment Repository
@@ -29,7 +29,7 @@ The consolidated database, exposurelog, narrativelog, and nightreport Postgres d
    * - Slack Alerts Channel
      - ops-usdf-alerts
    * - Prod vCluster
-     - usdf-summitb
+     - usdf-summitdb
    * - Dev vCluster
      - None
 
