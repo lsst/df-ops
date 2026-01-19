@@ -14,6 +14,17 @@ Architecture Diagram
 ====================
 .. Include architecture diagram of the application either as a mermaid chart or a picture of the diagram.
 
+.. mermaid::
+
+   graph TD
+      A[Summit Transfer] -->|File Transfers| B[rubin-summit bucket]
+      B -->|Notification created for each file| C[S3 File Notifications Kafka]
+      C --- D{ }
+      D -->|Reads File Notifications| E[Prompt Processing Workers]
+      D -->|Reads File Notifications| F[Data Transfer Monitoring]
+
+      style D width:0px,height:0px,display:none
+
 Associated Systems
 ==================
 .. Describe other applications are associated with this applications.
