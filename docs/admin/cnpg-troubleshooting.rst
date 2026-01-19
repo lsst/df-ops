@@ -122,3 +122,67 @@ The instance id is the -number  at the end of the pod name.  For example in the 
     ----            -------------  -----------    ----------------  ------  ---        ---------------  ----
     usdf-butler3-2  1339 GB        1616/81000000  Primary           OK      Burstable  1.21.1           sdfk8sn003
     usdf-butler3-1  1339 GB        1616/81000000  Standby (async)   OK      Burstable  1.21.1           sdfk8sn006
+
+
+.. _Check Logical Subscription Status:
+
+Check Logical Subscription Status
+=================================
+
+Run the below SQL query to check the subscription status.  If ``last_msg_receipt_time`` is very old the subscriber is not receiving updates.  The ``latest_end_time`` is the timestamp of the last message successfully applied to the subscriber.
+
+.. rst-class:: technote-wide-content
+
+.. code-block:: sql
+
+    SELECT
+        subname AS subscription_name,
+        latest_end_lsn,
+        latest_end_time,
+        last_msg_send_time,
+        last_msg_receipt_time
+    FROM pg_stat_subscription;
+
+
+.. _Check Logical Replication Slots:
+
+Check Logical Replication Slots
+===============================
+
+Run the below SQL query to check replication slots.  Active should be ``t``.  If ``f`` the replica is disconnected and the primary is buffering WAL files.  This could lead to disk exhaustion so any unused slots should be removed.
+
+.. rst-class:: technote-wide-content
+
+.. code-block:: sql
+
+   SELECT
+      slot_name,
+      slot_type,
+      active,
+      restart_lsn,
+      pg_wal_lsn_diff(pg_current_wal_lsn(), restart_lsn) AS retained_wal_bytes
+   FROM pg_replication_slots
+   WHERE slot_type = 'logical';
+
+
+.. _Identify Logical Replication Lag:
+
+Identify Logical Replication Lag
+================================
+
+Run the below SQL query to identify any replay lag.  Note you should be connected to the database where the publication is configured.  The ``sync_state`` should be ``streaming``.  If the ``sync_state`` is ``catchup`` the replica is syncing old data.  The ``replay_lag`` is the time difference between the last transaction flushed on the publication and the last one replayed on the subscription.
+
+.. rst-class:: technote-wide-content
+
+.. code-block:: sql
+
+   SELECT
+      application_name,
+      client_addr,
+      state,
+      sync_state,
+      -- Lag in terms of WAL data size (Bytes)
+      pg_wal_lsn_diff(pg_current_wal_lsn(), replay_lsn) AS lag_bytes,
+      -- Lag in terms of time
+      replay_lag
+   FROM pg_stat_replication;
