@@ -14,10 +14,10 @@ Maintenance
 ===========
 .. Maintenance tasks. How maintenance is communicated and carried out.
 
-The production hours are during observing.  Maintenance can be performed during the day and should be announced in the *lsstcam-prompt-processing* Slack channel.
+The production hours are during observing.  Maintenance can be performed during the day and should be announced in the *lsstcam-prompt-processing* Slack channel.  For development announce on the *dm-prompt-processing* Slack channel if performing maintenance.
 
-For development announce on the
-*dm-prompt-processing* Slack channel if performing maintenance.
+Review `Redis release notes <https://redis.io/docs/latest/operate/rs/release-notes/>`__ quarterly or if a new feature is needed to determine if Redis should be updated.  Review the supported Kubernetes version and KEDA Redis Scalar version to make sure they are supported before upgrading.  See :ref:`Upgrading Redis` to perform the upgrade.
+
 
 Backup
 ======
@@ -144,6 +144,8 @@ In the above example there are 72 ``entries-read`` which is 72 messages acknowle
 Viewing Pending messages
 ========================
 Pending messages are messages that have been delivered to a consumer within a consumer group but have not been acknowledged as processed.  There should not usually be a build up of pending messages.  To view if there are pending messages run ``XPENDING instrument:lsstcam lsstcam_consumer_group`` with the :ref:`Redis Command Line`.  Replace if the instrument name and the consumer group for a different instrument.
+
+.. _Upgrading Redis:
 
 Upgrading Redis
 ===============

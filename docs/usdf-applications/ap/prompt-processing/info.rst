@@ -1,8 +1,8 @@
-#######################
-Application Information
-#######################
+###################
+Service Information
+###################
 
-Prompt Processing application information.
+Prompt Processing service information.
 
 .. _prompt_processing_architecture:
 
@@ -83,6 +83,8 @@ Below are the S3DF Dependencies for the Prompt Processing.
  * Prompt Kafka
  * Prompt Keda
  * Prompt Redis
+ * mpsky
+ * Auto Ingest Service
  * rubin-summit Ceph bucket
  * Embargo Butler
  * Cassandra Cluster

@@ -13,11 +13,11 @@ Prompt Processing system is responsible for processing roughly a thousand visits
 .. list-table::
    :widths: 25 50
 
-   * - Application Grouping
+   * - Service Grouping
      - Alert Production
    * - Operating Hours
      - Observing
-   * - Criticality Level
+   * - Service Tier
      - Real Time
    * - GitHub Application Code Repository
      - https://github.com/lsst-dm/prompt_processing

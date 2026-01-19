@@ -6,12 +6,13 @@ Requesting Access
 =================
 .. How to request access to the application.
 
-The application is managed through Phalanx and ArgoCD.  Access is granted through ArgoCD.
+Prompt Kafka is managed through Phalanx and ArgoCD.  Access is granted through ArgoCD.
 
 Service accounts
 ================
 .. Describe Kubernetes, Database, or Application Service accounts used by the application.
 
+No service accounts.
 
 Security Incident Response
 ==========================
