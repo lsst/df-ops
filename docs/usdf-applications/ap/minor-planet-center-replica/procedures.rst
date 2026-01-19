@@ -14,6 +14,8 @@ Maintenance
 ===========
 .. Maintenance tasks. How maintenance is communicated and carried out.
 
+For maintenance coordinate with the #dm-ssp Slack channel for when downtime is needed for maintenance.
+
 Backup
 ======
 .. Procedures for backup including how to verify backups.
@@ -111,7 +113,7 @@ To rebuild run the following.
 
     .. code-block:: sql
 
-       TRUNCATE TABLE current_identifications, mpc_orbits, neocp_els, current_identifications, mpc_orbits, neocp_els, neocp_events, neocp_obs, neocp_obs_archive, neocp_prev_des, neocp_var, numbered_identifications, obs_alterations_corrections, obs_alterations_deletions, obs_alterations_redesignations, obs_alterations_unassociations, obscodes, primary_objects;
+       TRUNCATE TABLE current_identifications, minor_planet_names, mpc_orbits, neocp_els, neocp_events, neocp_obs, neocp_obs_archive, neocp_prev_des, neocp_var, numbered_identifications, obs_alterations_corrections, obs_alterations_deletions, obs_alterations_redesignations, obs_alterations_unassociations, obscodes, primary_objects;
 
  #. Create the subscriptions.  Replace with the password from Vault.  Validate in logs there are not duplicate keys or replication errors.
 
@@ -219,4 +221,3 @@ Access to the USDF Minor Planet Survey Data replica is limited by IP Address.  P
 #. Modify the `db-svc-gcp.yaml <https://github.com/slaclab/rubin-usdf-minor-planet-survey/blob/main/kubernetes/overlays/prod/db-svc-gcp.yaml>`__ Kubernetes Load Balancer Service.  Note that is not setup as Pooler because replication commands are not supported through a Pooler.
 #. EPO has static IP addresses defined in Cloud NAT.  If there was a change or new project add the IP Address under ``loadBalancerSourceRanges``.
 #.  Apply the changes and commit to GitHub.
-

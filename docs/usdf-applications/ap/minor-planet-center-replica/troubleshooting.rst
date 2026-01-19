@@ -68,3 +68,11 @@ Schema Mismatch
 
 **Solution:** Follow :ref:`minor_planet_survey_schema_updates`
 
+EPO Replication
+===============
+
+To identify issues with EPO replication perform the following.
+
+#. Connect to the mpc_sbn database with ``\c mbc_sbn;``
+#. Check replication slots.  See :ref:`Check Logical Replication Slots` for the query.
+#. Check for replication lag. See :ref:`Identify Logical Replication Lag` for the query.
