@@ -7,7 +7,9 @@ Overview
 ========
 .. Include short summary of application, service, or database
 
-The Rubin Observatory Consolidated Database (CDB) supports scientific analysis, calibration, and quality control of astronomical observations by serving as a structured repository for managing and organizing observational data collected by the observatory’s instruments. It provides a standardized framework to store, index, and retrieve key details about exposures, visits, and detector-level observations. The database defines relationships between various observational parameters—such as timestamps, spatial positions, atmospheric conditions, and instrument settings—and has broad applicability throughout the project.
+The Rubin Observatory Consolidated Database (ConsDB) supports scientific analysis, calibration, and quality control of astronomical observations by serving as a structured repository for managing and organizing observational data collected by the observatory’s instruments.
+It provides a standardized framework to store, index, and retrieve key details about exposures, visits, and detector-level observations.
+The database defines relationships between various observational parameters -- such as timestamps, spatial positions, atmospheric conditions, and instrument settings -- and has broad applicability throughout the project.
 
 .. Include Application Grouping, Operating Hours (24x7, PST daytime, or observing), Criticality Level, a link to the GitHub repository, and Slack channel used for support of the application.
 
@@ -19,7 +21,7 @@ The Rubin Observatory Consolidated Database (CDB) supports scientific analysis, 
    * - Operating Hours
      - 24x7
    * - Criticality Level
-     -
+     - Critical
    * - GitHub Application Code Repository
      - https://github.com/lsst-dm/consdb
    * - GitHub Deployment Repository
@@ -27,7 +29,7 @@ The Rubin Observatory Consolidated Database (CDB) supports scientific analysis, 
    * - Slack Support Channel
      - consolidated-database
    * - Slack Alerts Channel
-     -
+     - ops-usdf-alerts
    * - Prod vCluster
      - usdf-rsp
    * - Dev vCluster
