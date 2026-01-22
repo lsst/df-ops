@@ -7,9 +7,9 @@ Overview
 ========
 .. Include short summary of application, service, or database
 
-Duplication of Rubin LFA S3 data to USDF.  Rubin Observatory keeps various non-image data in a S3 datastore called the Large File Annex (LFA). It is necessary to replicate the contents of this datastore at the USDF for read-only access to aid Operator analysis.
+Duplication of Rubin LFA S3 data to USDF.  Rubin Observatory keeps various non-image data in an S3 datastore called the Large File Annex (LFA). It is necessary to replicate the contents of this datastore at the USDF for read-only access to aid Operator analysis.
 
-The application essentially runs an instance of mc that uses mirror to connect to both the telescope systems in Chile and the storage at SLAC.
+The application essentially runs an instance of ``mc`` that uses the ``mirror`` subcommand to connect to both the S3 storage that is part of the telescope systems in Chile and the storage at SLAC.
 
 .. Include Application Grouping, Operating Hours (24x7, PST daytime, or observing), Criticality Level, a link to the GitHub repository, and Slack channel used for support of the application.
 
@@ -19,7 +19,7 @@ The application essentially runs an instance of mc that uses mirror to connect t
    * - Service Grouping
      - Data Curation
    * - Operating Hours
-     -
+     - 24x7 (some instrumentation may be used during daytime calibration)
    * - Service Tier
      - Operational
    * - GitHub Application Code Repository

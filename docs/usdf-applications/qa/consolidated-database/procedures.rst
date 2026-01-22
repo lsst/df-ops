@@ -4,6 +4,8 @@ Procedures
 
 Intended audience: Anyone who is administering the application.
 
+See `consdb.lsst.io <https://consdb.lsst.io>`__ for procedures.
+
 Deployment
 ==========
 .. Deployment process for the application.  Included upgrades and rollback procedures
