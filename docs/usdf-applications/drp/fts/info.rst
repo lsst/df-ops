@@ -1,10 +1,12 @@
-#######################
-Application Information
-#######################
+###################
+Service Information
+###################
 
 Architecture
 ============
 .. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
+
+MariaDB is the database for FTS3.  It is installed with the MariaDB database operator.
 
 Architecture Diagram
 ====================
@@ -13,6 +15,8 @@ Architecture Diagram
 Associated Systems
 ==================
 .. Describe other applications are associated with this applications.
+
+Rucio
 
 Configuration Location
 ======================
@@ -25,11 +29,11 @@ Configuration Location
    * - Config Area
      - Location
    * - Configuration
-     -
+     - https://github.com/slaclab/rubin-fts3-deploy
    * - Vault Secrets Dev
-     -
+     - secret/rubin/usdf-fts3-dev
    * - Vault Secrets Prod
-     -
+     - secret/rubin/usdf-fts3
 
 Data Flow
 =========
