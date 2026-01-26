@@ -87,6 +87,7 @@ Below are the S3DF Dependencies for the Prompt Processing.
  * Auto Ingest Service
  * rubin-summit Ceph bucket
  * Embargo Butler
+ * ``/sdf/data/rubin/templates/`` storage
  * Cassandra Cluster
  * Alert Stream Broker
  * Sattle
