@@ -2,7 +2,7 @@
 Procedures
 ##########
 
-Intended audience: Anyone who is administering FITS.
+Intended audience: Anyone who is administering FTS.
 
 Deployment
 ==========

@@ -7,7 +7,7 @@ Data Release Production
 
    drp/bps/index
    drp/cm-service/index
-   drp/fits/index
+   drp/fts/index
    drp/htcondor/index
    drp/opensearch/index
    drp/panda/index
