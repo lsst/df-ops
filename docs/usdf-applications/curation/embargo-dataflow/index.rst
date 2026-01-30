@@ -19,8 +19,8 @@ Data Ingestion and Notifications
 ================================
 
 Under normal night operation, Rubin Summit is expected to ingest 205 detector images (189 science
-images + 8 wavefront images (also considered science images) and 8 guiders images) every minute to 
-the USDF embargo CEPH S3 storage. All images from an exposure (and the associated .json files) 
+images + 8 wavefront images (also considered science images) and 8 guiders images) every minute to
+the USDF embargo CEPH S3 storage. All images from an exposure (and the associated .json files)
 are saved to a foler like
 
 .. code-block:: text
@@ -32,7 +32,7 @@ where ``embargo`` refers to the embargo S3 storage and ``EXPOSURE_ID`` is like `
 Each time an new object/file is ingested to the ``rubin-summit`` bucket,  two notification event are
 triggered:
 
-- via a Webhook to the ``embargo-butler-enqueue`` (https://172.24.5.156:8080/notify) service running
+- via a Webhook to the ``embargo-butler-enqueue`` service (path "/notify") running
   in vCluster ``usdf-embargo-dmz``, name space ``summit-new`` (After that, the other services in the
   ``summit-new`` namespace will then ingest the new raw images to the ``embargo`` Butler). Rapid
   Analysis is generally triggered by polling the Butler for completion of ingest. Nightly Validation is

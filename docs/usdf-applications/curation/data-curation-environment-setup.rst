@@ -12,9 +12,9 @@ Use interactive node ``rubin-devl`` in most case. In some specially cases, you c
 
 Create symlinks in your ``$HOME/.profile.d`` directory that point to files in ``/sdf/group/rubin/sw/profile.d``.
 These login configuration profiles should be run before additional data curation related environment setup
-profiles are run. A good way to do this to created a file ``$HOME/.profile.d/99-data-curation.conf``. 
+profiles are run. A good way to do this to created a file ``$HOME/.profile.d/99-data-curation.conf``.
 
-To obtain the lastest LSST tools (butler), and Rucio tools, add the following to the 
+To obtain the lastest LSST tools (butler), and Rucio tools, add the following to the
 ``99-data-curation.conf`` file:
 
 .. code-block:: bash
@@ -32,7 +32,7 @@ client tools, run command
 
     module load mc
 
-The MinIO client configuration file is located at ``$HOME/.mc/config.json``. Put the following content 
+The MinIO client configuration file is located at ``$HOME/.mc/config.json``. Put the following content
 in the file:
 
 .. code-block:: json
@@ -109,7 +109,7 @@ The ``$RUCIO_CONFIG`` file will look like this:
     ssh_private_key = $HOME/.ssh/id_rsa
 
 In the above example we use SSH authentication for Rucio. Most team members use this method but other
-authentcation methods such as X.509 are also 
+authentcation methods such as X.509 are also
 supported. If you don't have an account in Rucio, you will need to ask another member of the team to create
 one for you with appropriate privileges in Rucio. The above example also assume that your Rucio account name
 is the same as your Unix user name (``id -un``).
@@ -123,7 +123,7 @@ and Rucio/FTS/RSEs
 Vault
 -----
 
-For convenience, define the following environment variable in the ``99-data-curation.conf`` 
+For convenience, define the following environment variable in the ``99-data-curation.conf``
 
 .. code-block:: bash
 
@@ -152,7 +152,7 @@ Likely Kubernetes vClusters that you will need access:
 Accessing to ``usdf-rucio`` and ``usdf-fts3`` vClusters are needed only for the purpose of configuation, etc.
 It is not needed for day-to-day use of Rucio/FTS and RSEs.
 
-Kubernetes access tokens expires in a day or two. So you will need to re-generate the access tokens from 
+Kubernetes access tokens expires in a day or two. So you will need to re-generate the access tokens from
 time to time. To do so, go to ``https://k8s.slac.stanford.edu/<vcluster-name>`` and following the instructions
 there.
 
