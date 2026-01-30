@@ -37,7 +37,7 @@ triggered:
   ``summit-new`` namespace will then ingest the new raw images to the ``embargo`` Butler). Rapid
   Analysis is generally triggered by polling the Butler for completion of ingest. Nightly Validation is
   no longer running against the Embargo.
-- vai a Kafka message to trigger Prompt processing. See the :doc:`Link text <../s3-file-notifications>`.
+- vai a Kafka message to trigger Prompt processing. See the `Link text <../s3-file-notifications>`__.
 
 The Embargo s3's ``rubin-summit`` bucket is configured to send these notificatios. CEPH has an
 internal queue with topic name `rubin-ingest-embargo-new2`. The creation of a new object in the
