@@ -40,7 +40,7 @@ triggered:
 - vai a Kafka message to trigger Prompt processing. See the `Link text <../s3-file-notifications>`__.
 
 The Embargo s3's ``rubin-summit`` bucket is configured to send these notificatios. CEPH has an
-internal queue with topic name `rubin-ingest-embargo-new2`. The creation of a new object in the
+internal queue with topic name ``rubin-ingest-embargo-new2``. The creation of a new object in the
 ``rubin-summit`` bucket and the notification sending is currently configured as a synchronous
 but non-blocking operation: If not notification failed to be added to the internal CEPH queue,
 the object will not be saved. If the notification failed to be sent to the downsteam services,
