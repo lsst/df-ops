@@ -26,6 +26,8 @@ Monitoring
 
 The CNPG dashboard in Grafana.
 
+The MPC annex will send alerts via email if replication is broken or behind.  Note that the USDF subscription name includes ``rubin-usdf``.  The University of Washington has a subscription name that includes ``rubin`` and University of Washington supports this instance.
+
 Replication is broken
 =====================
 

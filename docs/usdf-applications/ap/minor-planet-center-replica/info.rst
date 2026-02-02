@@ -10,7 +10,9 @@ Architecture
 
 The ``mpcorb`` Postgres database is installed in the ``usdf-minor-planet-survey`` Kubernetes vCluster in the ``mpcorb-replica`` namespace with the Cloud Native Postgres Operator.  Some of the data comes from Rubin, but is sent to the MPC Annex first via HTTP, loaded into the database, then replicated back to Rubin.
 
-Postgres Logical Replication is used to replicate data from the MPC annex to the USDF. ``mpcorb`` depends on Internet connectivity to receive updates from the MPC Annex.  The SLAC NAT IP was shared with the MPC Annex as the NAT addresses used for outbound connectivity with SLAC.  If this address changes the MPC Annex will need to be notified.
+Postgres Logical Replication is used to replicate data from the MPC annex to the USDF.  There are two Postgres subscriptions at the MPC annex.  ``sbn146_obs_table_pub`` has the ``obs-sbn`` table.  The ``sbn146_other_tables_pub`` has all other tables.  The Postgres subscription names at the USDF includes ``rubin-usdf``.  The University of Washington has also has an instance of the MPC replica that they support.  The Postgres subscription names at the University of Washington includes ``rubin`` without the ``-usdf``.
+
+``mpcorb`` depends on Internet connectivity to receive updates from the MPC Annex.  The SLAC NAT IP was shared with the MPC Annex as the NAT addresses used for outbound connectivity with SLAC.  If this address changes the MPC Annex will need to be notified.
 
 ``mpcorb`` is also setup as a Postgres publication to replicate data to the EPO.  Further details are in the Architecture Diagram and Data Flow sections of this page.
 
