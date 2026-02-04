@@ -4,7 +4,10 @@ Service Information
 
 Architecture
 ============
-.. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
+
+The application is based on React with an internal MongoDB back-end database that is expected to be a modest 5 GiB in size.
+
+It is deployed as a standard Phalanx service.
 
 Architecture Diagram
 ====================

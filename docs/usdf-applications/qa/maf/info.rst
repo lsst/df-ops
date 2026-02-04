@@ -6,6 +6,10 @@ Architecture
 ============
 .. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
 
+`usdf-maf.slac.stanford.edu <https://usdf-maf.slac.stanford.edu>`__ is a public, unauthenticated web server with some server-side components.
+It is deployed at USDF in its own vcluster with a container maintained by the Simulations group.
+It uses data produced by the Simulations (and Survey Status) group and stored in the Weka filesystem at ``/sdf/data/rubin/shared/fbs_sims``.
+
 Architecture Diagram
 ====================
 .. Include architecture diagram of the application either as a mermaid chart or a picture of the diagram.
@@ -25,7 +29,7 @@ Configuration Location
    * - Config Area
      - Location
    * - Configuration
-     -
+     - https://github.com/slaclab/usdf-maf-deploy
    * - Vault Secrets Dev
      -
    * - Vault Secrets Prod
