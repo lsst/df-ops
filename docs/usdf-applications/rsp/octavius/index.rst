@@ -1,13 +1,13 @@
 ########
 Octavius
 ########
-.. Replace heading with application name
 
 Overview
 ========
-.. Include short summary of application, service, or database
 
-.. Include Application Grouping, Operating Hours (24x7, PST daytime, or observing), Criticality Level, a link to the GitHub repository, and Slack channel used for support of the application.
+Octavius is a web application provided by UK in-kind Commissioning contributors for viewing and classifying strong lenses and clusters.
+
+It is still in the process of being deployed at the USDF RSP.
 
 .. list-table::
    :widths: 25 50
@@ -21,7 +21,7 @@ Overview
    * - GitHub Application Code Repository
      -
    * - GitHub Deployment Repository
-     -
+     - lsst-sqre/phalanx (eventually)
    * - Slack Support Channel
      - octavius-support
    * - Slack Alerts Channel
@@ -29,7 +29,7 @@ Overview
    * - Prod vCluster
      - usdf-rsp
    * - Int vCluster
-     - usdf-int
+     - usdf-rsp-int
    * - Dev vCluster
      - usdf-rsp-dev
 
