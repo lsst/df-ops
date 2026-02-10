@@ -1,5 +1,3 @@
-.. _alert-production-ops-reference:
-
 ##############################################
 Alert Production — Operational Quick Reference
 ##############################################
