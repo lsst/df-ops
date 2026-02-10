@@ -19,3 +19,4 @@ Alert Production
    ap/prompt-redis/index
    ap/sattle/index
    ap/tasso/index
+   ap/quick-reference/index
