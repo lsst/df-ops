@@ -87,12 +87,12 @@ If you still have problems, ask your SLAC POC for help.
 5. Access Control Training
 """"""""""""""""""""""""""
 
-Access Control Training needs to be completed prior to be granted access to Rubin USDF resources. You will need to use your Active Directory (aka Windows) account to log into the training website. The training is listed as VCR100. Please inform Sierra Villarreal (sierrav@slac.stanford.edu) upon completion of this training, or if you find that the training has not been assigned to you.
+Access Control Training needs to be completed prior to be granted access to Rubin USDF resources. You will need to use your Active Directory (aka Windows) account to log into the `training website <https://slactraining.csod.com/>`__ (same as in previous step). The training is listed as VCR100. Please inform Sierra Villarreal (sierrav@slac.stanford.edu) upon completion of this training, or if you find that the training has not been assigned to you.
 
 6. Register your SLAC UNIX account in S3DF
 """"""""""""""""""""""""""""""""""""""""""
 
-This is the same as step 2 of the `S3DF Accounts and Access page <https://s3df.slac.stanford.edu/#/accounts-and-access>`__.   This step should be performed *before* accessing any resources, including S3DF accounts and the USDF Rubin Science Platform.
+This is the same as step 4 of the `S3DF Accounts and Access page <https://s3df.slac.stanford.edu/#/accounts>`__.   This step should be performed *before* accessing any resources, including S3DF accounts and the USDF Rubin Science Platform.
 
 7. Fill out the Rubin Observatory Staff Access Form
 """""""""""""""""""""""""""""""""""""""""""""""""""
