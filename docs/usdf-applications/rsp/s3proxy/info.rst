@@ -6,7 +6,11 @@ Architecture
 ============
 .. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
 
-The S3 Portal on Rubin Science Platform uses it for HIPS tiles.  The s3proxy points to a S3 bucket on embargo.
+The service is a simple FastAPI proxy deployed under Phalanx that takes an object store bucket and path along with a pre-configured profile, retrieves the object into memory, and passes it along to the client.
+
+The primary usage is by the Portal on the Rubin Science Platform to access HiPS tiles.
+
+``s3proxy`` can point to any S3 bucket: in the Embargo Rack, in Weka S3, or on the public s3dfrgw endpoint, with the first two being used most frequently.
 
 Architecture Diagram
 ====================

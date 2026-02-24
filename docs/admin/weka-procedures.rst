@@ -63,6 +63,10 @@ Storage Requests
 Requests for storage will generally be for new Butler repos (under ``/sdf/data/rubin/repo``) or new shared group space (under ``/sdf/data/rubin/shared``).
 Some directories may need to live directly under ``/sdf/data/rubin`` if they require hard links to files in ``/sdf/data/rubin/repo``, as hard links appear to not be able to span quota boundaries, even within the same filesystem.
 
+In some cases, users may request increased quotas for their personal space for files that are not going to be shared with others and are not in a Butler repo.
+This personal space should always be their ``/sdf/data/rubin/user/{username}`` space, not their ``/sdf/home`` home directory.
+These quota increase requests should be approved by USDF management and implemented by the storage team.
+
 Butler repos should be created at the request of the Campaign Management or Pipelines teams.
 
 Requests for shared group space should contain at least the following information:
@@ -82,6 +86,7 @@ Ensure that the directory name properly represents the data it contains and that
 
 
 Procedure:
+
 .. code-block:: bash
 
    ssh s3dflogin
