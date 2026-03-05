@@ -17,6 +17,10 @@ Known Issues
      - Workaround
    * - Many transfers stuck in ``ACTIVE`` state
      - Transfers are stuck in ``ACTIVE`` state for long periods of time, with no new transfers.
+     - Cancel all ``ACTIVE`` jobs
+   * - No transfer updates
+     - Transfers are not getting updates
+     - Temporary work around: disable MariaDB operator reconciliation, set primary back to read_only false
 
 Monitoring
 ==========
@@ -29,7 +33,7 @@ Monitoring
 .. Template to use for troubleshooting
 
 Transfers stuck in ``ACTIVE`` state
-======================
+===================================
 
 **Symptoms:**
 Many FTS transfers have been stuck in ``ACTIVE`` state. FTS Pod does not have any ``fts_url_copy`` processes running.
@@ -41,7 +45,7 @@ We have set the ``MaxURLCopyProcesses`` configuration in the FTS Pod to prevent 
 The current solution is to cancel all of the ``ACTIVE`` jobs. If Rucio is submitting transfers, Rucio will retry the cancelled transfers.
 
 No updates on transfers
-======================
+=======================
 
 **Symptoms:**
 FTS transfers are stuck in submitting or active.
