@@ -7,7 +7,7 @@ Intended audience: Anyone who is administering FTS.
 Deployment
 ==========
 .. Deployment process for the application.  Included upgrades and rollback procedures
-USDF FTS3 deployment manifests are located in the https://github.com/slaclab/rubin-rucio-deploy repository. This project requires a Kubernetes cluster with permissions to run operators as needed. Once you have access to your Kubernetes cluster and access to Vault secrets, FTS3 can be deployed for a given overlay depending on the cluster (found in `overlays/{dev,prod}`) using the Makefile found there with:
+USDF FTS3 deployment manifests are located in the https://github.com/slaclab/rubin-rucio-deploy repository. This project requires a Kubernetes cluster with permissions to run operators as needed. Once you have access to your Kubernetes cluster and access to Vault secrets, FTS3 can be deployed for a given overlay depending on the cluster (found in ``overlays/{dev,prod}``) using the Makefile found there with:
 
 .. code-block:: bash
 
