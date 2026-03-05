@@ -27,5 +27,6 @@ ignore = [
     "^https://support.influxdata.com",
     "^https://strimzi.io",
     "^https://cc.in2p3.fr",
-    "^https://www.hpc.cam.ac.uk"
+    "^https://www.hpc.cam.ac.uk",
+    "^https://lcgfts3.gridpp.rl.ac.uk"
 ]
