@@ -127,43 +127,43 @@ To do so:
 
 #. Download and run `create_rawdata_dimensions_yaml.py <https://github.com/lsst-dm/data-curation-tools/blob/main/bin.src/create_rawdata_dimensions_yaml.py>`_
 
-    .. code:: bash
+   .. code:: bash
 
-       git clone https://github.com/lsst-dm/data-curation-tools.git && cd data-curation-tools/bin.src
+      git clone https://github.com/lsst-dm/data-curation-tools.git && cd data-curation-tools/bin.src
 
-       day_obs=20250715
-       seq_num=000205
+      day_obs=20250715
+      seq_num=000205
 
-       python create_rawdata_dimensions_yaml.py ${day_obs}${seq_num: -5}
-       # This will create a file named ``MC_O_20250715_000205_dimensions.1.yaml`` in the current directory.
+      python create_rawdata_dimensions_yaml.py ${day_obs}${seq_num: -5}
+      # This will create a file named MC_O_20250715_000205_dimensions.1.yaml in the current directory.
 
 #. Upload the new dimensions yaml file to Rucio
 
-    .. code:: bash
+   .. code:: bash
 
-       day_obs=20250715
-       seq_num=000205
+      day_obs=20250715
+      seq_num=000205
 
-       # instrCode="MC"
-       # controller="O"
-       # obsId=${instrCode}_${controller}
-       obsId="MC_O"   # !!! sometimes this could be "MC_C". Check what was created above.
+      # instrCode="MC"
+      # controller="O"
+      # obsId=${instrCode}_${controller}
+      obsId="MC_O"   # !!! sometimes this could be "MC_C". Check what was created above.
 
-       newDimensionsYaml="${obsId}_${day_obs}_${seq_num}_dimensions.1.yaml"
-       didName="LSSTCam/${day_obs}/${newDimensionsYaml}"
-       obsDataset="raw:Dataset/LSSTCam/raw/Obs/${day_obs}/${obsId}_${day_obs}_${seq_num}"
+      newDimensionsYaml="${obsId}_${day_obs}_${seq_num}_dimensions.1.yaml"
+      didName="LSSTCam/${day_obs}/${newDimensionsYaml}"
+      obsDataset="raw:Dataset/LSSTCam/raw/Obs/${day_obs}/${obsId}_${day_obs}_${seq_num}"
 
-       # Note "rucio upload" (below) will not work unless you login to `rubinmgr` and temporarily change
-       # the permission of /sdf/data/rubin/lsstdata/offline/instrument/20250715 to world-writeable (777).
-       # Remember to change the permission back after running the rucio upload command in the next step.
+      # Note "rucio upload" (below) will not work unless you login to `rubinmgr` and temporarily change
+      # the permission of /sdf/data/rubin/lsstdata/offline/instrument/20250715 to world-writeable (777).
+      # Remember to change the permission back after running the rucio upload command in the next step.
 
-       echo rucio upload --rse SLAC_RAW_DISK --scope raw --dataset $didName $newDimensionsYaml
+      echo rucio upload --rse SLAC_RAW_DISK --scope raw --dataset $didName $newDimensionsYaml
 
-       echo rucio did update --open $obsDataset
-       echo rucio did content add --to-did $obsDataset $lfn
-       echo rucio did metadata set --key SafeCopies --value "" $obsDataset
-       echo rucio did metadata set --key arcBackup --value SLAC_RAW_DISK_BKUP:need $obsDataset
-       echo rucio did update --close $obsDataset
+      echo rucio did update --open $obsDataset
+      echo rucio did content add --to-did $obsDataset $lfn
+      echo rucio did metadata set --key SafeCopies --value "" $obsDataset
+      echo rucio did metadata set --key arcBackup --value SLAC_RAW_DISK_BKUP:need $obsDataset
+      echo rucio did update --close $obsDataset
 
 The present of this new _dimensions.1.yaml is an indication that the butler dimesion records has been
 updated. If a DF hasn't ingested the raw data yet, it can directly use the new _dimensions.1.yaml to
