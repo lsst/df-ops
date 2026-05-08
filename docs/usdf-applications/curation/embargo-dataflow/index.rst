@@ -56,7 +56,7 @@ image data and how and where the automated process runs.
 The ``transfer_raw_zip`` Tool
 -----------------------------
 
-The ``transfer_raw_zip.py`` in https://github.comr/lsst-dm/transfer_embargo (branch tickets/DM-51619) is
+The ``transfer_raw_zip.py`` in https://github.com/lsst-dm/transfer_embargo (branch tickets/DM-51619) is
 used to unembargo raw image data. This tool will unembargo the data:
 
 - Transfer from ``embargo`` S3 storage's ``rubin-summit`` bucket to the destination directory
