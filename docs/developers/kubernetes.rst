@@ -4,7 +4,7 @@ SLAC Kubernetes Overview
 
 Operations activities will be carried out at the SLAC US Data Facility (USDF). Where possible, all USDF services will reside on top of a kubernetes platform.
 
-SLAC operates a single large kubernetes cluster. The benefits of this are with increased scale (sharing of resources) and reduced management overhead. We run 'vanilla' kubernetes, deployed via `kubeadm <https://github.com/kubernetes/kubeadm>`__. On top of this, to provide segregation and project control we use `loft.sh's vcluster <https://github.com/loft-sh/vcluster>`__. The latter provides a virtual kubernetes cluster from which we can provide a similar experience to `openshift's projects <https://docs.redhat.com/en/documentation/openshift_container_platform/4.6/html/applications/projects-working-with-projects>`__ or `GKE's projects and folders <https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy>`__.
+SLAC operates a single large kubernetes cluster. The benefits of this are with increased scale (sharing of resources) and reduced management overhead. We run 'vanilla' kubernetes, deployed via `kubeadm <https://github.com/kubernetes/kubeadm>`__. On top of this, to provide segregation and project control we use `loft.sh's vcluster <https://github.com/loft-sh/vcluster>`__. The latter provides a virtual kubernetes cluster from which we can provide a similar experience to `openshift's projects <https://docs.redhat.com/en/documentation/openshift_container_platform/4.6/html/applications/projects#working-with-projects>`__ or `GKE's projects and folders <https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy>`__.
 
 
 SLAC Virtual Clusters, aka "Projects"
