@@ -1,8 +1,10 @@
+  .. _LSST: http://lsst.org
+
 #############################
 Fixing Metadata in Raw Images
 #############################
 
-**Caution:** The fix described here actually happens in butler repos that have those problematic
+⚠️  **Caution:** The fix described here actually happens in butler repos that have those problematic
 raw images in their datastores. The raw images themselves are never altered.
 
 From time to time, there may be errors within obs headers, typical issues are:
@@ -15,8 +17,10 @@ From time to time, there may be errors within obs headers, typical issues are:
 * Wrong filter information in the image headers
 
 This results in wrong dimension records be ingested to the embargo butler repo. The process below
-will allow the dimension records in butler to be fixed. The procedure to report and obtain a fix
-for these issues is as follows:
+will allow the dimension records in butler to be fixed. It includes several steps:
+
+Report and obtain a fix
+=======================
 
 #. An issue is usually identified and reported by someone who notice the problem. Data Curation
    team should file a JIRA ticket to the OBS team to report the problem, and a JIRA ticket to
@@ -34,6 +38,9 @@ for these issues is as follows:
    ``day_obs`` and ``seq_num`` ranges to the ``fix_ranges`` dictionary in the ``obs_lsst``
    `translator code <https://github.com/lsst/obs_lsst/blob/main/python/lsst/obs/lsst/translators/lsstCam.py#L164-L171>`__.
    Get this reviewed and merged to the ``main`` branch.
+
+Fix the metadata in a butler repo
+=================================
 
 The following uses butler repo ``embargo`` as an example, but the same process applies to any
 butler repo that has the affected images in its datastore.
@@ -100,6 +107,12 @@ butler repo that has the affected images in its datastore.
 
    * ``--update-records``: is required to fix headers
 
+Fix downstream butler repos and Rucio
+=====================================
+
+Manual embargo unembargo
+------------------------
+
 If the raw images haven't been unembargoed, the following process can manually unembargo the
 data after the metadata is fixed.
 
@@ -115,6 +128,9 @@ data after the metadata is fixed.
       cd kubernetes/overlays/transfer
 
       bash ./catchup-raw.sh <YYYY-MM-DD>
+
+Fix downstead repos and Rucio
+-----------------------------
 
 If the raw images has been unembargoed, then the downstream butler repos (USDF ``main`` bulter
 and FrDF and UKDF butlers) will need those updated butler dimension records as well.i
@@ -165,7 +181,7 @@ To do so:
       echo rucio did metadata set --key arcBackup --value SLAC_RAW_DISK_BKUP:need $obsDataset
       echo rucio did update --close $obsDataset
 
-The present of this new _dimensions.1.yaml is an indication that the butler dimesion records has been
-updated. If a DF hasn't ingested the raw data yet, it can directly use the new _dimensions.1.yaml to
+**The present of this new _dimensions.1.yaml is an indication that the butler dimesion records has been
+updated**. If a DF hasn't ingested the raw data yet, it can directly use the new _dimensions.1.yaml to
 ingest the data. If the raw data has been ingested, then the DF will need to update the dimension
 records in their butler repos using a similar process as described above for the embargo butler repo.
