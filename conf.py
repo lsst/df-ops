@@ -8,6 +8,7 @@ mermaid_version = "11.9.0"
 # Ignore links
 
 linkcheck_ignore = [
-    r'http://grafana.slac.stanford.edu.+/',
-    r'http://docs.redhat.com.+',
+    r'https://grafana.slac.stanford.edu.+',
+    r'https://github.com/slaclab.+',
+    r'https://docs.redhat.com.+',
 ]
