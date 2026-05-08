@@ -4,7 +4,7 @@ SLAC Kubernetes Overview
 
 Operations activities will be carried out at the SLAC US Data Facility (USDF). Where possible, all USDF services will reside on top of a kubernetes platform.
 
-SLAC operates a single large kubernetes cluster. The benefits of this are with increased scale (sharing of resources) and reduced management overhead. We run 'vanilla' kubernetes, deployed via `kubeadm <https://github.com/kubernetes/kubeadm>`__. On top of this, to provide segregation and project control we use `loft.sh's vcluster <https://github.com/loft-sh/vcluster>`__. The latter provides a virtual kubernetes cluster from which we can provide a similar experience to `openshift's projects <https://docs.openshift.com/container-platform/4.6/applications/projects/working-with-projects.html>`__ or `GKE's projects and folders <https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy>`__.
+SLAC operates a single large kubernetes cluster. The benefits of this are with increased scale (sharing of resources) and reduced management overhead. We run 'vanilla' kubernetes, deployed via `kubeadm <https://github.com/kubernetes/kubeadm>`__. On top of this, to provide segregation and project control we use `loft.sh's vcluster <https://github.com/loft-sh/vcluster>`__. The latter provides a virtual kubernetes cluster from which we can provide a similar experience to `openshift's projects <https://docs.redhat.com/en/documentation/openshift_container_platform/4.6/html/applications/projects#working-with-projects>`__ or `GKE's projects and folders <https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy>`__.
 
 
 SLAC Virtual Clusters, aka "Projects"
@@ -61,7 +61,7 @@ Connecting and Authenticating
 Generically:
 
 - Determine the 'project' that you wish to access, eg usdf-butler
-- Go to https://k8s.slac.stanford.edu/<project>
+- Go to https://k8s.slac.stanford.edu/usdf-butler
 - Click 'Sign-In' to begin the authentication procedure
 - Enter your SLAC credentials into the login page, and possibly your Duo 2Factor if requested. This step may automatically skip if you already have valid single sign on credentials in place already.
 - Click on 'Grant Access' to agree to register
@@ -74,6 +74,6 @@ We currently provide kubernetes API access without the need for VPNs etc. i.e. y
 Miscellaneous
 =============
 
-- if you encounter an error like "Unable to connect to the server: No valid id-token, and cannot refresh without refresh-token" when running your kubectl, you will need to log back in via https://k8s.slac.stanford.edu/<project>, re-executing the commands in the second box. This is because our OIDC (dex) implementation does not and cannot generate refresh tokens from our SAML2 (windows ADFS) backend. (Actually, only the ``set-credentials`` command is needed, but it doesn't hurt to execute them all.)
+- if you encounter an error like "Unable to connect to the server: No valid id-token, and cannot refresh without refresh-token" when running your kubectl, you will need to log back in via ``https://k8s.slac.stanford.edu/<project>``, re-executing the commands in the second box. This is because our OIDC (dex) implementation does not and cannot generate refresh tokens from our SAML2 (windows ADFS) backend. (Actually, only the ``set-credentials`` command is needed, but it doesn't hurt to execute them all.)
 
 Kubernetes secrets are usually held in Vault (vault.slac.stanford.edu).  The vault command is available on USDF interactive nodes.  You may need to activate it with ``module load vault``.  Then login using the commands ``export VAULT_ADDR=https://vault.slac.stanford.edu; vault login -method=ldap`` with your SLAC Windows password.  You can then use ``vault kv list -mount=secret rubin[/PATH]`` and ``vault kv get -mount=secret PATH/TO/SECRET`` to access secrets for which you have permission.

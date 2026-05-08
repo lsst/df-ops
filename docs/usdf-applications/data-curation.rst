@@ -11,6 +11,6 @@ Data Curation
    curation/embargo-dataflow/index
    curation/embargo-transfer/index
    curation/lfa-replication/index
-   curation/manual-unembargo.rst
+   curation/fix-metadata-in-raw.rst
    curation/prompt-output-unembargo/index
    curation/s3-file-notifications/index
