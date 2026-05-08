@@ -61,7 +61,7 @@ Connecting and Authenticating
 Generically:
 
 - Determine the 'project' that you wish to access, eg usdf-butler
-- Go to https://k8s.slac.stanford.edu/<project>
+- Go to https://k8s.slac.stanford.edu/usdf-butler
 - Click 'Sign-In' to begin the authentication procedure
 - Enter your SLAC credentials into the login page, and possibly your Duo 2Factor if requested. This step may automatically skip if you already have valid single sign on credentials in place already.
 - Click on 'Grant Access' to agree to register
