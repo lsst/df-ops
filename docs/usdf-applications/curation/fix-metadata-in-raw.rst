@@ -2,8 +2,6 @@
 Fixing Metadata in Raw Images
 #############################
 
-  .. _LSST: http://lsst.org
-
 ⚠️  **Caution:** The fix described here actually happens in butler repos that have those problematic
 raw images in their datastores. The raw images themselves are never altered.
 
