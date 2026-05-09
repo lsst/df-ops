@@ -1,8 +1,8 @@
-  .. _LSST: http://lsst.org
-
 #############################
 Fixing Metadata in Raw Images
 #############################
+
+  .. _LSST: http://lsst.org
 
 ⚠️  **Caution:** The fix described here actually happens in butler repos that have those problematic
 raw images in their datastores. The raw images themselves are never altered.
@@ -19,8 +19,8 @@ From time to time, there may be errors within obs headers, typical issues are:
 This results in wrong dimension records be ingested to the embargo butler repo. The process below
 will allow the dimension records in butler to be fixed. It includes several steps:
 
-Report and obtain a fix
-=======================
+Report issue and obtain a fix
+=============================
 
 #. An issue is usually identified and reported by someone who notice the problem. Data Curation
    team should file a JIRA ticket to the OBS team to report the problem, and a JIRA ticket to
