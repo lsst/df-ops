@@ -50,11 +50,13 @@ Configuration Location
    * - Configuration
      - https://github.com/lsst-dm/dax_apdb_deploy
    * - Vault Secrets Dev
-     - | rubin/usdf-apdb-test/cassandra-super
-       | rubin/usdf-apdb-test/cassandra
+     - rubin/usdf-apdb-dev/cassandra
+   * - Vault Secrets Dev (superuser)
+     - rubin/usdf-apdb-dev/cassandra-super
    * - Vault Secrets Prod
-     - | rubin/usdf-apdb-dev/cassandra-super
-       | rubin/usdf-apdb-dev/apdb-prod
+     - rubin/usdf-apdb-prod/apdb-prod
+   * - Vault Secrets Prod (superuser)
+     - rubin/usdf-apdb-prod/cassandra-super
 
 Data Flow
 =========
