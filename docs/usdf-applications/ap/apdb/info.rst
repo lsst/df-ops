@@ -11,7 +11,7 @@ The database serves approximately 200 clients of Prompt Processing system concur
 Cassandra stores its data on fast local storage (NVMe disks in raidz2 array).
 Presently there are 12 nodes at USDF (sdfk8sk001-012) split between two Cassandra clusters.
 
-Backups of the Cassandra files are managed by `cassandra-meduza <https://github.com/thelastpickle/cassandra-medusa>`_ service running on each cluster node.
+Backups of the Cassandra files are managed by `cassandra-medusa <https://github.com/thelastpickle/cassandra-medusa>`_ service running on each cluster node.
 Backups are stored in S3 bucket, off-site storage of backups is not implemented yet.
 
 A separate application reads data from APDB and replicates it to PPDB, which will likely be implemented on top of Google BigQuery.
@@ -21,7 +21,6 @@ Architecture Diagram
 .. Include architecture diagram of the application either as a mermaid chart or a picture of the diagram.
 
 .. mermaid::
-  :config: {"theme": "neutral"}
 
   flowchart LR
           pp@{ shape: procs, label: "Prompt<br/>Processing" }
