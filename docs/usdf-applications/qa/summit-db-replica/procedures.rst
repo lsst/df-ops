@@ -65,8 +65,17 @@ If logical replication loses replication slots on the publisher or there is some
 Rebuild Subscription - Exposurelog and ConsDB
 ---------------------------------------------
 If logical replication loses replication slots on the publisher or there is some other unrecoverable error the tables need to be truncated.  ``TRUNCATE`` keeps the schema while deleting the data.  This will work as long as the schema matches Summit.  The rebuild process differs depending of the type issue.
-
-To rebuild run the following.
+To rebuild with one command from script in pod:
+   .. code-block:: bash
+      # find the primary summit-logical-replica pod
+      k cnpg status summit-logical-replica
+      #exec into the primary pod (-2 is the primary for example)
+      k  exec -it summit-logical-replica-2 -- bash
+      cd /var/lib/postgresql/data/replication
+      # run recreate script, if table list change, please make sure table list are in sync here.
+      bash recreate.sh
+      # note please make sure the sql referenced in recreate.sh is up to date with the tables in the publication and the tables to truncate in the documentation.  If there are new tables added to the publication they need to be added to the recreate.sh script and the tables to truncate in the documentation.
+Or to rebuild run the following step by step
  #. Connect to the ``exposurelog`` database with ``\c exposurelog``
  #. If the replication slot is missing or does not exist an error like this will be in the alerts or logs ``replication slot usdf_exposurelog does not exist``.  Disable and drop the exposurelog subscription.
 
@@ -92,12 +101,11 @@ To rebuild run the following.
      .. rst-class:: technote-wide-content
 
      .. code-block:: sql
-
         TRUNCATE TABLE public.message;
-        TRUNCATE TABLE cdb_latiss.ccdexposure, cdb_latiss.ccdexposure_camera, cdb_latiss.ccdexposure_flexdata, cdb_latiss.ccdexposure_flexdata_schema, cdb_latiss.ccdvisit1_quicklook, cdb_latiss.exposure, cdb_latiss.exposure_flexdata, cdb_latiss.exposure_flexdata_schema, cdb_latiss.exposure_quicklook, cdb_latiss.visit1_quicklook;
+        TRUNCATE TABLE cdb_latiss.ccdexposure, cdb_latiss.ccdexposure_camera, cdb_latiss.ccdexposure_flexdata, cdb_latiss.ccdexposure_flexdata_schema, cdb_latiss.ccdvisit1_quicklook, cdb_latiss.exposure, cdb_latiss.exposure_flexdata, cdb_latiss.exposure_flexdata_schema, cdb_latiss.exposure_quicklook, cdb_latiss.visit1_quicklook, cdb_latiss.ccdexposure_quicklook;
         TRUNCATE TABLE cdb_lsstcam.ccdexposure, cdb_lsstcam.ccdexposure_camera, cdb_lsstcam.ccdexposure_flexdata, cdb_lsstcam.ccdexposure_flexdata_schema, cdb_lsstcam.ccdexposure_quicklook, cdb_lsstcam.ccdvisit1_quicklook, cdb_lsstcam.exposure, cdb_lsstcam.exposure_flexdata, cdb_lsstcam.exposure_flexdata_schema, cdb_lsstcam.exposure_quicklook, cdb_lsstcam.visit1_quicklook;
         TRUNCATE TABLE cdb_lsstcomcam.ccdexposure, cdb_lsstcomcam.ccdexposure_camera, cdb_lsstcomcam.ccdexposure_flexdata, cdb_lsstcomcam.ccdexposure_flexdata_schema, cdb_lsstcomcam.ccdexposure_quicklook, cdb_lsstcomcam.ccdvisit1_quicklook, cdb_lsstcomcam.exposure, cdb_lsstcomcam.exposure_flexdata, cdb_lsstcomcam.exposure_flexdata_schema, cdb_lsstcomcam.exposure_quicklook, cdb_lsstcomcam.visit1_quicklook;
-        TRUNCATE TABLE cdb_lsstcomcamsim.ccdexposure, cdb_lsstcomcamsim.ccdexposure_camera, cdb_lsstcomcamsim.ccdexposure_flexdata, cdb_lsstcomcamsim.ccdexposure_flexdata_schema, cdb_lsstcomcamsim.ccdvisit1_quicklook, cdb_lsstcomcamsim.exposure, cdb_lsstcomcamsim.exposure_flexdata, cdb_lsstcomcamsim.exposure_flexdata_schema, cdb_lsstcomcamsim.visit1_quicklook;
+        TRUNCATE TABLE cdb_lsstcomcamsim.ccdexposure, cdb_lsstcomcamsim.ccdexposure_camera, cdb_lsstcomcamsim.ccdexposure_flexdata, cdb_lsstcomcamsim.ccdexposure_flexdata_schema, cdb_lsstcomcamsim.ccdvisit1_quicklook, cdb_lsstcomcamsim.exposure, cdb_lsstcomcamsim.exposure_flexdata, cdb_lsstcomcamsim.exposure_flexdata_schema, cdb_lsstcomcamsim.visit1_quicklook, cdb_lsstcomcamsim.ccdexposure_quicklook, cdb_lsstcomcamsim.exposure_quicklook;
         TRUNCATE TABLE cdb_startrackerfast.exposure, cdb_startrackerfast.exposure_flexdata, cdb_startrackerfast.exposure_flexdata_schema, cdb_startrackerfast.exposure_quicklook;
         TRUNCATE TABLE cdb_startrackernarrow.exposure, cdb_startrackernarrow.exposure_flexdata, cdb_startrackernarrow.exposure_flexdata_schema, cdb_startrackernarrow.exposure_quicklook;
         TRUNCATE TABLE cdb_startrackerwide.exposure, cdb_startrackerwide.exposure_flexdata, cdb_startrackerwide.exposure_flexdata_schema, cdb_startrackerwide.exposure_quicklook;
