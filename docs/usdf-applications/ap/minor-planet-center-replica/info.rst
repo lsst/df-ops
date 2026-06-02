@@ -10,7 +10,9 @@ Architecture
 
 The ``mpcorb`` Postgres database is installed in the ``usdf-minor-planet-survey`` Kubernetes vCluster in the ``mpcorb-replica`` namespace with the Cloud Native Postgres Operator.  Some of the data comes from Rubin, but is sent to the MPC Annex first via HTTP, loaded into the database, then replicated back to Rubin.
 
-Postgres Logical Replication is used to replicate data from the MPC annex to the USDF. ``mpcorb`` depends on Internet connectivity to receive updates from the MPC Annex.  The SLAC NAT IP was shared with the MPC Annex as the NAT addresses used for outbound connectivity with SLAC.  If this address changes the MPC Annex will need to be notified.
+Postgres Logical Replication is used to replicate data from the MPC annex to the USDF.  There are two Postgres subscriptions at the MPC annex.  ``sbn146_obs_table_pub`` has the ``obs-sbn`` table.  The ``sbn146_other_tables_pub`` has all other tables.  The Postgres subscription names at the USDF includes ``rubin-usdf``.  The University of Washington has also has an instance of the MPC replica that they support.  The Postgres subscription names at the University of Washington includes ``rubin`` without the ``-usdf``.
+
+``mpcorb`` depends on Internet connectivity to receive updates from the MPC Annex.  The SLAC NAT IP was shared with the MPC Annex as the NAT addresses used for outbound connectivity with SLAC.  If this address changes the MPC Annex will need to be notified.
 
 ``mpcorb`` is also setup as a Postgres publication to replicate data to the EPO.  Further details are in the Architecture Diagram and Data Flow sections of this page.
 
@@ -20,9 +22,46 @@ Architecture Diagram
 ====================
 .. Include architecture diagram of the application either as a mermaid chart or a picture of the diagram.
 
-.. image:: mpc-architecture.png
-  :width: 1000
-  :alt: Minor Planet Survey Replication Architecture
+.. mermaid::
+
+   graph TD
+
+      %% Node Definitions using Database Shapes
+      MPC[(<b>MPC Annex</b><br/><br/>Postgres Logical Replication Publication<br/><br/>Access restricted to USDF NAT IP)]
+
+      USDF[(<b>USDF</b><br/><br/>Subscription to MPC Annex<br/><br/>Publication for EPO<br/>for EPO)]
+
+      GCP_LB[GCP Access Kubernetes<br/>Load Balancer<br/><br/>Access restricted to EPO<br/>GCP NAT IPs with Load<br/>Balancer Source IP Ranges]
+
+      EPO[(<b>EPO in Google Cloud</b><br/><br/>Subscription to the USDF)]
+
+      %% Flow Connections
+      MPC --> USDF
+      USDF --- GCP_LB
+      GCP_LB --> EPO
+
+      %% Legend Section (Placed at bottom)
+      subgraph Legend
+         direction LR
+         L1[MPC Annex] ~~~ L2[USDF] ~~~ L3[EPO Google Cloud]
+      end
+
+      %% Anchor Legend to the bottom by creating an invisible connection from the end of the flow
+      EPO ~~~ Legend
+
+      %% Styling for Environment Differentiation
+      style MPC fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+      style USDF fill:#f5f5f5,stroke:#616161,stroke-width:2px
+      style GCP_LB fill:#f5f5f5,stroke:#616161,stroke-width:2px
+      style EPO fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+
+      %% Styling for Legend Nodes
+      style L1 fill:#e1f5fe,stroke:#01579b
+      style L2 fill:#f5f5f5,stroke:#616161
+      style L3 fill:#e8f5e9,stroke:#2e7d32
+
+      %% Make the anchor link invisible
+      linkStyle 3 stroke-width:0px;
 
 Associated Systems
 ==================
@@ -79,7 +118,7 @@ Dependencies - External
 
 Below are External Dependencies.
 
-* Internet connectivity to receive logical replication updates.  Access is tied to the SLAC NAT IP.
+* Internet connectivity to receive logical replication updates.  Access is tied to the S3DF NAT IP.
 
 Disaster Recovery
 =================

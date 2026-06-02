@@ -7,31 +7,32 @@ Overview
 ========
 .. Include short summary of application, service, or database
 
-rucio-register registers Butler data with Rucio for transfer. ingestd is used to automatically ingest registered data to a Butler. HermesK is used to send messages about data transfer
+Registers Butler files with Rucio at the USDF, France, and UK Data Facilities.  Installed as modification to Rucio container.
 
 .. Include Application Grouping, Operating Hours (24x7, PST daytime, or observing), Criticality Level, a link to the GitHub repository, and Slack channel used for support of the application.
 
 .. list-table::
    :widths: 25 50
 
-   * - Application Grouping
+   * - Service Grouping
      - Data Release Production
    * - Operating Hours
-     -
-   * - Criticality Level
-     -
+     - 24x7
+   * - Service Tier
+     - Critical
    * - GitHub Application Code Repository
-     -
+     - * https://github.com/lsst-dm/ctrl_ingestd
+       * https://github.com/lsst-dm/ctrl_rucio_ingest
    * - GitHub Deployment Repository
-     -
+     - https://github.com/slaclab/rubin-rucio-deploy
    * - Slack Support Channel
-     -
+     - df-data-movement
    * - Slack Alerts Channel
      -
    * - Prod vCluster
-     -
+     - usdf-rucio
    * - Dev vCluster
-     -
+     - usdf-rucio-dev
 
 .. toctree::
    :maxdepth: 2

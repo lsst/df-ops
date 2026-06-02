@@ -39,7 +39,7 @@ The Kafka upgrade process in Phalanx is detailed below.
 Restart Kafka
 =============
 
-A rolling update is used to restart Kafka.  To restart follow the instructions `here <https://strimzi.io/docs/operators/latest/deploying#assembly-rolling-updates-str>`__ to add an annotation to perform a rolling restart.
+A rolling update is used to restart Kafka.  To restart follow the instructions `here <https://strimzi.io/docs/operators/latest/deploying#assembly-rolling-updates-str>`__ to add an annotation to perform a rolling restart.  If the rolling update does not work the pods can be deleted.  The PVC will not be deleted.  The StrimziPodSet will handle recreation of the pods with the same PVC.
 
 .. _Shutdown Kafka Gracefully:
 
@@ -85,32 +85,71 @@ Each time a new Kafka instance is added or removed the ``watchNamespaces`` confi
         - "prompt-kafka"
         - "s3-file-notifications"
 
-Reserving Static IP Addresses
-=============================
+Configuring Kafka Networking
+============================
 
-Once a Kafka cluster is provisioned service IP Addresses are assigned. Obtain these IPs with ``kubectl get services -n <replace with namespace of cluster>``.  Add the ``loadBalancerIP`` fields to the values file in the Phalanx for the bootstrap and the brokers.  An example is below.
+A load balancer needs to be configured if a Kafka cluster needs to be accessible outside of the vCluster.  The service type needs to be changed to ``loadbalancer`` and ``allocateLoadBalancerNodePorts`` needs to be set to ``false`` for security. An example below with the Strimzi helm chart and Phalanx. Note that if ``loadbalancer`` services are already provisioned and ``allocateLoadBalancerNodePorts`` is set to ``true`` the services will need to be deleted to remove the node ports.
+
+.. rst-class:: technote-wide-content
+
+.. code-block:: yaml
+
+   - name: external
+     type: loadbalancer
+     configuration:
+       allocateLoadBalancerNodePorts: false
+
+An address pool has to be assigned to the ``loadbalancer``service.  The ``sdf-rubin-ingest`` address pool is used for services that should be accessible inside S3DF only.  As part of the a Kafka cluster provisioning with ``loadbalancer`` services  IP Addresses are assigned.  Obtain these IPs with ``kubectl get services -n <replace with namespace of cluster>``.  Add the ``metallb.io/loadBalancerIPs`` annotation to the Helm values file in Phalanx for the bootstrap and the brokers and deploy.  An example below.  Note this may be different if not using Phalanx.
 
 .. rst-class:: technote-wide-content
 
 .. code-block:: yaml
 
     externalListener:
-    bootstrap:
-        loadBalancerIP: 172.24.10.50
+      bootstrap:
         annotations:
-        metallb.io/address-pool: sdf-rubin-ingest
-    brokers:
+          metallb.io/address-pool: sdf-rubin-ingest
+          metallb.io/loadBalancerIPs: xxx.xxx.xxx.xxx
+      brokers:
+        - broker: 0
+          annotations:
+            metallb.io/address-pool: sdf-rubin-ingest
+            metallb.io/loadBalancerIPs: xxx.xxx.xxx.xxx
+        - broker: 1
+          annotations:
+            metallb.io/address-pool: sdf-rubin-ingest
+            metallb.io/loadBalancerIPs: xxx.xxx.xxx.xxx
         - broker: 3
-        loadBalancerIP: 172.24.10.51
-        annotations:
+          annotations:
             metallb.io/address-pool: sdf-rubin-ingest
-        - broker: 4
-        loadBalancerIP: 172.24.10.52
+            metallb.io/loadBalancerIPs: xxx.xxx.xxx.xxx
+
+
+The ``sdf-dmz`` is used for services that need to be accessible outside USDF.  Services need approval before using the ``sdf-dmz`` address pool.  :ref:`Open a Service Now Ticket <create_snow_request>` to request a DMZ Services Cyber Exemption Request.
+
+Once approved configure the load balancer.  As part of the a Kafka cluster provisioning with ``loadbalancer`` service IP Addresses are assigned.  Obtain these IPs with ``kubectl get services -n <replace with namespace of cluster>``.  Add the ``metallb.io/loadBalancerIPs`` annotation to the Helm values file in Phalanx for the bootstrap and the brokers and deploy.  An example below.  Note this may be different if not using Phalanx.
+
+.. rst-class:: technote-wide-content
+
+.. code-block:: yaml
+
+    externalListener:
+      bootstrap:
         annotations:
-            metallb.io/address-pool: sdf-rubin-ingest
-        - broker: 5
-        loadBalancerIP: 172.24.10.53
-        annotations:
-            metallb.io/address-pool: sdf-rubin-ingest
+          metallb.io/address-pool: sdf-dmz
+          metallb.io/loadBalancerIPs: xxx.xxx.xxx.xxx
+      brokers:
+        - broker: 0
+          annotations:
+            metallb.io/address-pool: sdf-dmz
+            metallb.io/loadBalancerIPs: xxx.xxx.xxx.xxx
+        - broker: 1
+          annotations:
+            metallb.io/address-pool: sdf-dmz
+            metallb.io/loadBalancerIPs: xxx.xxx.xxx.xxx
+        - broker: 3
+          annotations:
+            metallb.io/address-pool: sdf-dmz
+            metallb.io/loadBalancerIPs: xxx.xxx.xxx.xxx
 
 .. _latest version of the operator: https://strimzi.io/downloads/

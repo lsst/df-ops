@@ -20,7 +20,7 @@ Security Incident Response
 ==========================
 .. Information and procedures for handling security incidents.
 
-Keda Scaled jobs can be deleted to remove the Prompt Processing Keda service.
+KEDA Scaled jobs can be deleted to remove the Prompt Processing KEDA service.
 
 Security Policies
 =================

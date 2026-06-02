@@ -1,12 +1,12 @@
-#######################
-Application Information
-#######################
+###################
+Service Information
+###################
 
 Architecture
 ============
 .. Describe the architecture of the application including key components (e.g API servers, databases, messaging components and their roles).  Describe relevant network configuration.
 
-Prompt Redis is deployed as statefulset in the Prompt Processing vClusters in the ``prompt-redis`` Kubernetes namespace.
+Prompt Redis is deployed as Kubernetes Statefulset in the Prompt Processing vClusters in the ``prompt-redis`` Kubernetes namespace.
 
 The Next Visit Fan Out Service sends fanned out events to Redis Streams. Within Redis Streams a stream is configured for each instrument along with a corresponding consumer group and Prompt Processing is configured with a consumer group to read pending messages. The naming for the streams is ``instrument:<instrument_name>``.  LSSTCam for example is ``instrument:lsstcam``
 

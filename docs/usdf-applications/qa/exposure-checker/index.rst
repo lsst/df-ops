@@ -14,11 +14,11 @@ An interface for visually identifying artifacts in Rubin images.
 .. list-table::
    :widths: 25 50
 
-   * - Application Grouping
+   * - Service Grouping
      - QA
    * - Operating Hours
      -
-   * - Criticality Level
+   * - Service Tier
      -
    * - GitHub Application Code Repository
      - https://github.com/lsst-sitcom/rubin_exp_checker
@@ -31,7 +31,7 @@ An interface for visually identifying artifacts in Rubin images.
    * - Prod vCluster
      -
    * - Dev vCluster
-     - usdf-rsp
+     - usdf-rsp-dev
 
 .. toctree::
    :maxdepth: 2

@@ -35,3 +35,10 @@ This documentation is built with GitHub Actions. The `main` branch reflects the 
 Previews of branches are also built and deployed at https://df-ops.lsst.io/v.
 
 For more information about writing Rubin user guides, see the [Documenteer documentation](https://documenteer.lsst.io/guides/index.html).
+
+## Adding a Service
+
+To add a new service.
+* Copy the [service-template folder](service-template) to [docs](docs) under the appropriate service grouping
+* Rename the copied service-template folder to the service name
+* Add the path to the index page for the service grouping

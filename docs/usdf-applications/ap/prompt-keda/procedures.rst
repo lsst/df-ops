@@ -50,6 +50,8 @@ To upgrade the KEDA operator perform the following.
  #. Update the `KEDA Chart version <https://github.com/lsst-sqre/phalanx/blob/450e400e5ec56a4bd273547b6fa0bd06175bd976/applications/keda/Chart.yaml#L12>`__ in Phalanx with the release number.
  #. Refresh and Sync in ArgoCD
 
+.. _restarting_keda_operator:
+
 Restarting KEDA Operator
 ========================
 

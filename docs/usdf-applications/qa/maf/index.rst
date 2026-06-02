@@ -17,9 +17,9 @@ Helping simulate and evaluate the performance of Rubin C. Observatory’s Legacy
    * - Service Grouping
      - QA
    * - Operating Hours
-     -
+     - 24x7
    * - Service Tier
-     -
+     - Operational
    * - GitHub Application Code Repository
      - https://github.com/lsst/rubin_sim
    * - GitHub Deployment Repository
@@ -31,7 +31,7 @@ Helping simulate and evaluate the performance of Rubin C. Observatory’s Legacy
    * - Prod vCluster
      - usdf-maf
    * - Dev vCluster
-     -
+     - N/A
 
 .. toctree::
    :maxdepth: 2

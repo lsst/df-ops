@@ -14,10 +14,10 @@ Maintenance
 ===========
 .. Maintenance tasks. How maintenance is communicated and carried out.
 
-The production hours are during observing.  Maintenance can be performed during the day and should be announced in the *lsstcam-prompt-processing* Slack channel.
+The production hours are during observing.  Maintenance can be performed during the day and should be announced in the *lsstcam-prompt-processing* Slack channel.  For development announce on the *dm-prompt-processing* Slack channel if performing maintenance.
 
-For development announce on the
-*dm-prompt-processing* Slack channel if performing maintenance.
+Review `Redis release notes <https://redis.io/docs/latest/operate/rs/release-notes/>`__ quarterly or if a new feature is needed to determine if Redis should be updated.  Review the supported Kubernetes version and KEDA Redis Scalar version to make sure they are supported before upgrading.  See :ref:`Upgrading Redis` to perform the upgrade.
+
 
 Backup
 ======
@@ -56,6 +56,10 @@ Redis has a CLI to view and manage Redis Streams. From the appropriate dev or pr
    kubectl exec -it prompt-redis-0 -n prompt-redis -- redis-cli
    127.0.0.1:6379> ping
    PONG
+
+List Streams
+============
+From the :ref:`Redis Command Line` ``SCAN 0 TYPE stream`` to identify the Redis Streams configured.
 
 .. _Bootstrap Prompt Redis:
 
@@ -101,6 +105,18 @@ To delete all the events in a Redis stream the ``DEL`` command can be used. Belo
 
    OK
 
+Viewing Number of Messages in a Stream
+======================================
+
+To view the number of messages in a Redis Stream use the ``XLEN`` command followed by the key.  Below is an example.
+
+.. rst-class:: technote-wide-content
+
+.. code-block:: text
+
+   127.0.0.1:6379> XLEN instrument:lsstcam
+   (integer) 23961
+
 Viewing Message Statistics
 ==========================
 Prompt Processing is configured to ignore messages that have already been read by another consumer. To view messages statistics for a consumer group enter ``XINFO GROUPS <consumer_group_name>`` with the :ref:`Redis Command Line`. An example below with the LSSTCam consumer group. The lag is 9 so 9 messages have not been acknowledged. To manually clear these messages see the Clear Redis Stream section.
@@ -129,6 +145,8 @@ Viewing Pending messages
 ========================
 Pending messages are messages that have been delivered to a consumer within a consumer group but have not been acknowledged as processed.  There should not usually be a build up of pending messages.  To view if there are pending messages run ``XPENDING instrument:lsstcam lsstcam_consumer_group`` with the :ref:`Redis Command Line`.  Replace if the instrument name and the consumer group for a different instrument.
 
+.. _Upgrading Redis:
+
 Upgrading Redis
 ===============
 To upgrade the Redis perform the following.
@@ -137,5 +155,14 @@ To upgrade the Redis perform the following.
  #. Refresh and Sync in ArgoCD
 
 Restarting Redis
-========================
-To restart the keda operator run ``kubectl rollout restart statefulset prompt-redis -n prompt-redis``
+================
+To restart redis run ``kubectl rollout restart statefulset prompt-redis -n prompt-redis``
+
+Trim Messages in a Stream
+=========================
+Redis Stream messages cannot automatically be expired or deleted within Redis.
+
+To trim messages perform the following.
+ #. Access the :ref:`Redis Command Line`
+ #. Determine the stream and the number of the messages to keep.
+ #. Run ``XTRIM <stream> MAXLEN <number of messages to keep>``.  For example to trim the LSSTCam stream to the 1,000 newest messages run ``XTRIM instrument:lsstcam 1000``

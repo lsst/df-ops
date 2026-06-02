@@ -15,11 +15,11 @@ The USDF replica is also setup as a publication and EPO in Google Cloud subscrib
 .. list-table::
    :widths: 25 50
 
-   * - Application Grouping
+   * - Service Grouping
      - Alert Production
    * - Operating Hours
      - 24x7
-   * - Criticality Level
+   * - Service Tier
      - Real Time
    * - GitHub Database Code Repository
      - https://github.com/slaclab/rubin-usdf-minor-planet-survey

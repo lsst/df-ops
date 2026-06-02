@@ -4,3 +4,18 @@ linkcheck_anchors = False
 
 # Remove this later after we fix documenteer
 mermaid_version = "11.9.0"
+
+# Ignore links
+
+linkcheck_ignore = [
+    r'https://grafana.slac.stanford.edu.+',
+    r'https://.+.slac.stanford.edu.+',
+    r'https://confluence.lsstcorp.org.+',
+    r'https://github.com/.+',
+    r'https://docs.redhat.com.+',
+    r'https://slactraining.skillport.com.+',
+]
+
+# disable TLS verification
+
+tls_verify = False

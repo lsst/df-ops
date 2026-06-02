@@ -27,9 +27,11 @@ Configuration Location
    * - Configuration
      -
    * - Vault Secrets Dev
-     -
+     - secret/rubin/usdf-rsp-dev/plot-navigator
+   * - Vault Secrets Int
+     - secret/rubin/usdf-rsp-int/plot-navigator
    * - Vault Secrets Prod
-     -
+     - secret/rubin/usdf-rsp/plot-navigator
 
 Data Flow
 =========
@@ -38,6 +40,10 @@ Data Flow
 Dependencies - S3DF
 ===================
 .. Dependencies at USDF include Ceph, Weka Storage, Butler Database, LDAP, other Rubin applications, etc..  This can be none.
+
+* SDFData
+* Butler Embargo, Main, DC2, DP1
+* s3dfrgw
 
 Dependencies - External
 =======================

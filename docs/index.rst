@@ -2,9 +2,9 @@
 Rubin Data Facilities
 #####################
 
-.. Important::
+.. Note::
 
-    This documentation is under development.  It should not be consulted for information at this time.
+   We encourage users to help keep these pages filled with accurate and up-to-date documentation. Please consult the :ref:`Contributions <contributions>` page for best practices to edit this website.
 
 Documentation is for Rubin team members that are managing and support applications at Data Facilities.  For information on S3DF outages click `here. <https://s3df.slac.stanford.edu/#/changelog?id=outages>`_
 

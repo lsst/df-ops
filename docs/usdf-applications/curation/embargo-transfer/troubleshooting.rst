@@ -23,6 +23,8 @@ Monitoring
 ==========
 .. Describe how to monitor application and include relevant links.
 
+Note that many performance metrics are stored in the internal Redis database but are not yet published externally.
+
 .. Template to use for troubleshooting
 
 Sample Troubleshooting

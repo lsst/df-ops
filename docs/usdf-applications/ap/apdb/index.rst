@@ -17,21 +17,21 @@ This database is used by Alert Production that runs as a part of Prompt Producti
    * - Application Grouping
      - Alert Production
    * - Operating Hours
-     -
+     - 24x7
    * - Criticality Level
      - Real Time
    * - GitHub Application Code Repository
-     -
+     - https://github.com/lsst/dax_apdb
    * - GitHub Deployment Repository
-     -
+     - https://github.com/lsst-dm/dax_apdb_deploy
    * - Slack Support Channel
      -
    * - Slack Alerts Channel
-     -
-   * - Prod vCluster
-     -
-   * - Dev vCluster
-     -
+     - ops-apdb-alerts
+   * - Prod hosts
+     - sdfk8sk001-006
+   * - Dev nodes
+     - sdfk8sk007-012
 
 .. toctree::
    :maxdepth: 2

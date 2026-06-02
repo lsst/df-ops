@@ -26,6 +26,8 @@ Monitoring
 
 The CNPG dashboard in Grafana.
 
+The MPC annex will send alerts via email if replication is broken or behind.  Note that the USDF subscription name includes ``rubin-usdf``.  The University of Washington has a subscription name that includes ``rubin`` and University of Washington supports this instance.
+
 Replication is broken
 =====================
 
@@ -68,3 +70,11 @@ Schema Mismatch
 
 **Solution:** Follow :ref:`minor_planet_survey_schema_updates`
 
+EPO Replication
+===============
+
+To identify issues with EPO replication perform the following.
+
+#. Connect to the mpc_sbn database with ``\c mbc_sbn;``
+#. Check replication slots.  See :ref:`Check Logical Replication Slots` for the query.
+#. Check for replication lag. See :ref:`Identify Logical Replication Lag` for the query.

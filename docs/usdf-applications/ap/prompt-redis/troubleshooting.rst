@@ -23,6 +23,8 @@ Monitoring
 ==========
 .. Describe how to monitor application and include relevant links.
 
+`Redis Streams KEDA Performance Dashboard <https://grafana.slac.stanford.edu/d/yKZFx0uIz/prompt-processing-redis-streams-keda-performance?orgId=1&from=now-24h&to=now&timezone=browser&var-datasource=940RXge4k&var-job=$__all&var-redis_server=$__all&var-stream=$__all&var-group=$__all&var-consumer=$__all&var-namespace=vcluster--usdf-prompt-processing>`__
+
 No Such Group or Key Error
 ==========================
 

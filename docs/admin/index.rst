@@ -14,8 +14,4 @@ Resources for application infrastructure administrators working at the USDF.
    k8s-procedures
    k8s-troubleshooting
    usdf-procedures
-
-.. toctree::
-   :maxdepth: 1
-
-   usdf-sdf-dependencies
+   weka-procedures
