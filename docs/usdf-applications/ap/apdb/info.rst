@@ -65,9 +65,11 @@ Configuration Location
    * - Vault Secrets Dev (superuser)
      - rubin/usdf-apdb-dev/cassandra-super
    * - Vault Secrets Prod
-     - rubin/usdf-apdb-prod/apdb-prod
+     - rubin/usdf-apdb-prod/cassandra
    * - Vault Secrets Prod (superuser)
      - rubin/usdf-apdb-prod/cassandra-super
+   * - S3 bucket for backups
+     - usdf-apdb-prod
    * - Vault Secrets for S3
      - rubin/usdf-apdb-prod/s3
 
@@ -77,11 +79,11 @@ Data Flow
 
 - Prompt Processing jobs query APDB for the pre-existing data in the region covered by visit-detector.
 - Based on the images and pre-existing data Prompt Processing generates a set of records that it saves to Cassandra.
-- This repeats for every visit during the night, approx 1k vistits are expected during the nitght.
+- This repeats for every visit during the night, approximately 1k visits are expected during each night.
 - Daytime catchup processing works similarly to Prompt Processing working on images that failed to process during the night.
 - Deduplication process also runs during daytime, it analyzes records generated during the night and performs cleanup on some of them.
 - Newly generated data are copied from Cassandra periodically by a replication process.
-- Backups are taken perdiodically once a day and are uploaded to an S3 bucket.
+- Backups are taken periodically once a day and are uploaded to an S3 bucket.
 - Off-site backup is not implemented yet.
 
 Dependencies - S3DF
@@ -103,6 +105,6 @@ Disaster Recovery
 
 In case of disaster the content of database can be restored from the latest backup.
 Recovery procedure consists of running ``medusa-cassandra`` service in a special recovery mode which copies data from S3 to the Cassandra hosts.
-Cassandra cluster needs to be configured with the same number of nodes and preferrably with the same IPs.
+Cassandra cluster needs to be configured with the same number of nodes and preferably with the same IPs.
 Recovery of the data from S3 depends on the amount of data and location of backup (on-site vs off-site) and it could take anywhere between few hours and a day or longer.
 ``dax_apdb_deploy`` `README <https://github.com/lsst-dm/dax_apdb_deploy#restoring-backups>`_ documents recovery procedure.
