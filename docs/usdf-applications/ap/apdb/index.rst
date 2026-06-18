@@ -25,13 +25,15 @@ This database is used by Alert Production that runs as a part of Prompt Producti
    * - GitHub Deployment Repository
      - https://github.com/lsst-dm/dax_apdb_deploy
    * - Slack Support Channel
-     -
+     - #apdb-ppdb-planning
    * - Slack Alerts Channel
-     - ops-apdb-alerts
+     - #ops-apdb-alerts
    * - Prod hosts
      - sdfk8sk001-006
    * - Dev nodes
      - sdfk8sk007-012
+   * - Int nodes
+     - sdfcasdev001-003,101,102
 
 .. toctree::
    :maxdepth: 2

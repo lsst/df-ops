@@ -16,6 +16,12 @@ linkcheck_ignore = [
     r'https://slactraining.skillport.com.+',
 ]
 
+# Reducing number of workers from 5 to 1 seems to result in fewer timeouts.
+linkcheck_workers = 1
+
+# Increase number of retries if timeouts still happen.
+linkcheck_retries = 3
+
 # disable TLS verification
 
 tls_verify = False
