@@ -30,7 +30,7 @@ Maintenance
 ===========
 .. Maintenance tasks. How maintenance is communicated and carried out.
 
-Maintenance operations that could impact APDB availability need to be announced on ``dm-prompt-processing-dev`` Slack channel in advance.
+Maintenance operations that could impact APDB availability need to be announced on ``#dm-prompt-processing-dev`` Slack channel in advance.
 
 Operations that involve CQL queries (e.g. altering keyspace or table properties) need to be executed on one of the cluster nodes.
 There is a ``cqlsh`` wrapper script installed in a Docker deployment directory on each cluster node.

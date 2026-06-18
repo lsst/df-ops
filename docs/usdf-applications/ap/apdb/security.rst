@@ -16,11 +16,13 @@ Regular clients access APDB through a Python API defined and implemented in ``da
 Clients need to have credentials of a regular Cassandra account, these are defined in ``~/.lsst/db-auth.yaml`` file, its contents can be retrieved from the Vault.
 
 Management of APDB cluster is done via Ansible which uses SSH for connecting to cluster nodes.
-To be able to manage APDB services that run on Cassandra cluster nodes one needs to:
+To be able to manage APDB services that run on Cassandra cluster nodes one needs to :ref:`open a Service Now tickets <create_snow_request>`:
 
-- Have their Kerberos principal added to ``$HOME/.k5login`` of the service account on Cassandra nodes (see below). This is managed by USDF IT, send a message to ``usdf-help@slac.stanford.edu``.
-- Have their account enabled on all Cassandra cluster nodes and have ``sudo`` privileges, also managed by USDF IT.
-- Have access to the Vault secrets and a valid Kerberos ticket
+- to have their Kerberos principal added to ``$HOME/.k5login`` of the service account on Cassandra nodes (see below);
+- to have their account enabled on all Cassandra cluster nodes and have ``sudo`` privileges;
+- to have access to the Vault secrets.
+
+A valid Kerberos ticket needed for most operations when using ``dax_apdb_deploy`` tools, some also require authentication with the Vault (``vault login ...``).
 
 Cassandra nodes do not have shared home directories for users, to simplify access to the nodes it is advisable to create home directory on each Cassandra node and populate ``~/.k5login``.
 This can be done with Ansible from ``dax_apdb_deploy`` package, e.g. for ``prod`` cluster:
