@@ -7,21 +7,19 @@ Overview
 
 The SLAC onboarding procedure involves the following steps:
 
-#. Join the SLAC Users Organization, SLUO
-#. Fill out the SLAC Site Access Portal form
-#. Request a username and access to S3DF batch repos
-#. Do the SLAC cyber training
-#. Complete VCR100 Access Control Training
-#. Register your SLAC UNIX account in S3DF
+#. Make sure your Rubin Onboarding Form has been submitted on your behalf.
+#. Request an invitation to the SLAC Gateway.
+#. Complete SLAC cyber training
+#. Complete VCR100 Access Control Training and send the certificate.
+#. Register your SLAC Account in S3DF
 #. Fill out the `Rubin Observatory Staff Access Form <https://ls.st/staff-access-form>`__ (if you have not already done so as part of Rubin onboarding)
 
-SLAC IT will create Active Directory (AD) and unix accounts (for the same username).  The AD account is only used for annual cyber training and web access to Service Now, the SLAC IT ticketing system. The AD account needs to be accessed every 60 days; notifications are sent out.  Once IT creates the accounts, a link will be emailed to reset the passwords.
+SLAC IT will create Active Directory (AD) and unix accounts (for the same username). The AD account needs to be accessed every 60 days; notifications are sent out.  Once IT creates the accounts, a link will be emailed to reset the passwords.
 
 Notes:
 
-* If you are an in-kind contributor, you'll need to be listed in `SITCOMTN-050 <https://sitcomtn-050.lsst.io/>`__.
-* If you already have a SLAC unix account, you do not need to be re-onboarded. However, you may need to follow step 3 below.
-* If you only have a SLAC Confluence account (e.g., for DESC or LSSTCam), you will still need to be onboarded as a user, **and** there will be complications with your accounts. SLAC and Rubin Confluence sites are independent installations.
+* If you already have a SLAC unix account, you do not need to be re-onboarded via the SLAC Gateway. However, you may need to follow steps 1, 4, and 5 below.
+* If you only have a SLAC Confluence account (e.g., for DESC or LSSTCam), you will still need to be onboarded as a user, **and** there may be complications with your accounts. SLAC and Rubin Confluence sites are independent installations.
 
   - If your existing Confluence account name is longer than 8 characters (or if for some reason your unix account name did not match your Confluence one), you will need a different name. In that case, a new Confluence identity is created using your unix account name, added to DESC permissions, and your old account is deleted.
   - Otherwise, you will need to login to Confluence once with the unix password, then the Confluence admins will merge the unix and Confluence identities.
@@ -32,46 +30,17 @@ Onboarding Steps
 
 Please follow the steps below to complete the onboarding process.
 
-1. SLUO Registration
-""""""""""""""""""""
-New users are required to register as a SLAC User via the **Enrollment** button at the bottom of the `SLAC Scientific Collaborative Research Registration <https://it.slac.stanford.edu/identity/scientific-collaborative-researcher-registration>`__ page.  Also linked at that page are `step-by-step instructions for that process <https://it.slac.stanford.edu/support/KB0012289>`__.
+1. Have a Completed Rubin Onboarding Form
+"""""""""""""""""""""""""""""""""""""""""
 
-Notes for the SLAC User Registration form:
+New users are required to USDF are required to have been onboarded onto Rubin Project. As such, the user's supervisor in Rubin should fill out the `Rubin Onboarding Form <https://project.lsst.org/onboarding/form>`__ and select the USDF Account Needed option.
 
-- For SLAC Project, select "Vera C. Rubin Observatory".
+2. Request an Invitation from SLAC Gateway
+"""""""""""""""""""""""""""""""""""""""""""
 
-2. Site Access Portal form
-""""""""""""""""""""""""""
-Once the your SLAC Point-of-Contact (POC), Sierra Villarreal, has approved your request, you will receive an email to fill out the SLAC Site Access form.
+Once a Rubin Onboarding Form has been completed on your behalf, simply reach out to Sierra Villarreal to request an invitation via the SLAC Gateway. She can be reached via Slack (LSST Discovery Alliance or Rubin Project) or e-mail at sierrav@slac.stanford.edu.
 
-Notes for the Site Access form:
-
-- If your institution is missing, let Sierra know, and she will have it added to the list.
-- Emergency Contact: Your own personal contact, e.g., relative, friend.
-- Group: Select "FPD Technology & Operations".
-- Details of visit and project name:  "Using SLAC computing resources to collaborate on Rubin Operations."  (It seems to be optional to include your home institution.)
-- Funding Source: Choose your majority support source.
-- Time at SLAC: This is for being physically on site. For most people, this is <10%. Occasional visits for meetings don't count.
-- Start date: Choose today.
-- Will you be performing work at SLAC: "Yes".
-- SLAC Spokesperson/Sponsor/Supervisor: Select Antonia Villarreal.
-
-All foreign nationals will additionally be requested to submit an CV with the following guidelines:
-
-- The CV must be written in English
-- All education and work history back to the start of college (within the last 10 years)
-- Beginning and end dates of education and experience must include month and year (mm/yyyy format)
-- Include all science and technology specialties
-- Names of all academic institutions attended must be current/accurate
-- There should be no time gap. If any gaps in education and/or employment, it must be noted and explained
-- Do not include social security numbers, government ID numbers, passport numbers, or any other similar data
-
-3. Username Request and S3DF Batch Repo Access
-""""""""""""""""""""""""""""""""""""""""""""""
-
-Once the Site Access form has been approved, another email will be sent out with your SLAC System ID (SID).  Once the SID has been assigned, computing accounts can be made.  At this point, email your POC, Sierra (sierrav@slac.stanford.edu), with your first and second choice usernames (these are limited to no more than 8 alphanumeric characters), and she will submit a ticket to IT with the account request.  Once your account is activated, Sierra will email you a link to request S3DF batch repo access.
-
-4. Cyber Training
+3. Cyber Training
 """""""""""""""""
 
 Cyber training comes up annually. You will need to use your Active Directory (aka Windows) account to log into the training website.  Note that you will need to use your SLAC SID wherever a "username" is requested.
@@ -84,29 +53,20 @@ If you still have problems, ask your SLAC POC for help.
 
 **SLAC cyber training must be done within 2 weeks to keep the account enabled.**
 
-5. Access Control Training
+4. Access Control Training
 """"""""""""""""""""""""""
 
 Access Control Training needs to be completed prior to be granted access to Rubin USDF resources. You will need to use your Active Directory (aka Windows) account to log into the `training website <https://slactraining.csod.com/>`__ (same as in previous step). The training is listed as VCR100. Please inform Sierra Villarreal (sierrav@slac.stanford.edu) upon completion of this training, or if you find that the training has not been assigned to you.
 
-6. Register your SLAC UNIX account in S3DF
+5. Register your SLAC Account in S3DF
 """"""""""""""""""""""""""""""""""""""""""
 
 This is the same as step 4 of the `S3DF Accounts and Access page <https://s3df.slac.stanford.edu/#/accounts>`__.   This step should be performed *before* accessing any resources, including S3DF accounts and the USDF Rubin Science Platform.
 
-7. Fill out the Rubin Observatory Staff Access Form
+6. Fill out the Rubin Observatory Staff Access Form
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 Some of the resources and data accessible from the USDF are meant to be only available to Rubin staff.  Please fill out the `Rubin Observatory Staff Access Form <https://ls.st/staff-access-form>`__ to help us determine whether you can be regarded as a Rubin team-member for the purposes of accessing these staff-only resources.
-
-**Final Notes:**
-
-When the user submits the onboarding request form, the form is
-sent to several approvers before a SLAC SID is granted.
-If the user is a US citizen, the completed onboarding form is
-routed to the SLAC POC, then to the SLAC HR team for a
-duplicate SID check.
-If the user is a non-US citizen, the completed onboarding form is routed to the SLAC POC, then to the VUE Center Coordinator, and then to the SLAC HR team for a duplicate SID check.
 
 Troubleshooting Accounts
 ========================
