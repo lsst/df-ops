@@ -14,6 +14,8 @@ linkcheck_ignore = [
     r'https://github.com/.+',
     r'https://docs.redhat.com.+',
     r'https://slactraining.skillport.com.+',
+    r'https://project.lsst.org.+',
+    r"https://www.hpc.cam.ac.uk.+"
 ]
 
 # Reducing number of workers from 5 to 1 seems to result in fewer timeouts.
