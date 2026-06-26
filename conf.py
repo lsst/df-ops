@@ -15,7 +15,9 @@ linkcheck_ignore = [
     r'https://docs.redhat.com.+',
     r'https://slactraining.skillport.com.+',
     r'https://project.lsst.org.+',
-    r"https://www.hpc.cam.ac.uk.+"
+    r"https://www.hpc.cam.ac.uk.+",
+    r"https://sbnmpc.astro.umd.edu.+",
+    r"https://sbnwiki.astro.umd.edu.+"
 ]
 
 # Reducing number of workers from 5 to 1 seems to result in fewer timeouts.
