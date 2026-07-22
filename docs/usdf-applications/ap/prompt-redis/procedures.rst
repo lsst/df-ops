@@ -160,7 +160,7 @@ To restart redis run ``kubectl rollout restart statefulset prompt-redis -n promp
 
 Trim Messages in a Stream
 =========================
-Redis Stream messages cannot automatically be expired or deleted within Redis.
+Redis Stream messages cannot automatically be expired or deleted within Redis.  A cronjob is configured called ``redis-stream-trim`` in the Prompt Redis Phalanx app to trim messages daily.  To manually trim below are the commands.
 
 To trim messages perform the following.
  #. Access the :ref:`Redis Command Line`
