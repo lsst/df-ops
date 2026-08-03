@@ -29,9 +29,9 @@ This database is used by Alert Production that runs as a part of Prompt Producti
    * - Slack Alerts Channel
      - #ops-apdb-alerts
    * - Prod hosts
-     - sdfk8sk001-006
+     - sdfk8sk001-009
    * - Dev nodes
-     - sdfk8sk007-012
+     - sdfk8sk010-012
    * - Int nodes
      - sdfcasdev001-003,101,102
 
