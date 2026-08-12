@@ -14,7 +14,7 @@ This CNPG database runs with v1.30 and barman-plugin v0.13
    * - Application Grouping
      - Data Curation
    * - Operating Hours
-     - 24h
+     - 24*7
    * - Criticality Level
      - High
    * - GitHub Application Code Repository
