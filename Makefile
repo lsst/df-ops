@@ -20,3 +20,11 @@ update:
 clean:
 	rm -rf _build/*
 	rm -rf .tox
+
+.PHONY: compile
+compile:
+	tox run -e html
+
+.PHONY: lint
+lint:
+	tox run -e lint,linkcheck
