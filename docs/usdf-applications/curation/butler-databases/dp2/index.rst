@@ -4,9 +4,15 @@ DP2
 
 Overview
 ========
-DP2 butler database is a supported cloud-native postgress database that host
-DP2 catalog.
-This CNPG database runs with v1.30 and barman-plugin v0.13
+The postgres database is the Butler *registry* for DP2 - it stores dataset provenance
+and metadata (dimension records, dataset type definitions, collections, and
+datastore URIs), not the underlying image/table bytes, which are stored as files
+in object storage and referenced by URI.
+DP2 is Rubin's first data preview built from real on-sky observations with the LSST
+Camera, processed with Rubin Science Pipelines v30. Registered dataset types include:
+* - Images*: ``raw_exposure``, ``visit_image``, ``deep_coadd``, ``template_coadd``, ``difference_image``
+* - Catalogs*: ``object``, ``source``, ``forced_source``, ``dia_object``, ``dia_source``, ``dia_object_forced_source``, ``ss_object``, ``ss_source``, ``mpc_orbits``, ``visit``, ``visit_detector``
+
 
 .. list-table::
    :widths: 25 50
