@@ -32,8 +32,9 @@ Overview
      -
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
+   dp2/index
    info
    documentation-training
    security
