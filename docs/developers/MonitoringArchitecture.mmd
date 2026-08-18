@@ -1,0 +1,63 @@
+flowchart
+  subgraph parent-cluster[<b>k8s-parent-cluster</b>]
+    subgraph monitoring-system[<b>monitoring-system</b>]
+      subgraph influx-tsdb[<b>INFLUXDB-TSDB</b>]
+        influxdb
+        service-influxdb["service"]
+        service-influxdb <-->influxdb
+      end
+      subgraph loki-tsdb[<b>LOKI-TSDB</b>]
+        loki-ring[loki-ring]
+        sdf-k8s01-loki-query-frontend[sdf-k8s01-loki-query-frontend]
+        loki-ring<-->sdf-k8s01-loki-query-frontend
+      end
+      service-influxdb<-->sdf-k8s01-grafana
+      sdf-k8s01-grafana[sdf-k8s01-grafana-HA]
+      grafana-db[grafana-db-cnpg]
+    end
+    sdf-k8s01-loki-query-frontend <--> sdf-k8s01-grafana
+    sdf-k8s01-grafana -->grafana-db
+    subgraph prometheus-system[<b>prometheus-system</b>]
+      subgraph prometheus[<b>PROMETHEUS-TSDB</b>]
+        Prometheus
+        prometheus-service[service]
+        prometheus-service <-->Prometheus
+      end
+    end
+    prometheus-service<-->sdf-k8s01-grafana
+    subgraph vclusters-usdf[<b>vcluster-usdf.*</b>]
+      podmonitor[podmonitor]
+      Prometheus-passthrough["prometheus
+      passthrough"]
+      metrics["metrics/"]
+    end
+
+    Prometheus <-->Prometheus-passthrough
+    Prometheus-passthrough -->metrics
+    podmonitor -->metrics
+  end
+
+  subgraph servers[<b>S3DF-servers</b>]
+    subgraph  batch-nodes[<b>batch-nodes</b>]
+      telegraf-plugin-batch[telegraf]
+      slurm-metrics["slurm-metrics
+      sdfslurmctld001"]
+      promtail-batch[promtail]
+    end
+    telegraf-plugin-batch -->service-influxdb
+    slurm-metrics -->service-influxdb
+    promtail-batch-->loki-ring
+    subgraph interactive-nodes[<b>interactive-nodes</b>]
+      telegraf-plugin-interactive[telegraf]
+      promtail-interactive[promtail]
+    end
+    telegraf-plugin-interactive -->service-influxdb
+    promtail-interactive-->loki-ring
+    subgraph k8s-nodes[<b>k8s-nodes</b>]
+      telegraf-plugin-k8s[telegraf]
+      promtail-k8s[promtail]
+    end
+    telegraf-plugin-k8s -->service-influxdb
+    promtail-k8s-->loki-ring
+  end
+  users <-->sdf-k8s01-grafana

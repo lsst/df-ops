@@ -15,9 +15,10 @@ Architecture and Dependencies
 Architecture Diagram
 --------------------
 
-.. note::
+.. image:: MonitoringArchitecture.svg
+   :alt: Architecture diagram
+   :width: 100%
 
-   Render a mermaid diagram
 
 Grafana Deployment
 ------------------
@@ -149,7 +150,7 @@ Template
 ---------
 
 Template used in ``ops-usdf-alerts``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: go
 
@@ -258,6 +259,7 @@ Set Evaluation Behaviour
 * Choose the evaluation group and interval.
 * Set the **pending period** — how long the condition (for example, ``/tmp`` usage above threshold) must persist before the alert fires.
 * Configure **No Data** and **Error** handling:
+
 .. note::
   If your workflow allows *no data* without generating an alert, set both to **Normal**.
 
