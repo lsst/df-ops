@@ -16,6 +16,10 @@ Maintenance
 
 The production hours are during observing.  Maintenance can be performed during the day and should be announced in the *lsstcam-prompt-processing* Slack channel.  For development announce on the *dm-prompt-processing* Slack channel if performing maintenance.
 
+Development Database
+====================
+A development database for Prompt Processing is installed in the ``usdf-prompt-processing-dev`` vCluster.  The database is used for Prompt Processing and Alert Production development. The database hostname for connecting is ``usdf-prompt-db-pooler-dev``.
+
 Backup
 ======
 .. Procedures for backup including how to verify backups.
