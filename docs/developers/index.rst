@@ -12,4 +12,5 @@ Resources for developers working at the USDF.
    argocd-troubleshooting
    secrets-procedures
    secrets-troubleshooting
+   grafana
    grafana-procedures
