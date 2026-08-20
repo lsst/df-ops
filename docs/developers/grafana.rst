@@ -14,7 +14,7 @@ Architecture and Dependencies
 Architecture Diagram
 --------------------
 
-.. image:: MonitoringArchitecture.svg
+.. image:: images/MonitoringArchitecture.svg
    :alt: Architecture diagram
    :width: 100%
 
