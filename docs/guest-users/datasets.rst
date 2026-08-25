@@ -6,7 +6,7 @@ This document covers the specific :ref:`format <datasets_format_usdf>` and :ref:
 
 Datasets covered by this policy include raws, calibration files, and refcats. "Refcats" refers to reference catalogs that are used for calibration (astrometric or photometric). Other types of catalogs may be used as references (e.g. DC2 truth tables) but will be referred to as external catalogs.
 
-.. _datasets_file_paths_usdf:
+.. _guest_datasets_file_paths_usdf:
 
 File Paths
 ==========
@@ -17,7 +17,7 @@ The following file paths contain shared datasets:
 - ``/sdf/group/rubin/shared`` (henceforth ``/shared`` for short) is a symlink to ``/sdf/data/rubin/shared`` and is the preferred path for new shared datasets, as well as for migrating older datasets.
 - ``/sdf/group/rubin/user`` is a symlink to ``/sdf/data/rubin/user`` and contains user home directories. Shared datasets may reside here temporarily for prototyping but should be moved to ``/shared`` once they start being used by multiple users.
 
-.. _datasets_policy_usdf:
+.. _guest_datasets_policy_usdf:
 
 Policy
 ======
@@ -44,7 +44,7 @@ Requesting users are often given initial ownership of the shared directory and a
 If the shared dataset needs central curation, ownership may be set to ``rubinmgr`` after it is initially populated.
 More sophisticated options to grant temporary unlocks for modification or to permanently allow curation by a group of users are available on request.
 
-.. _datasets_format_usdf:
+.. _guest_datasets_format_usdf:
 
 Format
 ======
@@ -65,7 +65,7 @@ Most data in ``/datasets`` adheres to the following Gen2 format conventions (cap
 The datasets still in use have been ingested via symlink to current Gen3 Butler repositories, and users generally will not need to interact with them.
 Additional legacy datasets may reside under the RERUN and PREPROCESSED tags, as well as under ``/datasets/all-sky``.
 
-.. _datasets_reference-catalogs_usdf:
+.. _guest_datasets_reference-catalogs_usdf:
 
 Reference Catalogs
 ------------------
@@ -104,7 +104,7 @@ Here is a template for what each refcat's readme should contain:
     The configuration that was used to ingest the data is included in this
     directory as `IngestIndexedReferenceTask.py`.
 
-.. _datasets_butler_ingest_usdf:
+.. _guest_datasets_butler_ingest_usdf:
 
 Butler Ingest
 =============
@@ -118,7 +118,7 @@ The RFC/ingestion ticket should determine whether external datasets need corresp
 For example, a multi-band, multi-instrument catalog covering a small area like COSMOS needs no dimensions, whereas larger catalogs may benefit from htm spatial sharding.
 Pre-processed images could benefit from an instrument and filter; best practices for dataset type specification and spatial sharding are TBD.
 
-.. _datasets_readme_guidelines_usdf:
+.. _guest_datasets_readme_guidelines_usdf:
 
 README Guidelines
 =================

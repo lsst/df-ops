@@ -53,10 +53,10 @@ A few different plugins to BPS are available that use various workflow systems f
 - `ctrl_bps_panda <https://panda.lsst.io/>`__  This plugin is intended for production execution of the DRP pipelines, as well as for remote execution at the UK and French Data Facilities.
 - :ref:`ctrl_bps_parsl <ctrl_bps_parsl>`
 
-.. _ctrl_bps_htcondor:
+.. _guest_ctrl_bps_htcondor:
 
 ctrl_bps_htcondor
-=================
+=======================
 This section describes how to obtain an `HTCondor <https://htcondor.org>`__ pool in S3DF for use with BPS workflows.  Upon logging in via ``ssh rubin-devl`` to either sdfrome001 or sdfrome002, one can see that htcondor is installed and running, but that no computing slots are available::
 
    $ condor_q
@@ -236,10 +236,10 @@ There are two time scales in the script above. The first is the glidein shutdown
 
 After the workflow is complete all of the glideins will expire and the ``service.sh`` process can be removed with Ctrl-C, killing the process, etc.  If a user has executed a ``bps submit`` and acquired resources via the ``service.sh`` / ``allocateNodes`` and everything is running, but then wishes to terminate everything, how best to proceed? A good path is to issue a ``bps cancel``, which would take the precise form ``bps cancel --id <condor ID or path to run submit dir (including timestamp)>``. After the cancel all htcondor jobs will be terminated soon, and the glideins will become idle and expire shortly after the glidein shutdown time with inactivity. The last item that might remain is to stop the ``service.sh`` script, as described above.  For the future we are investigating if BPS itself can manage the allocateNodes auto invocations that a workflow requires, eliminating the need for the user to manage the ``service.sh`` script.
 
-.. _ctrl_bps_parsl:
+.. _guest_ctrl_bps_parsl:
 
 ctrl_bps_parsl
-==============
+====================
 The `ctrl_bps_parsl <https://github.com/lsst/ctrl_bps_parsl/>`__ package uses the `Parsl parallel programming library <https://parsl-project.org/>`__ to enable running on HPC resources.  This plugin can also be configured for running on a single node, such as a laptop, which is useful for testing and development.  An `earlier version <https://github.com/LSSTDESC/gen3_workflow/>`__ of this plugin was developed by DESC and has been used extensively by DESC at `NERSC <https://www.nersc.gov/>`__, `CC-IN2P3 <https://cc.in2p3.fr/en/>`__, and `CSD3 <https://www.hpc.cam.ac.uk/high-performance-computing>`__ for running the LSST Science Pipelines at scale.  The ctrl_bps_parsl package `README <https://github.com/lsst/ctrl_bps_parsl#readme>`__ has further details about the history, development, and usage of this plugin.   The `README  <https://github.com/lsst/ctrl_bps_parsl#readme>`__ also has instructions for installing Parsl for use with the LSST Science Pipelines code.
 
 There are nominally four different site configuration classes in ctrl_bps_parsl that can be used for running BPS jobs on the SLAC S3DF cluster.  Here is an example BPS configuration file that illustrates possible configurations for each one:
