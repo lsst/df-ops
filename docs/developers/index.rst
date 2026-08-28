@@ -14,3 +14,4 @@ Resources for developers working at the USDF.
    secrets-troubleshooting
    grafana
    grafana-procedures
+   prometheus-procedures

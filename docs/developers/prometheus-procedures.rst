@@ -23,6 +23,6 @@ Creating metrics with Prometheus
 
 Prometheus has client libraries for many programming languages including Python.  The Prometheus python library is `here <https://pypi.org/project/prometheus-client/>`__.  When developing metrics here are some considerations:
 
-* Identify what type of metric to create.   An overview of Prometheus metric types is `here <https://prometheus.io/docs/concepts/metric_types/>`
+* Identify what type of metric to create.   An overview of Prometheus metric types is `here <https://prometheus.io/docs/concepts/metric_types/>`__.
 * If you are creating reports with log filters consider creating a metric for better performance
 * The Prometheus python client has an implementation of context manager. This makes it easier to handle exceptions and prevents prometheus gauges that are stuck due to an exception

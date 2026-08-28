@@ -9,35 +9,120 @@ Operations and procedures for Grafana at the USDF.
   If any of the TSDBs is down, alerts will be delivered with null
   values. If Grafana itself is down, **no alerts will be delivered**.
 
+Request access to the Explore tab in Grafana
+============================================
+The **Explore** menu item in Grafana provides access to logs and to navigate metrics.  :ref:`create_snow_request` with your SLAC ID to request access to the **Explore** menu item in Grafana.
+
 Adding and Modifying Data Source Connections
 ============================================
 
-Create a Jira task in the USDFSM space asking to create a new datasource connection.
-This datasource connection needs to specify the type of TSDB and the service in front of the TSDBs
-Also provide the route in Vault for any authentication needed against the different database/index for the TSDB needed
+:ref:`create_snow_request` to request a new datasource connection.
+This datasource connection needs to specify the type of Time Series Database (TSDB) and the service in front of the TSDBs.  Also provide the route in Vault for any authentication needed against the different database/index for the TSDB needed.
 
+.. _creating grafana dashboard:
+
+Creating a Dashboard or Panel
+=============================
+
+Grafana dashboard are created from the **Dashboard** menu item on the left side navigation.  When creating a dashboard save the dashboard in the **Rubin folder**.  Dashboard Documentation from Grafana is `here. <https://grafana.com/docs/grafana/latest/visualizations/dashboards/build-dashboards/create-dashboard/>`__
+
+Labels for Filtering
+====================
+
+Pods are labeled in Kubernetes.  These labels propagate to Grafana.  Below are common labels that can be used for filtering in the Loki and Promethus Datasources.  Using appropriate filters help to reduce the data queried and improves performance.
+
+.. list-table::
+   :widths: 25 25
+   :header-rows: 1
+
+   * - Label
+     - Description
+   * - app
+     - Phalanx adds a label with the name of the application
+   * - container
+     - Container name in kubernetes manifest
+   * - namespace
+     - vCluster
 
 Adding an Alert
 ===============
 
-Contact Points
-~~~~~~~~~~~~~~
+Grafana periodically evaluates `alert <https://grafana.com/docs/grafana/latest/alerting/>`__ rules by executing data source queries and checking their conditions.  Alerts are typically configured to send a notification to a Rubin Slack channel.  In Grafana the **Rubin** folder is for alerts with Rubin services.  To create a Rubin alert in Grafana follow the instructions below.
 
-A **Contact Point** defines the integration (Slack, email, webhook,
-etc.) that will receive an alert. You must specify the destination
-(for example, a Slack channel) and provide the corresponding token.
+#. See :ref:`Creating Grafana Dashboard` to create a dashboard or panel for the alert.  This will be needed later for the notification message.  If not present, the message in Slack will have a warning with an exclamation point.
+#. Goto **Alerting** > **Alert Rules**
+#. Select **New alert rule**
+#. In **Enter alert rule name** type in the rule name.
+#. Define the **query and alert condition**.  This is the query for a log, metric, or other data that will trigger the alert.  A useful option to **Preview alert rule condition** to validate against data in the system that the rule will fire.  Below are example queries for common data sources.
 
-Under **Optional Slack Settings** you can configure:
+   * :ref:`Loki Alert Considerations`
+   * :ref:`Prometheus Alert Considerations`
+   * :ref:`Telegraf Alert Considerations`
 
-* a template for the **title**
-* a template for the **text body**
+#. Add **folder and labels**.  Select **Rubin** for the folder.
 
-Define Query and Alert Condition
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   * Select **Rubin** for the folder.
+   * Select **Add Labels**.  Labels route to the appropriate notification policy and  contact point to deliver the alert. For example, ``facility=Rubin`` routes alerts to the ``ops-usdf-alerts`` Slack channel.
 
-Alerts must be based on time series. When creating an alert, the
-description should include enough information about what is failing so
-that the delivered template is actionable.
+#. Set the evaluation behavior.  An evaluation group is a collection of alert rules that share a common evaluation schedule and interval.  It determines how frequently Grafana runs the queries for a set of alert rules.
+
+   *  Set the evaluation or select **New Evaluation Group** to create  new one.
+   *  Set the **Pending Period** — how long the condition (for example, usage or metric above a threshold) must persist before the alert fires.
+   *  Set **Keep firing for** for how long the alert will show as firing.
+   *  Configure **no data and error handling**.  This controls the behavior of the alert if there is no data.  For Loki alerts set the the state to **Normal**.   With Loki if there is no log generated the query will return no data.
+
+#. Configure notifications.  Select a **contact point**
+#. Configuration Notification message
+
+   * For the summary
+   * Enter text for the description.  The description should include enough information about what is failing so that the delivered template is actionable. This is used when the alert is firing.
+   * Add a Custom annotation with the name of ``descriptionresolved``.  This is a custom annotation used when the alert clears that is required by the S3DF templates.  Below is an example.
+
+      **Example** — firing description:
+
+      .. code-block:: text
+
+        {{ $labels.host }} /tmp usage at {{ printf "%.0f" $values.B.Value }} %
+
+      **Example** — resolved description:
+
+      .. code-block:: text
+
+        {{ $labels.host }} /tmp usage back to {{ printf "%.0f" $values.B.Value }} %
+
+
+#. **Link dashboard and panel**.  This is required for the alert to display correctly in Slack.
+#. Select **Save** when complete.
+
+.. _loki alert considerations:
+
+Loki Alert Considerations
+~~~~~~~~~~~~~~~~~~~~~~~~~
+Below is guidance for adding Loki alerts.
+
+*  Grafana evaluates a single numeric value against a threshold.  Include ``sum by (message)``, ``count_over_time``, and ``[$interval]`` to provide a count of log messages during an interval.  An example below with areas of replacement noted.
+
+.. code-block:: text
+
+   sum by(message) (count_over_time({namespace="<add namespace>", container="<add container name>"}  |= "<log contents>"[$__interval]))
+
+*  A reduce expression is needed to provide numeric value against a threshold.  A reduce function is added for **Sum** with Input of **A** or the query name with Mode **Strict**
+*  In the **Threshold** set the Input to be the **Reduce** step.   **Input** from the reduce step can be set to **Is above 0** for whatever count makes sense for the alert rule.
+
+.. _prometheus alert considerations:
+
+Prometheus Alert Considerations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Below is guidance for adding Prometheus alerts.
+
+* Wrap counter metrics in functions like ``rate`` or ``increase`` before making comparisions.  Prometheus handles process restarts with these functions.
+* Prometheus scraping is every 30 seconds.  Set the ``rate[window]`` to be at least 4x the scrape interval.  This will smooth out temporary spikes.
+
+.. _telegraf alert considerations:
+
+Telegraf Alert Considerations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Example** — track ``/tmp`` usage across all hosts, using Telegraf
 disk metrics stored in InfluxDB. The query time range should be kept
@@ -61,9 +146,6 @@ Always add:
 * a **Reduce** expression
 * a **Threshold** expression
 
-These collapse the per-host time series into a single evaluated series,
-so one alert covers many hosts instead of firing one alert per host.
-
 To make alerts **dynamic** (rather than static text), use expressions
 such as:
 
@@ -76,48 +158,11 @@ These variables are populated only for the time series that is firing.
 * Use ``$labels.host`` (the label name depends on your query; it may be different in yours).
 * The value shown is the one from the firing series.
 
-Set Evaluation Behaviour
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-* Pick the folder where the alert rule will be stored.
-* Choose the evaluation group and interval.
-* Set the **pending period** — how long the condition (for example, ``/tmp`` usage above threshold) must persist before the alert fires.
-* Configure **No Data** and **Error** handling:
-
-.. note::
-  If your workflow allows *no data* without generating an alert, set both to **Normal**.
-
-Labels and Contact Point Routing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Labels determine which Contact Point delivers the alert. For example,
-``facility=Rubin`` routes alerts to the ``ops-usdf-alerts`` Slack channel.
-
-The notification message requires two annotations:
-
-* ``description`` — used when the alert is firing.
-* ``descriptionresolved`` — a custom annotation used when the alert clears (required by our templates). Unless no nothification of resolved alert is needed.
-
-**Example** — firing description:
-
-.. code-block:: text
-
-  {{ $labels.host }} /tmp usage at {{ printf "%.0f" $values.B.Value }} %
-
-**Example** — resolved description:
-
-.. code-block:: text
-
-  {{ $labels.host }} /tmp usage back to {{ printf "%.0f" $values.B.Value }} %
-
-How Contact Points Relate to Notification Policies
---------------------------------------------------
+Adding Contact Points
+=====================
 
 In Grafana, **Contact Points** and **Notification Policies** work
 together to decide *where* alerts go and *when* they are delivered.
-
-What Contact Points Are
-~~~~~~~~~~~~~~~~~~~~~~~
 
 A Contact Point defines **how** an alert is delivered. Examples:
 
@@ -128,9 +173,6 @@ A Contact Point defines **how** an alert is delivered. Examples:
 A Contact Point is **only the destination**. It does **not** decide
 which alerts should go there.
 
-What Notification Policies Are
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 A Notification Policy decides:
 
 * **Which alerts** should go to which Contact Point.
@@ -140,30 +182,11 @@ A Notification Policy decides:
 
 Notification Policies act as routing rules.
 
-How Alerts Are Routed
-~~~~~~~~~~~~~~~~~~~~~
+A **Contact Point** defines the integration (Slack, email, webhook,
+etc.) that will receive an alert. You must specify the destination
+(for example, a Slack channel) and provide the corresponding token.
 
-When an alert fires:
+Under **Optional Slack Settings** you can configure:
 
-#. The alert includes a set of **labels** (for example,``facility=Rubin``).
-#. Grafana evaluates the Notification Policies and finds the policy that matches those labels.
-#. The matching policy sends the alert to the corresponding Contact Point.
-
-**Example**
-
-* An alert carries the label ``facility=Rubin``.
-* A Notification Policy states: *"If ``facility = Rubin``, send to Contact Point ``ops-usdf-alerts-slack``."*
-* Result: the alert is delivered to the Rubin Observatory ``#ops-usdf-alerts`` Slack channel.
-
-Why Labels Matter
-~~~~~~~~~~~~~~~~~
-
-Labels are the **keys used for routing**. If a Notification Policy is
-looking for ``facility=s3df``, the alert must carry that label for the
-rule to match.
-
-Labels let you:
-
-* Send different alerts to different Slack channels.
-* Separate alerts by team or system.
-* Control delivery based on alert type or severity.
+* a template for the **title**
+* a template for the **text body**

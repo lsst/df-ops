@@ -173,3 +173,28 @@ Template used in ``ops-usdf-alerts``
        <{{ .PanelURL }}|:white_check_mark:> {{ .Annotations.descriptionresolved }}
      {{ end }}
    {{ end }}
+
+How Alerts Are Routed
+=====================
+
+When an alert fires:
+
+#. The alert includes a set of **labels** (for example,``facility=Rubin``).
+#. Grafana evaluates the Notification Policies and finds the policy that matches those labels.
+#. The matching policy sends the alert to the corresponding Contact Point.
+
+**Example**
+
+* An alert carries the label ``facility=Rubin``.
+* A Notification Policy states: *"If ``facility = Rubin``, send to Contact Point ``ops-usdf-alerts-slack``."*
+* Result: the alert is delivered to the Rubin Observatory ``#ops-usdf-alerts`` Slack channel.
+
+Labels are the **keys used for routing**. If a Notification Policy is
+looking for ``facility=s3df``, the alert must carry that label for the
+rule to match.
+
+Labels let you:
+
+* Send different alerts to different Slack channels.
+* Separate alerts by team or system.
+* Control delivery based on alert type or severity.
