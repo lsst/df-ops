@@ -16,3 +16,4 @@ Quality Assurance
    qa/schedview-snapshots/index
    qa/schedview-static-pages/index
    qa/summit-db-replica/index
+   qa/weatherbroadcaster/index
