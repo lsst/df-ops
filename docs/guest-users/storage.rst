@@ -16,9 +16,9 @@ Proposal space:
 Butler access
 =============
 
-Presently, Butler access is restricted to the EDP2 release data. You may find the Butler credentials for this data at: `/sdf/data/rubin/repo/dp2/postgres-credentials.txt`.
+Presently, Butler access is restricted to the EDP2 release data. You may find the Butler credentials for this data at: ``/sdf/data/rubin/repo/dp2/postgres-credentials.txt``.
 
-Please copy this credentials into your $HOME/.lsst/postgres-credentials.txt file.
+Please copy this credentials into your ``$HOME/.lsst/postgres-credentials.txt`` file.
 
 Requests for outages of the Butler repos should be handled by the `USDF outage process <https://confluence.lsstcorp.org/display/LSSTOps/USDF+Outage+Planning>`__.
 
