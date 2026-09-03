@@ -13,6 +13,7 @@ Documentation is for Rubin team members that are managing and support applicatio
    :hidden:
 
    users/index
+   guest-users/index
    developers/index
    admin/index
    usdf-applications/index
@@ -20,11 +21,17 @@ Documentation is for Rubin team members that are managing and support applicatio
 
 .. grid:: 3
 
-   .. grid-item-card:: Users
+   .. grid-item-card:: Staff Users
       :link: users/index
       :link-type: doc
 
-      Information for end users on Data Facilities support and how to engage.
+      Information for Rubin Staff users on Data Facilities support and how to engage.
+
+   .. grid-item-card:: Guest Users
+      :link: guest-users/index
+      :link-type: doc
+
+      Information for Rubin Guest users on Data Facilities support and how to engage.
 
    .. grid-item-card:: Developers
       :link: developers/index
