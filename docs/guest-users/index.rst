@@ -13,5 +13,4 @@ Describing the services and environment available at the USDF.
    storage
    batch
    stack
-   datasets
    rsp

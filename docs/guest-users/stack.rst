@@ -2,7 +2,7 @@
 Stack Access
 ############
 
-This document describes access to nightly, weekly, and release versions of the
+This document describes access to weekly and release versions of the
 LSST Science Pipelines "stack" available at the USDF.
 
 Release and Weekly

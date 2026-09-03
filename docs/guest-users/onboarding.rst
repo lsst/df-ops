@@ -5,20 +5,18 @@ SLAC Onboarding Procedure
 Overview
 ========
 
-The SLAC onboarding procedure involves the following steps:
+The onboarding process for Rubin proposal users involves the following steps:
 
-#. Make sure your Rubin Onboarding Form has been submitted on your behalf.
+#. Make sure the proposal's PI has reached out regarding your need for an account.
 #. Request an invitation to the SLAC Gateway.
 #. Complete SLAC cyber training
-#. Complete VCR100 Access Control Training and send the certificate.
 #. Register your SLAC Account in S3DF
-#. Fill out the `Rubin Observatory Staff Access Form <https://ls.st/staff-access-form>`__ (if you have not already done so as part of Rubin onboarding)
 
 SLAC IT will create Active Directory (AD) and unix accounts (for the same username). The AD account needs to be accessed every 60 days; notifications are sent out.  Once IT creates the accounts, a link will be emailed to reset the passwords.
 
 Notes:
 
-* If you already have a SLAC unix account, you do not need to be re-onboarded via the SLAC Gateway. However, you may need to follow steps 1, 4, and 5 below.
+* If you already have a SLAC unix account, you do not need to be re-onboarded via the SLAC Gateway. However, you may need to follow steps 1 and 4 below.
 * If you only have a SLAC Confluence account (e.g., for DESC or LSSTCam), you will still need to be onboarded as a user, **and** there may be complications with your accounts. SLAC and Rubin Confluence sites are independent installations.
 
   - If your existing Confluence account name is longer than 8 characters (or if for some reason your unix account name did not match your Confluence one), you will need a different name. In that case, a new Confluence identity is created using your unix account name, added to DESC permissions, and your old account is deleted.
@@ -30,15 +28,15 @@ Onboarding Steps
 
 Please follow the steps below to complete the onboarding process.
 
-1. Have a Completed Rubin Onboarding Form
-"""""""""""""""""""""""""""""""""""""""""
+1. Reach out to your Proposal's Principle Investigator
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-New users are required to USDF are required to have been onboarded onto Rubin Project. As such, the user's supervisor in Rubin should fill out the `Rubin Onboarding Form <https://project.lsst.org/onboarding/form>`__ and select the USDF Account Needed option.
+New users are asked to place the request through the Principle Investigator initially, in order for us to add you to the list of authorized users.
 
 2. Request an Invitation from SLAC Gateway
 """""""""""""""""""""""""""""""""""""""""""
 
-Once a Rubin Onboarding Form has been completed on your behalf, simply reach out to Sierra Villarreal to request an invitation via the SLAC Gateway. She can be reached via Slack (LSST Discovery Alliance or Rubin Project) or e-mail at sierrav@slac.stanford.edu.
+Once a Rubin Onboarding Form has been completed on your behalf, simply reach out to Sierra Villarreal to request an invitation via the SLAC Gateway. She can be reached via Slack (LSST Discovery Alliance) or e-mail at sierrav@slac.stanford.edu.
 
 3. Cyber Training
 """""""""""""""""
@@ -53,25 +51,15 @@ If you still have problems, ask your SLAC POC for help.
 
 **SLAC cyber training must be done within 2 weeks to keep the account enabled.**
 
-4. Access Control Training
-""""""""""""""""""""""""""
-
-Access Control Training needs to be completed prior to be granted access to Rubin USDF resources. You will need to use your Active Directory (aka Windows) account to log into the `training website <https://slactraining.csod.com/>`__ (same as in previous step). The training is listed as VCR100. Please inform Sierra Villarreal (sierrav@slac.stanford.edu) upon completion of this training, or if you find that the training has not been assigned to you.
-
-5. Register your SLAC Account in S3DF
+4. Register your SLAC Account in S3DF
 """"""""""""""""""""""""""""""""""""""""""
 
 This is the same as step 4 of the `S3DF Accounts and Access page <https://s3df.slac.stanford.edu/#/accounts>`__.   This step should be performed *before* accessing any resources, including S3DF accounts and the USDF Rubin Science Platform.
 
-6. Fill out the Rubin Observatory Staff Access Form
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-
-Some of the resources and data accessible from the USDF are meant to be only available to Rubin staff.  Please fill out the `Rubin Observatory Staff Access Form <https://ls.st/staff-access-form>`__ to help us determine whether you can be regarded as a Rubin team-member for the purposes of accessing these staff-only resources.
-
 Troubleshooting Accounts
 ========================
 
-From an S3DF node, check that you are a member of the ``rubin_users`` group::
+From an S3DF node, check that you are a member of the ``rg`` group::
 
   $ id <your username>
 

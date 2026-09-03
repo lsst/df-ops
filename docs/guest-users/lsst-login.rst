@@ -25,27 +25,6 @@ You should ssh into servers at SLAC with your unix account and password. It is o
 
 ssh ``iana`` (note: do not add the .slac.stanford.edu postfix!)
 
-Passwordless ssh access to rubin-devl
-=====================================
-
-You can modify your .ssh config to allow direct passwordless access from your device to iana, by adding this to your .ssh/config file on your end:
-
-.. code-block:: text
-
-   Host slac*
-           User <you>
-
-   Host slacl
-           Hostname s3dflogin.slac.stanford.edu
-
-   Host slacd
-           Hostname iana
-           ProxyJump slacl
-
-and then add your e.g. ``~/.ssh/id_rsa.pub`` from from your device to ``~/.ssh/authorized_keys`` at SLAC, using:
-
-ssh-copy-id <you>@s3dflogin.slac.stanford.edu
-
 Outbound Access
 ===============
 

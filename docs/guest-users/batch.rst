@@ -10,23 +10,19 @@ https://s3df.slac.stanford.edu/
 
 and more general Slurm documentation is available at https://slurm.schedmd.com/.
 
-S3DF has two Slurm partitions ``roma`` and ``milano``. Both of these partitions have AMD nodes with 128 cores, composed of two sockets, each with a 64-core processor (hyperthreading disabled).
-A Slurm job can be submitted with markup ``#SBATCH -p milano`` to run on a chosen partition. Most of Rubin's cores are in the milano partition.
+The lsstsci facility is limited to the ``milano`` partition of compute. This partition has AMD nodes with 128 cores, composed of two sockets, each with a 64-core processor (hyperthreading disabled).
+A Slurm job can be submitted with markup ``#SBATCH -p milano`` to run on a chosen partition. Most of lsstsci's cores are in the milano partition.
 
 For light interactive work, e.g., running *small* ``pipetask`` jobs, one can obtain an interactive session on the batch nodes using ``srun``.  For example,
 
 .. code-block:: bash
    :name: srun-interactive-example
 
-   srun --pty --cpus-per-task=4 --mem=16GB --nodes=1 --time=02:00:00 --partition=milano --account=lsstsci:default bash
+   srun --pty --cpus-per-task=4 --mem=16GB --nodes=1 --time=02:00:00 --partition=milano --account=lsstsci:<reponame> bash
 
 will create a 2-hour, 4-core bash session with a total of 16GB memory.  Specifying the total memory with ``--mem`` means that the memory can be distributed among the cores as needed, whereas using ``--mem-per-cpu`` sets the memory available for each individual core; and the option ``--nodes=1`` ensures that all of the cores are on the same node.  With this set up, one can then run ``pipetask -j 4``, making use of the 4 allocated cores.  Adding the ``--exclusive`` option will request a whole node, but in that case, one probably should be submitting a non-interactive batch job anyway. The account parameter is mandatory.
 
-Four "repos" have been created to apportion the batch allocation. We have yet to determine the relative allocations per repo - at the time of writing, accounting has not yet been enabled. Repos are selected by appending a ":" with the repo name, eg ``--account rubin:developers``. The non-default repos are not pre-emptible.
-
-- default - always preemptible
-
-In general, using BPS is preferred to running ``pipetask`` directly since many concurrent ``pipetask`` jobs that are run like this can cause registry database contention.
+Each proposal has been configured with a unique repository. You may find the facilities you have been assigned to at https://coact.slac.stanford.edu/, which exactly matches your proposal identifier.
 
 Running LSST Pipelines with BPS
 ===============================
@@ -41,7 +37,6 @@ Guidance for developers running pipelines
    source $weekly/loadLSST.sh
    setup lsst_distrib -t w_latest
 
-- Use BPS clustering to avoid many, e.g., >10k, of short <1 min jobs.  A common use case would be running ``isr`` on a night's worth of LSSTCam exposures.  Clustering will combine pipeline jobs into single pipetask calls resulting in fewer overall jobs and thus fewer jobs trying to import all of the python modules at the same time.  In addition to mitigating disk contention issues, clustering makes it easier for the workflow systems to manage the execution of the overall pipeline.  Instructions for using bps clustering are available in the `BPS documentation <https://pipelines.lsst.io/modules/lsst.ctrl.bps/quickstart.html#clustering>`__, and examples of clustering for DRP processing of LSSTCam data are available in the `drp_pipe package <https://github.com/lsst/drp_pipe/blob/main/bps/clustering/LSSTCam/DRP-clustering.yaml>`__.
 - For running at USDF, we recommend using ctrl_bps_htcondor, the HTCondor-based plugin.  For questions regarding its use, please post in `#usdf-support <https://rubin-obs.slack.com/archives/C082C6R9JQ1>`__ for USDF-specific issues or in `#dm-middleware-support <https://rubin-obs.slack.com/archives/C08CANY4B6H>`__ for more general BPS-related questions.  Both of those channels are in the `rubin-obs <https://rubin-obs.slack.com>`__ Slack space.
 
 
@@ -50,14 +45,13 @@ BPS Plugins
 A few different plugins to BPS are available that use various workflow systems for running BPS on the USDF Slurm batch system:
 
 - :ref:`ctrl_bps_htcondor <ctrl_bps_htcondor>`
-- `ctrl_bps_panda <https://panda.lsst.io/>`__  This plugin is intended for production execution of the DRP pipelines, as well as for remote execution at the UK and French Data Facilities.
 - :ref:`ctrl_bps_parsl <ctrl_bps_parsl>`
 
 .. _guest_ctrl_bps_htcondor:
 
 ctrl_bps_htcondor
 =======================
-This section describes how to obtain an `HTCondor <https://htcondor.org>`__ pool in S3DF for use with BPS workflows.  Upon logging in via ``ssh rubin-devl`` to either sdfrome001 or sdfrome002, one can see that htcondor is installed and running, but that no computing slots are available::
+This section describes how to obtain an `HTCondor <https://htcondor.org>`__ pool in S3DF for use with BPS workflows.  Upon logging in via ``ssh iana`` to either sdfrome001 or sdfrome002, one can see that htcondor is installed and running, but that no computing slots are available::
 
    $ condor_q
    -- Schedd: sdfrome002.sdf.slac.stanford.edu : <172.24.33.226:9618?... @ 01/31/23 11:51:35
@@ -122,7 +116,7 @@ A typical ``allocateNodes.py`` command line for obtaining resources for a BPS wo
    $ allocateNodes.py -v -n 20 -c 32 -m 4-00:00:00 -q milano -g 240 s3df
 
 ``s3df`` is specified as the target platform.
-The ``-q milano`` option specifies that the glide-in jobs should run in the ``milano`` partition (an alternative value is ``roma``).
+The ``-q milano`` option specifies that the glide-in jobs should run in the ``milano`` partition.
 The ``-n 20 -c 32`` options request 20 individual glide-in slots of size 32 cores each (640 total cores, each glidein is a Slurm job that obtains a partial node).
 The ``-c`` option is no longer a required command line option, as it will default to a value of 16 cores.
 Consider carefully how many cores you actually need and will use; idle cores cannot be used by others.
