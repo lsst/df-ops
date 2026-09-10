@@ -21,7 +21,7 @@ You can use `NoMachine <https://s3df.slac.stanford.edu/#/tutorials?id=graphics-a
 
 https://s3dfnx.slac.stanford.edu/
 
-You should ssh into servers at SLAC with your unix account and password. It is only visible from the s3df login nodes. Use the load balancer:
+You should ssh into servers at SLAC with your Windows account and password. It is only visible from the s3df login nodes. Use the load balancer:
 
 ssh ``iana`` (note: do not add the .slac.stanford.edu postfix!)
 
