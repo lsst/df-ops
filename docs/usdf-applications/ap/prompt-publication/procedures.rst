@@ -54,7 +54,7 @@ Set up prompt repo
 
       CREATE EXTENSION btree_gist;
 
-4. Create postgres user ``butler`` and grant it privileges to the ``prompt`` database.
+4. Create postgres user ``prompt_pub`` and grant it privileges to the ``prompt`` database.
 
 5. Verify connection from SLAC via the `AlloyDB Auth Proxy <https://docs.cloud.google.com/alloydb/docs/auth-proxy/connect>`_.
    Generate a key for the ``usdf-alloydb-auth-proxy`` service account, then:
@@ -72,11 +72,11 @@ Set up prompt repo
 
       vault kv get secret/rubin/<vCluster-name>/prompt-pub
 
-   Then one way to test the connection is ``psql "host=127.0.0.1 port=5432 user=butler dbname=prompt"``.
+   Then one way to test the connection is ``psql "host=127.0.0.1 port=5432 user=prompt_pub dbname=prompt"``.
 
 6. Obtain a template prompt butler config yaml from phalanx ``applications/butler/templates/configmap-private.yaml``, at RSP supply a temporary ``~/.lsst/db-auth.yaml`` locally, and create a butler repo by ``butler create repo --seed-config prompt.yaml`` where a direct IP, not the read pool, to the postgres is given.
 
-7. Run ``lsst.prompt_publication_service.scripts.initialize_google_repo`` to finish initializing the butler repo from ``prompt_prep`` to ``prompt``.
+7. Run ``lsst.prompt_publication_service.scripts.initialize_google_repo`` to finish initializing the butler repo from ``prompt_prep`` to ``prompt``. Creation of temporary tables in the database is needed.
 
 Cold Shutdown
 =============
