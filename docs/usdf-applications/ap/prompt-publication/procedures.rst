@@ -78,6 +78,44 @@ Set up prompt repo
 
 7. Run ``lsst.prompt_publication_service.scripts.initialize_google_repo`` to finish initializing the butler repo from ``prompt_prep`` to ``prompt``. Creation of temporary tables in the database is needed.
 
+Set up state database
+----------------------
+
+The Prompt Publication Service's state database is a separate Postgres database at USDF.
+Its schema can created via Alembic migration.
+
+1. Confirm the empty database is reachable directly:
+
+   .. code-block:: shell
+
+      psql "postgresql://<user>:<password>@<host>:<port>/<dbname>" -c "\dt"
+
+   An empty result confirms no tables exist yet.
+
+2. Check out `prompt_publication_service
+   <https://github.com/lsst-dm/prompt_publication_service>`_ on ``main``.
+
+3. Run the Alembic migration from the repository root (where ``alembic.ini`` lives), passing the state database URL via ``-x database_url=``:
+
+   .. code-block:: shell
+
+      PYTHONPATH=python uv run alembic -x database_url="postgresql+asyncpg://<user>:<password>@<host>:<port>/<dbname>" upgrade head
+
+4. Verify the migration applied, either via Alembic:
+
+   .. code-block:: shell
+
+      PYTHONPATH=python uv run alembic -x database_url="postgresql+asyncpg://<user>:<password>@<host>:<port>/<dbname>" current
+
+   which should report ``b59eced2ad76 (head)``, or directly in Postgres:
+
+   .. code-block:: shell
+
+      psql "postgresql://<user>:<password>@<host>:<port>/<dbname>" -c "SELECT * FROM alembic_version;"
+
+   which should return one row with ``version_num`` of ``b59eced2ad76``.
+   ``\dt`` should no longer be empty.
+
 Cold Shutdown
 =============
 .. Any procedures needed to cleanly shutdown application before USDF downtime.
