@@ -16,5 +16,6 @@ Alert Production
    ap/prompt-kafka/index
    ap/prompt-keda/index
    ap/prompt-processing/index
+   ap/prompt-publication/index
    ap/prompt-redis/index
    ap/sattle/index
