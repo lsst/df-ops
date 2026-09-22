@@ -16,7 +16,7 @@ See `DMTN-330 <https://dmtn-330.lsst.io/>`_.
 Associated Systems
 ==================
 
-Butler Writer service (upstream, produces Kafka events consumed by this service).
+`Prompt Processing Butler Writer <https://github.com/lsst-dm/prompt_processing_butler_writer>`__  service (upstream, produces Kafka events consumed by this service).  See `DMTN-310 <https://dmtn-310.lsst.io/>`__.
 
 Configuration Location
 ======================
@@ -28,7 +28,7 @@ Configuration Location
    * - Config Area
      - Location
    * - Configuration
-     - Env vars, prefix ``promptpub_``; Phalanx chart ``applications/prompt-pub``
+     - Env vars defined in `ServiceConfig model <https://github.com/lsst-dm/prompt_publication_service/blob/main/python/lsst/prompt_publication_service/service.py#L39>`__, prefix ``promptpub_``; Phalanx chart ``applications/prompt-pub``
    * - Vault Secrets Dev
      -
    * - Vault Secrets Prod
