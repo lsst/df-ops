@@ -39,4 +39,5 @@ Rucio moves files for multi-site processing with the UK and France Data Faciliti
    documentation-training
    security
    procedures
+   rses
    troubleshooting
