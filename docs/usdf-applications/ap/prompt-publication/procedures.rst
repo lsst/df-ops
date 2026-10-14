@@ -12,7 +12,32 @@ Scheduled scale up and down daily via CronJobs.
 
 Maintenance
 ===========
-.. Maintenance tasks. How maintenance is communicated and carried out.
+
+Database migrations
+-------------------
+
+`Alembic <https://alembic.sqlalchemy.org/>`_ is used to manage the database
+schema for the Prompt Publication State Database.
+
+To apply the latest database schema to the production database:
+
+.. code-block:: shell
+
+   git clone https://github.com/lsst-dm/prompt_publication_service.git
+   cd prompt_publication_service
+   uv run alembic -x 'database_url=postgresql://<username>@usdf-butler-prompt-publication-db-tx.sdf.slac.stanford.edu/promptpub' upgrade head
+
+The database schema used by the service is defined in
+`schema.py <https://github.com/lsst-dm/prompt_publication_service/blob/main/src/prompt_publication_service/schema.py>`_.
+To modify the database schema, first update the SQLAlchemy models in ``schema.py``.
+Then generate a new migration file using Alembic:
+
+.. code-block:: shell
+
+   uv run alembic -x 'database_url=postgresql://<username>@usdf-butler-prompt-publication-db-tx.sdf.slac.stanford.edu/promptpub' revision --autogenerate -m "summary of migration"
+
+You will likely need to review and modify the generated migration, unless the
+changes are very simple.
 
 Backup
 ======
