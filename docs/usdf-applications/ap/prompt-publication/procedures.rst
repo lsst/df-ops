@@ -99,13 +99,13 @@ Its schema can created via Alembic migration.
 
    .. code-block:: shell
 
-      PYTHONPATH=python uv run alembic -x database_url="postgresql+asyncpg://<user>:<password>@<host>:<port>/<dbname>" upgrade head
+      PYTHONPATH=python uv run alembic -x database_url="postgresql://<user>:<password>@<host>:<port>/<dbname>" upgrade head
 
 4. Verify the migration applied, either via Alembic:
 
    .. code-block:: shell
 
-      PYTHONPATH=python uv run alembic -x database_url="postgresql+asyncpg://<user>:<password>@<host>:<port>/<dbname>" current
+      PYTHONPATH=python uv run alembic -x database_url="postgresql://<user>:<password>@<host>:<port>/<dbname>" current
 
    which should report ``b59eced2ad76 (head)``, or directly in Postgres:
 
