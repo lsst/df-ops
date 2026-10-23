@@ -18,11 +18,15 @@ Known Issues
    * - Summit overwrites
      - Occasionally, an LFA object at the Summit will be overwritten.
        This violates requirements and interface specifications, but it does happen, particularly with the All Sky Camera and the sequence summaries published as part of control system scripts.
-       Overwrites show up as "Failed to perform mirroring, with error condition" errors in the monitoring dashboard.
-       Since these errors are not fatal and still allow other files to be mirrored, they do not need to be addressed right away.
-       However, they do need to be addressed before the original object expires from the Summit bucket.
-     - The current manual workaround procedure is to move the older version of the object mentioned in the error message (e.g. ``https://s3dfrgw.slac.stanford.edu/rubinobs-lfa-cp/AllSkyCamera/2025/12/16/asc2512160033.jpg``) to another pathname that doesn't conflict with the newer version that will be mirrored from the Summit.
-       In this particular case, ``mc mv lfa-w/rubinobs-lfa-cp/AllSkyCamera/2025/12/16/asc2512160033.jpg lfa-w/rubinobs-lfa-cp/AllSkyCamera/2025/12/16/overwrite/asc2512160033.jpg`` can be used, where ``lfa-w`` refers to the appropriate credentials for writing the LFA bucket at ``s3dfrgw``.
+       The USDF bucket has S3 versioning enabled and the mirror runs with ``--overwrite`` (set through ``MINIO_OPTIONS`` in the deployment), so the newer Summit object replaces the USDF copy automatically and the older copy is kept as a noncurrent version.
+       Overwrites therefore no longer show up as "Failed to perform mirroring, with error condition" errors in the monitoring dashboard; if that error does appear, it has some other cause and needs investigation.
+       Noncurrent versions are not expired automatically.
+     - No action is needed for an overwrite.
+       To retrieve an older version of an object, use the AWS CLI container described under "Command line" in :doc:`../../../users/object-store`, with credentials for the USDF LFA bucket (Vault ``secret/rubin/usdf-lfa``).
+       List the versions with ``s3api list-object-versions --bucket rubinobs-lfa-cp --prefix <key>``, then fetch the one wanted with ``s3api get-object --bucket rubinobs-lfa-cp --key <key> --version-id <id> <outfile>``.
+       (``mc ls --versions`` currently fails against ``s3dfrgw`` with "unrecognized option:Tenant".)
+       Objects written before versioning was enabled have the version ID ``null``.
+       Older copies moved to an ``overwrite/`` pathname by the former manual procedure remain at that location.
 
 Monitoring
 ==========

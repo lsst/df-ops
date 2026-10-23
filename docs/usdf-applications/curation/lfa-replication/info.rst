@@ -63,6 +63,8 @@ Data Flow
 .. Describe how data flows through the system including upstream and downstream services
 
 Objects are copied from the ``rubinobs-lfa-cp`` bucket at the Summit to the corresponding bucket at USDF in the ``s3dfrgw`` endpoint.
+The USDF bucket has S3 versioning enabled and ``mc mirror`` runs with ``--overwrite``, so an object overwritten at the Summit replaces the USDF copy while the previous copy is retained as a noncurrent version.
+See Troubleshooting for how to retrieve an older version.
 
 Dependencies - S3DF
 ===================
