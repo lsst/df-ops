@@ -11,7 +11,7 @@ several Butler DBs in the document.
 We will unembago data from the USDF embargo storage and ``embargo`` Butler to the USDF main storage and the
 ``main`` Butler.
 
-Note that the doc will be obsolete once the tool in `DMTN-330 <https://dmtn-330.lsst.io/v/DM-53016/index.html>`_
+Note that the doc will be obsolete once the tool in `DMTN-330 <https://dmtn-330.lsst.io/>`_
 is implemented and deployed.
 
 Setup Environment
