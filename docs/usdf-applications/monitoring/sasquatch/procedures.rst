@@ -4,7 +4,7 @@ Procedures
 
 Intended audience: Anyone who is administering Sasquatch.
 
-Sasquatch Procedures are on the `Sasquatch Application Page <https://sasquatch.lsst.io/developer-guide/index.html>`__
+Sasquatch Procedures are on the `Sasquatch Administrators Guide <https://sasquatch.lsst.io/admin/index.html>`__
 
 Deployment
 ==========

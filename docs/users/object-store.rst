@@ -62,7 +62,7 @@ Python
 
 The simplest mechanism for access is to use the Data Butler where available.
 
-Next simplest when using the LSST Science Pipelines is to use `lsst.resources.ResourcePath <https://pipelines.lsst.io/v/daily/py-api/lsst.resources.ResourcePath.html>`__.
+Next simplest when using the LSST Science Pipelines is to use `lsst.resources.ResourcePath <https://pipelines.lsst.io/v/daily/api/lsst.resources.ResourcePath.html>`__.
 This class allows easy switching between ``file://`` URLs for filesystem paths and ``s3://`` URLs for object store paths.
 
 For even lower-level access, the ``boto3`` package included in ``rubin-env`` is suggested.
