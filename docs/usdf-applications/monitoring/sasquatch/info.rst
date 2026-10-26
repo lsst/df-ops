@@ -16,7 +16,7 @@ Architecture Diagram
 ====================
 .. Include architecture diagram of the application either as a mermaid chart or a picture of the diagram.
 
-Architecture diagram is `here <https://sasquatch.lsst.io/developer-guide/architecture.html>`__
+Architecture diagram is `here <https://sasquatch.lsst.io/admin/architecture.html>`__
 
 Associated Systems
 ==================

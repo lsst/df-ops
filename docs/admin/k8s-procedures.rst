@@ -111,5 +111,5 @@ Setup Gafealfawr
 ================
 `Gafealfawr <https://gafaelfawr.lsst.io/>`__ is used for authentication and authorization with web applications.  S3DF sets up Gafaelfawr instances in each vCluster if needed.  Below are the steps to setup Gafaelfawr at the USDF.
 
-#. Review `Gafaelfawr scopes <https://gafaelfawr.lsst.io/user-guide/helm.html#scopes>`__.  Validate if existing scopes will work.  If not work with Square team to add scope to Gafaelfawr.
+#. Review `Gafaelfawr scopes <https://gafaelfawr.lsst.io/operations/helm.html#scopes>`__.  Validate if existing scopes will work.  If not work with Square team to add scope to Gafaelfawr.
 #. Request a Gafaelfawr instance by :ref:`opening a Service Now Ticket <create_snow_request>`.  Include the vCluster name.
