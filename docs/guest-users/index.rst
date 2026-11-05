@@ -11,6 +11,7 @@ Describing the services and environment available at the USDF.
    onboarding
    lsst-login
    storage
+   survey-butler
    batch
    stack
    rsp

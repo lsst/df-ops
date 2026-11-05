@@ -19,6 +19,8 @@ linkcheck_ignore = [
     r"https://sbnmpc.astro.umd.edu.+",
     r"https://sbnwiki.astro.umd.edu.+",
     r"https://.+\.slack\.com.*",
+    r"https://doi.org/10.1051/.+",  # A&A blocks automated checks (403)
+    r"https://doi.org/10.57780/.+",  # ESA DOIs: checks redirected to a 404
 ]
 
 # Reducing number of workers from 5 to 1 seems to result in fewer timeouts.
