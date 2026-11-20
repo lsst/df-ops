@@ -19,7 +19,7 @@ To obtain the lastest LSST tools (butler), and Rucio tools, add the following to
 
 .. code-block:: bash
 
-    source /cvmfs/sw.lsst.eu/almalinux-x86_64/lsst_distrib/w_2026_02/loadLSST.sh
+    source /cvmfs/sw.lsst.eu/almalinux-x86_64/lsst_distrib/w_2026_41/loadLSST.sh
     setup lsst_distrib
 
 Access Embargo S3 Storage
