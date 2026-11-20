@@ -1,5 +1,5 @@
 ##################################################################
-Non-Rubin Surveys in the Butler: DES DR2, Euclid Q1, Legacy Survey
+Other Imaging Survey Data _(Beta)_
 ##################################################################
 
 A Butler repository at the USDF serves coadds from surveys other than Rubin
