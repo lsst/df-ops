@@ -238,7 +238,7 @@ PSFs
 ====
 
 - **DES:** DES DR2 publishes no per-tile PSF model. The PSF served with
-  ``des_tile_coadd`` was **built by this project, not by DES**: PSFEx fitted
+  ``des_tile_coadd`` was **computed for this Rubin-USDF deployment, not by DES**: PSFEx fitted
   to each tile-band's own stars, and kept only where it passed checks
   against DES's own stars (size, shape, and PSF photometry against DES's
   ``WAVG_MAG_PSF``). 97.5% of tile-bands have one: 95.8% from a first pass
