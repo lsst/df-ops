@@ -352,7 +352,7 @@ they have changed):
   with the data release overview, `Euclid Collaboration: Aussel et al. 2025
   <https://doi.org/10.1051/0004-6361/202554610>`__. Q1 data are licensed
   CC BY-NC 3.0 IGO.
-- **Legacy Survey (DR9 north, DR10 south):** the acknowledgement on the
+- **DESI Legacy Survey (DR9 north, DR10 south):** the acknowledgement on the
   Legacy Surveys' `acknowledgment <https://www.legacysurvey.org/acknowledgment/>`__
   page (a shorter version is offered there for papers that already carry the
   DESI acknowledgements), and cite `Dey et al. 2019, AJ 157, 168
