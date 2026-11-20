@@ -2,7 +2,9 @@
 Other Imaging Survey Data _(Beta)_
 ##################################################################
 
-A Butler repository at the USDF serves coadds from surveys other than Rubin
+To support multi-survey science within the Rubin USDF environment,
+a Butler repository has been deployed at the USDF serving coadds
+from surveys other than Rubin
 -- currently **DES DR2**, **Euclid Q1** and the **DESI Legacy Survey** (DR9 north and DR10
 south) -- through the standard ``lsst.daf.butler``
 API, so you can use them next to DP2 in the same RSP kernel. The files are
@@ -45,7 +47,7 @@ Available Imaging Data Sets
      - ``legacysurvey_bricks_v1``
      - ``g r z``
      - 93,548 bricks, mostly Dec > 32°; BASS (g, r) and MzLS (z); 0.262″ pixels
-   * - Legacy Survey DR10 south
+   * - DESI Legacy Survey DR10 south
      - ``legacysurvey_brick_coadd``
      - ``LegacySurvey/DR10/south/brick_coadds``
      - ``legacysurvey_bricks_v1``
@@ -123,7 +125,7 @@ collections you will use**:
    )
 
 ``GuardedButler`` is a drop-in wrapper around ``Butler``. It refuses a lookup
-by data ID that matches in both Legacy Survey releases, and it re-infers the
+by data ID that matches in both DESI Legacy Survey releases, and it re-infers the
 default data ID when a call names its own ``collections=`` (see `Things to
 know`_); a bare ``Butler`` gets both of these silently wrong.
 
@@ -144,11 +146,11 @@ The same spatial ``where`` clause as for DP2, on ``tract`` rather than
        explain=False,
    )
 
-Neighbouring tiles overlap, so a position near an edge is in two tracts.
+Neighboring tiles overlap, so a position near an edge is in two tracts.
 Pick the tile whose centre is nearest your target, so a cutout sits well
 inside it; ``butler_surveys.tutorial.des_ref`` and ``euclid_ref`` do that.
 
-Legacy Survey brick regions do not overlap, so a position is in one brick
+DESI Legacy Survey brick regions do not overlap, so a position is in one brick
 per release. Where both releases cover it, a query through ``GuardedButler``
 returns both; a bare ``Butler``, or ``find_first=True``, keeps only the first
 collection's match for each data ID:
@@ -194,20 +196,20 @@ as for DP2's ``deep_coadd``:
        parameters={"bbox": Box.from_legacy(box)},
    )
 
-``cut`` is a ``DesTileImage`` (Euclid: ``EuclidTileImage``; Legacy Survey:
+``cut`` is a ``DesTileImage`` (Euclid: ``EuclidTileImage``; DESI Legacy Survey:
 ``LegacySurveyBrickImage``), an ``lsst.images.MaskedImage`` subclass with:
 
 - ``image`` and ``variance`` in nJy and nJy²; pixels with no data have
   variance 1e30 and the ``NO_DATA`` mask bit;
 - ``mask``: DES's own mask as ``BAD``, plus ``NO_DATA``; for Euclid,
-  ``NO_DATA``, ``SAT`` and ``BAD`` from Euclid's FLAG bits; for the Legacy
+  ``NO_DATA``, ``SAT`` and ``BAD`` from Euclid's FLAG bits; for the DESI Legacy
   Survey, ``SAT``, ``BAD``, ``SUSPECT`` and ``BRIGHT_OBJECT`` from NERSC's
   ``maskbits``, plus ``NO_DATA``;
 - ``sky_projection``, ``psf`` and ``band``; ``tile`` for DES and Euclid,
   ``brick`` and ``release`` (``"DR9 north"`` or ``"DR10 south"``) for the
-  Legacy Survey.
+  DESI Legacy Survey.
 
-Legacy Survey pixels are NERSC's nanomaggies × 3631. A Legacy Survey
+DESI Legacy Survey pixels are NERSC's nanomaggies × 3631. A Legacy Survey
 ``bbox`` must lie inside the brick: one past the edge is refused rather than
 read short. ``butler_surveys.tutorial.legacy_cutout`` clips the box to the
 brick for you.
@@ -253,7 +255,7 @@ PSFs
   ``lsst.images`` cell PSF (an afw ``StitchedPsf`` after ``.to_legacy()``).
   It changes in steps from cell to cell. A few cells have no stamp; their
   pixels are served, but evaluating the PSF there raises an error.
-- **Legacy Survey:** no PSF. NERSC publishes no coadd PSF model, so ``psf``
+- **DESI Legacy Survey:** no PSF. Released data includes no coadd PSF model, so ``psf``
   is ``None`` and ``hasPsf()`` is False after ``.to_legacy()``.
 
 Things to know
@@ -360,6 +362,8 @@ they have changed):
 Getting help
 ============
 
-Ask in ``#usdf-support`` on the Rubin Observatory Slack, and say that your
-question is about the non-Rubin survey Butler repository. The repository is
+Limited support for ancillary datasets is currently only available for users
+with approved and onboarded USDF project allocations via the Rubin Resource
+Allocation Committee (RAC). Please inquire through RAC user support channels.
+This repository of complementary imaging survey data is
 maintained by Ana Ennis.
