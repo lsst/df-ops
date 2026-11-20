@@ -14,7 +14,7 @@ The coadds are served as ``lsst.images`` objects, like DP2's
 ``sky_projection`` component, pixels in nJy, and ``.to_legacy()`` for an afw
 ``ExposureF`` to run LSST Tasks on.
 
-What is served
+Available Imaging Data Sets
 ==============
 
 .. list-table::
