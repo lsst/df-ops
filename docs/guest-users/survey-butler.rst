@@ -78,7 +78,7 @@ Getting access
 ==============
 
 You need a USDF login: either a USDF RSP session with the **LSST**
-kernel, or an S3DF interactive node (``ssh rubin-devl`` from ``s3dflogin``), 
+kernel, or an S3DF interactive node (``ssh rubin-devl`` from ``s3dflogin``),
 and a line for this repository's database in your Postgres
 credentials file, ``~/.lsst/postgres-credentials.txt``. The repository is
 not one of the standard USDF repos: its credentials line is not created for
@@ -95,9 +95,9 @@ ignores a credentials file other people can read):
 On an S3DF interactive node, run this **first**, then the two commands
 above. There is no LSST kernel there, so load the stack yourself, and
 ``$PGPASSFILE`` is not set for you:
-  
+
 .. code-block:: bash
-  
+
    export CARGO_HOME=${TMPDIR:-/tmp}/cargo-$USER   # avoids a harmless mkdir error from the shared stack
    source /sdf/group/rubin/sw/tag/v30_0_11/loadLSST.bash
    setup -t v30_0_11 lsst_distrib
