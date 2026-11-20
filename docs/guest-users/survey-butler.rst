@@ -39,7 +39,7 @@ Available Imaging Data Sets
      - ``I_E Y_E J_E H_E``
      - 352 MER tiles: the three Euclid Deep Fields (North, South, Fornax)
        and the LDN 1641 field; 0.1″ pixels
-   * - Legacy Survey DR9 north
+   * - DESI Legacy Survey DR9 north
      - ``legacysurvey_brick_coadd``
      - ``LegacySurvey/DR9/north/brick_coadds``
      - ``legacysurvey_bricks_v1``
