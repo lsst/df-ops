@@ -1,5 +1,5 @@
 ##################################################################
-Other Imaging Survey Data _(Beta)_
+Other Imaging Survey Data *(Beta)*
 ##################################################################
 
 To support multi-survey science within the Rubin USDF environment,
@@ -17,7 +17,7 @@ The coadds are served as ``lsst.images`` objects, like DP2's
 ``ExposureF`` to run LSST Tasks on.
 
 Available Imaging Data Sets
-==============
+===========================
 
 .. list-table::
    :header-rows: 1
@@ -55,18 +55,18 @@ Available Imaging Data Sets
      - 366,912 bricks; DECam; 0.262″ pixels
 
 - One **tract** per survey tile or brick; each has a single patch, ``0``.
-  For Euclid the tract ID is Euclid's own MER tile ID; for the Legacy Survey
-  it is NERSC's ``brickid``. A Legacy Survey brick is 0.25° and 3600 × 3600
+  For Euclid the tract ID is Euclid's own MER tile ID; for the DESI Legacy Survey
+  it is NERSC's ``brickid``. A DESI Legacy Survey brick is 0.25° and 3600 × 3600
   pixels, with all bands on one grid.
-- **The two Legacy Survey releases share one dataset type and one brick
+- **The two DESI Legacy Survey releases share one dataset type and one brick
   grid**, in separate RUNs. About 16% of north bricks (mostly at Dec 25-35°
   and near the equator) also have a south coadd, so the same brick and band can exist in both (see `Things to
   know`_).
-- DES and Legacy Survey bands are lowercase (``y``, as in DP2). Euclid bands
+- DES and DESI Legacy Survey bands are lowercase (``y``, as in DP2). Euclid bands
   carry an ``_E`` suffix: ``Y_E`` is Euclid's Y, not LSST's ``y``. Legacy
   Survey north's g, r and z are BASS and MzLS filters, not DECam's; south is
   DECam, like DES. South i is patchier than its other bands: it comes from
-  DECam programmes other than DECaLS, and some bricks have none.
+  DECam programs other than DECaLS, and some bricks have none.
 - The older per-plane dataset types are also served, for code that needs the
   files' own planes: ``des_tile_image`` (components ``sci``, ``msk``,
   ``wgt``) and ``des_tile_wcs`` in ``DES/DR2/tiles``; ``euclid_tile_image``,
@@ -77,8 +77,9 @@ Available Imaging Data Sets
 Getting access
 ==============
 
-You need a USDF RSP session in group ``rubin_users`` with the **LSST**
-kernel, and a line for this repository's database in your Postgres
+You need a USDF login: either a USDF RSP session with the **LSST**
+kernel, or an S3DF interactive node (``ssh rubin-devl`` from ``s3dflogin``), 
+and a line for this repository's database in your Postgres
 credentials file, ``~/.lsst/postgres-credentials.txt``. The repository is
 not one of the standard USDF repos: its credentials line is not created for
 you, but it ships one, for a **read-only** database login (``rubin_ro``), in
@@ -91,10 +92,28 @@ ignores a credentials file other people can read):
    cp "$PGPASSFILE" "$PGPASSFILE.bak-$(date +%Y%m%d)"
    cat /sdf/data/rubin/cosmicdata/cosmic_butler/postgres-credentials.txt >> "$PGPASSFILE"
 
+On an S3DF interactive node, run this **first**, then the two commands
+above. There is no LSST kernel there, so load the stack yourself, and
+``$PGPASSFILE`` is not set for you:
+  
+.. code-block:: bash
+  
+   export CARGO_HOME=${TMPDIR:-/tmp}/cargo-$USER   # avoids a harmless mkdir error from the shared stack
+   source /sdf/group/rubin/sw/tag/v30_0_11/loadLSST.bash
+   setup -t v30_0_11 lsst_distrib
+   export PGPASSFILE=$HOME/.lsst/postgres-credentials.txt
+   mkdir -p ~/.lsst && touch "$PGPASSFILE" && chmod 600 "$PGPASSFILE"
+
+The stack and ``$PGPASSFILE`` last only for that shell: repeat the
+``export``, ``source`` and ``setup`` lines in each new one, or add them to
+your ``~/.bashrc``. The credentials file itself must stay readable only by
+you (``chmod 600``); Postgres ignores it otherwise, and the error is
+``fe_sendauth: no password supplied``.
+
 The same folder holds the repository's read-only configuration
 (``butler.yaml``, which logs in as ``rubin_ro``), the code its storage
 classes need (``code/``) and the tutorial (``doc/``); its ``README.md`` has
-the steps. Nothing needs installing: put ``code/`` on Python's path.
+the steps.   Nothing needs installing beyond the stack above: put ``code/`` on Python's path.
 
 .. code-block:: python
 
@@ -147,7 +166,7 @@ The same spatial ``where`` clause as for DP2, on ``tract`` rather than
    )
 
 Neighboring tiles overlap, so a position near an edge is in two tracts.
-Pick the tile whose centre is nearest your target, so a cutout sits well
+Pick the tile whose center is nearest your target, so a cutout sits well
 inside it; ``butler_surveys.tutorial.des_ref`` and ``euclid_ref`` do that.
 
 DESI Legacy Survey brick regions do not overlap, so a position is in one brick
@@ -321,10 +340,10 @@ Tutorial
 ========
 
 A step-by-step notebook, ``butler_tutorial.ipynb``, is in the shared folder's ``doc/``:
-DP2, DES DR2, Euclid Q1 and the Legacy Survey side by side -- coverage,
+DP2, DES DR2, Euclid Q1 and the DESI Legacy Survey side by side -- coverage,
 cutouts, ``ExposureF``\ s, ``SourceDetectionTask``, several surveys on one
-pixel grid, colour images from Euclid and from Legacy Survey DR10 south, and
-the two Legacy Survey releases side by side.
+pixel grid, color images from Euclid and from DESI Legacy Survey DR10 south, and
+the two DESI Legacy Survey releases side by side.
 Copy it to your home before running it:
 
 .. code-block:: bash
@@ -343,8 +362,8 @@ they have changed):
   ("This project used public archival data from the Dark Energy Survey
   (DES). ..."), and cite the DR2 paper, `Abbott et al. 2021, ApJS 255, 20
   <https://doi.org/10.3847/1538-4365/ac00b3>`__, with the pipeline and camera
-  papers listed on that page where relevant. _Note that the DES PSFs served here are
-  not a DES product._
+  papers listed on that page where relevant. *Note that the DES PSFs served here are
+  not a DES product.*
 - **Euclid Q1:** ESA's `Q1 credits <https://www.cosmos.esa.int/web/euclid/q1-data-credits>`__
   page requires the statement "This work has made use of the Euclid Q1 data
   from the Euclid mission of the European Space Agency (ESA), 2025,
