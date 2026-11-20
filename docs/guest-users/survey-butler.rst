@@ -3,7 +3,7 @@ Other Imaging Survey Data _(Beta)_
 ##################################################################
 
 A Butler repository at the USDF serves coadds from surveys other than Rubin
--- **DES DR2**, **Euclid Q1** and the **Legacy Survey** (DR9 north and DR10
+-- currently **DES DR2**, **Euclid Q1** and the **DESI Legacy Survey** (DR9 north and DR10
 south) -- through the standard ``lsst.daf.butler``
 API, so you can use them next to DP2 in the same RSP kernel. The files are
 read in place from their copies on USDF storage; nothing is copied into the
