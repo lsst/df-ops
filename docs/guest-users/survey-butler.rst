@@ -353,7 +353,7 @@ they have changed):
   <https://doi.org/10.1051/0004-6361/202554610>`__. Q1 data are licensed
   CC BY-NC 3.0 IGO.
 - **DESI Legacy Survey (DR9 north, DR10 south):** the acknowledgement on the
-  Legacy Surveys' `acknowledgment <https://www.legacysurvey.org/acknowledgment/>`__
+  DESI Legacy Surveys' `acknowledgment <https://www.legacysurvey.org/acknowledgment/>`__
   page (a shorter version is offered there for papers that already carry the
   DESI acknowledgements), and cite `Dey et al. 2019, AJ 157, 168
   <https://doi.org/10.3847/1538-3881/ab089d>`__.
