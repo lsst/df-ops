@@ -341,9 +341,8 @@ they have changed):
   ("This project used public archival data from the Dark Energy Survey
   (DES). ..."), and cite the DR2 paper, `Abbott et al. 2021, ApJS 255, 20
   <https://doi.org/10.3847/1538-4365/ac00b3>`__, with the pipeline and camera
-  papers listed on that page where relevant. The DES PSFs served here are
-  **not** a DES product: say that you used PSFs built by this repository's
-  maintainers (``PSF_VERSION`` in the metadata), not by DES.
+  papers listed on that page where relevant. _Note that the DES PSFs served here are
+  not a DES product._
 - **Euclid Q1:** ESA's `Q1 credits <https://www.cosmos.esa.int/web/euclid/q1-data-credits>`__
   page requires the statement "This work has made use of the Euclid Q1 data
   from the Euclid mission of the European Space Agency (ESA), 2025,
