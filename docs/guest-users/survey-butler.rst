@@ -78,7 +78,7 @@ Getting access
 ==============
 
 You need a USDF login: either a USDF RSP session with the **LSST**
-kernel, or an S3DF interactive node (``ssh rubin-devl`` from ``s3dflogin``),
+kernel, or an S3DF interactive node (``ssh iana`` from ``s3dflogin``),
 and a line for this repository's database in your Postgres
 credentials file, ``~/.lsst/postgres-credentials.txt``. The repository is
 not one of the standard USDF repos: its credentials line is not created for
